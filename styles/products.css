@@ -1,0 +1,185 @@
+/* =========================================
+   PRODUCT PAGE HEADER
+   ========================================= */
+
+.product-header {
+    background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.95)), url('../assets/images/Banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 160px 0 80px 0; 
+    text-align: center;
+    color: white;
+}
+
+.product-header h1 { 
+    font-size: 3rem; 
+    margin-bottom: 15px; 
+}
+
+.product-header p { 
+    font-size: 1.2rem; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    opacity: 0.9; 
+}
+
+/* =========================================
+   STANDALONE PRODUCT BOX (EXPANDED)
+   ========================================= */
+
+.product-section { 
+    padding: 80px 0; 
+    background: #fdfdfd; 
+    min-height: 60vh; 
+}
+
+/* =========================================
+   STANDALONE PRODUCT BOX (ULTRA-WIDE)
+   ========================================= */
+
+/* Override the global container limit just for the product section */
+.product-section .container {
+    max-width: 1900px !important; /* Ensures the wrapper has enough room */
+    padding: 0 20px;
+}
+
+.product-box {
+    max-width: 1900px; /* Pushed to ultra-wide */
+    margin: 0 auto; 
+    background: #fff;
+    padding: 80px 100px; /* Increased padding to balance the massive width */
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.04);
+    border-top: 6px solid #2E7D32;
+    max-width: 1900px; /* Keeps the text readable while the box stays 1900px */
+}
+
+/* =========================================
+   TWO-COLUMN LAYOUT (NEW)
+   ========================================= */
+
+.product-layout {
+    display: grid;
+    /* Changed from 1fr 1.3fr to 1fr 1.5fr to give text more breathing room */
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 60px; /* Increased the gap slightly so the text doesn't crowd the image */
+    align-items: center; 
+}
+
+/* Image Styling */
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    /*box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;*/
+    object-fit: cover;
+}
+
+/* Content Formatting */
+.fade-in-content { 
+    animation: fadeIn 0.6s ease-out forwards; 
+}
+
+.product-details h2 { 
+    color: #2E7D32; 
+    font-size: 2.2rem; 
+    margin-bottom: 20px; 
+}
+
+.product-details h3 {
+    color: #37474F;
+    font-size: 1.4rem;
+    margin: 35px 0 15px;
+}
+
+.product-details p { 
+    font-size: 1.1rem; 
+    color: #546E7A; 
+    margin-bottom: 20px; 
+    line-height: 1.8; 
+    text-align: justify;
+}
+
+/* Feature List Formatting */
+.product-features { 
+    list-style: none; 
+    padding-left: 0; 
+    background: #f4f7f6;
+    border-radius: 12px;
+    padding: 20px 30px;
+    margin-bottom: 40px;
+    border-left: 5px solid #81C784;
+}
+
+.product-features li { 
+    padding: 12px 0; 
+    border-bottom: 1px solid #e0e0e0; 
+    font-size: 1.1rem; 
+    color: #455A64; 
+}
+
+.product-features li:last-child {
+    border-bottom: none;
+}
+
+.product-features strong {
+    color: #2E7D32;
+}
+
+/* Order CTA Button */
+.product-action {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 2px dashed #f0f0f0;
+}
+
+.order-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #2E7D32;
+    color: white;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+}
+
+.order-btn:hover {
+    background: #1B5E20;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive - Stacks the image on top of text for tablets/phones */
+@media (max-width: 992px) {
+    .product-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-box { 
+        padding: 40px 25px; 
+        margin: 0 15px;
+    }
+    
+    .product-details h2 {
+        font-size: 1.8rem;
+    }
+
+    .product-features {
+        padding: 15px 20px;
+    }
+}

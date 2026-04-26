@@ -1,0 +1,251 @@
+/* =========================================
+   PAGE REVEAL ANIMATION (KEPT SMOOTH)
+   ========================================= */
+@keyframes smoothReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   LEGAL PAGE CONTAINER (DOCUMENT LOOK)
+   ========================================= */
+
+.terms-section {
+    padding: 100px 0 80px;
+    background: #fdfdfd; 
+    min-height: 70vh;
+    margin-top: 80px; 
+}
+
+/* The Document Box - THIS IS WHERE WE APPLY THE LEGAL FONTS */
+.legal-document {
+    /* Scopes the classic serif font strictly to the terms content */
+    font-family: 'Times New Roman', Times, serif; 
+    
+    max-width: 900px; 
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 70px 80px; 
+    border-radius: 4px; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    border: 1px solid #e0e0e0;
+    position: relative;
+    border-top: 15px solid #1B5E20; 
+    opacity: 0; 
+    animation: smoothReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =========================================
+   LEGAL PREAMBLE & STAMP
+   ========================================= */
+
+.legal-preamble {
+    text-align: right;
+    margin-bottom: 60px;
+    font-family: 'Courier Prime', monospace; /* Monospace typewriter */
+    font-size: 0.9rem;
+    color: #455A64; 
+}
+
+.stamp-text {
+    border: 2px solid rgba(46, 125, 50, 0.3); 
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 6px;
+    color: #2E7D32; 
+    font-weight: 700;
+    letter-spacing: 2px;
+    transform: rotate(-10deg);
+    position: absolute;
+    top: 50px;
+    left: 80px;
+    opacity: 0.7;
+}
+
+/* =========================================
+   TERMS HEADER (THE TITLE)
+   ========================================= */
+
+.terms-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+    border-bottom: 3px double #f0f0f0; 
+}
+
+.terms-header h1 {
+    font-family: 'Courier Prime', monospace; 
+    color: #37474F; 
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.terms-header p {
+    color: #78909C;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Courier Prime', monospace; 
+}
+
+/* =========================================
+   CLAUSE STYLING (THE CONTENT)
+   ========================================= */
+
+.legal-clause {
+    margin-bottom: 45px;
+}
+
+.legal-clause h2 {
+    font-family: 'Courier Prime', monospace; 
+    color: #2E7D32; 
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Body Text for Clauses */
+.legal-clause p {
+    color: #37474F; 
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify; 
+}
+
+/* Hierarchy List (a), (b), (c) */
+.legal-list {
+    list-style-type: none;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.legal-list li {
+    color: #37474F;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* =========================================
+   LEGAL NOTICE BOX
+   ========================================= */
+
+.legal-notice-box {
+    background: #f4f7f6; 
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e2e8e4;
+    border-left: 6px solid #81C784; 
+    margin-top: 15px;
+    font-family: 'Courier Prime', monospace; 
+}
+
+.legal-notice-box p {
+    margin: 0 0 8px 0 !important;
+    text-align: left !important;
+}
+
+.legal-notice-box strong {
+    color: #2E7D32; 
+}
+
+.legal-notice-box a {
+    color: #2E7D32; 
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.legal-notice-box a:hover {
+    color: #1B5E20; 
+    text-decoration: underline;
+}
+
+/* =========================================
+   CHAPTER DIVIDER FOR PAYMENT
+   ========================================= */
+
+.legal-chapter-divider {
+    margin: 80px 0 50px;
+    text-align: center;
+}
+
+.legal-chapter-divider h3 {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace; 
+    background: #ffffff;
+    padding: 10px 25px;
+    color: #1B5E20; 
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   CLOSING
+   ========================================= */
+.legal-closing {
+    text-align: center;
+    margin-top: 80px;
+    color: #78909C;
+    font-family: 'Courier Prime', monospace;
+}
+
+.legal-closing hr {
+    border: none;
+    height: 1px;
+    background: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 992px) {
+    .legal-document {
+        padding: 50px 40px;
+        margin: 0 15px;
+    }
+    
+    .terms-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .stamp-text {
+        position: static;
+        transform: none;
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .legal-document {
+        padding: 40px 20px;
+    }
+
+    .terms-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .legal-chapter-divider h3 {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,157 @@
+/* =========================================
+   CONTACT PAGE WRAPPER
+   ========================================= */
+
+.contact-wrapper { 
+    padding: 60px 0; 
+    background: #f9fbf9; 
+    margin-top: 120px; /* Prevents overlap with fixed navbar */
+    min-height: 80vh;
+}
+
+.contact-stack { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+}
+
+/* =========================================
+   FORM CARD
+   ========================================= */
+
+.form-card { 
+    background: #fff; 
+    padding: 40px; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+}
+
+.form-card h2 { 
+    color: var(--primary-green); 
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+
+.contact-form { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+}
+
+.contact-form .full-width { 
+    grid-column: span 2; 
+}
+
+.contact-form input, 
+.contact-form textarea { 
+    padding: 15px; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px; 
+    font-family: inherit; 
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+.submit-btn { 
+    background: var(--primary-green); 
+    color: white; 
+    padding: 15px; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: 700; 
+    transition: 0.3s; 
+}
+
+.submit-btn:hover { 
+    background: #1B5E20; 
+    transform: translateY(-2px); 
+}
+
+/* =========================================
+   EMAIL HIGHLIGHT SECTION
+   ========================================= */
+
+.email-direct-section { 
+    text-align: center; 
+    padding: 20px 0; 
+}
+
+.email-direct-section p { 
+    font-size: 1.2rem; 
+    color: #455A64; 
+    margin: 0; 
+}
+
+.big-email { 
+    display: block; 
+    font-size: 2.5rem; 
+    font-weight: 800; 
+    color: var(--primary-green); 
+    margin-top: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.big-email:hover { 
+    color: #1B5E20; 
+    transform: scale(1.02); 
+}
+
+/* =========================================
+   INFO CARD (DIRECT CONTACT & MAP)
+   ========================================= */
+
+.info-card { 
+    background: #263238; 
+    color: #ffffff; 
+    padding: 40px; 
+    border-radius: 15px; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    align-items: center; 
+}
+
+.info-content h2 { 
+    color: #81C784; 
+    margin-bottom: 25px; 
+}
+
+.info-content p { 
+    margin-bottom: 15px; 
+    line-height: 1.6; 
+}
+
+.map-frame { 
+    height: 250px; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    border: 2px solid rgba(255,255,255,0.1); 
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+
+@media (max-width: 768px) { 
+    .contact-form, 
+    .info-card { 
+        grid-template-columns: 1fr; 
+    } 
+    
+    .contact-form .full-width { 
+        grid-column: span 1; 
+    }
+    
+    .big-email { 
+        font-size: 1.8rem; 
+    }
+}

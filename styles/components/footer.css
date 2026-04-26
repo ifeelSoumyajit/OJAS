@@ -1,0 +1,332 @@
+.main-footer {
+    background: #263238; /* Industrial Slate */
+    color: #CFD8DC;
+    padding: 80px 0 0;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+/* Adds spacing below all the column headings */
+.footer-grid h4 {
+    margin-bottom: 25px; 
+    color: #ffffff; /* Just to ensure they stay crisp and bright */
+    letter-spacing: 0.5px; /* Adds a tiny bit of tracking for elegance */
+}
+
+/* Updated Link Styles */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    color: #ffffff; /* Sets links to white */
+    text-decoration: none; /* Removes underline */
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #81C784; /* Eco Green highlight on hover */
+}
+
+.footer-logo {
+    color: #81C784; /* Matches logo green */
+    margin-bottom: 20px;
+}
+
+.footer-address p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.footer-bottom {
+    background: #1B262C;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   FOOTER LEGAL LINKS (IN COLUMNS)
+   ========================================= */
+
+/* Groups the links on the same line */
+.footer-legal-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px; /* Creates the gap below the email */
+}
+
+.footer-legal-link {
+    color: #81C784; 
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.footer-legal-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    transform: translateY(-2px); 
+}
+
+/* Subtle divider between the links */
+.legal-divider {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    user-select: none; /* Prevents users from highlighting the pipe symbol */
+}
+
+/* =========================================
+   ENLARGED ATTRIBUTES MODAL
+   ========================================= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); 
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 60px; 
+    border-radius: 25px;
+    width: 92%;
+    max-width: 850px; 
+    
+    max-height: 85vh; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+    
+    position: relative;
+    transform: translateY(40px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-top: 10px solid #2E7D32;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-overlay.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: none;
+    border: none;
+    font-size: 2.5rem; 
+    color: #bbb;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    color: #2E7D32;
+    transform: rotate(90deg);
+}
+
+.modal-content h3 {
+    color: #2E7D32;
+    margin-bottom: 20px;
+    font-size: 2rem; 
+    font-weight: 800;
+}
+
+.modal-content hr {
+    border: none;
+    height: 2px;
+    background: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.attributes-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+}
+
+.attr-item strong {
+    display: block;
+    color: #2E7D32;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.attr-item p {
+    color: #455A64;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive fix: Stack columns on small phones */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 40px 25px;
+        max-width: 95%;
+    }
+    
+    .attributes-list {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* =========================================
+   COMPREHENSIVE LICENSE SECTION
+   ========================================= */
+
+.license-context {
+    grid-column: 1 / -1; /* Keeps it full width inside the grid */
+    background: #f8faf9; /* Soft, eco-tinted background color */
+    border: 1px solid #e2e8e4; /* Subtle outline to define the box */
+    border-left: 6px solid #81C784; /* Bold green accent line on the left */
+    border-radius: 12px;
+    
+    /* This handles your Left/Right gaps */
+    padding: 30px 40px; /* 40px internal gap from the text to the box edge */
+    margin: 15px 15px 25px 15px; /* 15px external gap from the box to the modal edge */
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Very gentle shadow to lift it */
+}
+
+/* Formats the main "Comprehensive License Details" header */
+.license-context > strong {
+    color: #2E7D32;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+/* Paragraph styling */
+.license-paragraph {
+    color: #455A64;
+    font-size: 0.95rem;
+    line-height: 1.8; /* Increased slightly for better reading */
+    margin: 0 0 15px 0; 
+    text-align: justify; 
+}
+
+.license-paragraph:last-child {
+    margin-bottom: 0; 
+}
+
+/* This formats the "© 2026..." text to match your screenshot */
+.license-paragraph strong {
+    color: #2E7D32;
+    font-size: 1rem;
+    display: block; /* Forces it to sit on its own line */
+    margin-bottom: 12px;
+}
+
+/* Mobile Adjustments for the Box */
+@media (max-width: 768px) {
+    .license-context {
+        padding: 25px 20px; /* Slightly smaller internal gap on phones */
+        margin: 15px 0 20px 0; /* Pushes to the edges on very small screens */
+    }
+}
+
+/* =========================================
+   HIGHLIGHTED DEVELOPER SIGNATURE
+   ========================================= */
+
+.dev-signature {
+    grid-column: 1 / -1; /* Also spans full width */
+    border-top: 3px solid #CFD8DC; 
+    background: #eceff1; 
+    padding: 30px; 
+    border-radius: 12px; 
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 4px; 
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); 
+}
+
+.engineered-text {
+    color: #455A64; 
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 !important;
+}
+
+.dev-name {
+    color: #428240; 
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0 0 15px 0 !important; 
+}
+
+.pixel-link {
+    display: inline-flex; 
+    align-items: center;
+    gap: 6px; 
+    color: #428240; 
+    font-size: 1.1rem;
+    font-weight: 500; 
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.pixel-link:hover {
+    color: #2E7D32; 
+    transform: translateY(-1px);
+    text-shadow: 0 4px 10px rgba(46, 125, 50, 0.15); 
+}
+
+.pixel-link i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.pixel-link:hover i {
+    transform: translate(-1px);
+}

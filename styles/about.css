@@ -1,0 +1,95 @@
+/* =========================================
+   ABOUT PAGE HEADER
+   ========================================= */
+
+.about-header {
+    background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(27, 94, 32, 0.9)), url('../assets/images/Banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 160px 0 80px 0; 
+    text-align: center;
+    color: white;
+}
+
+.about-header h1 { 
+    font-size: 3rem; 
+    margin-bottom: 15px; 
+}
+
+.about-header p { 
+    font-size: 1.2rem; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    opacity: 0.9; 
+}
+
+/* =========================================
+   STANDALONE CONTENT BOX
+   ========================================= */
+
+.about-page-section { 
+    padding: 80px 0; 
+    background: #fdfdfd; 
+    min-height: 60vh; 
+}
+
+.content-box {
+    max-width: 2000px; /* Pushed to ultra-wide */
+    margin: 0 auto; /* Centers the box */
+    background: #fff;
+    padding: 50px 60px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.04);
+    border-top: 6px solid #2E7D32; 
+    max-width: 2000px; /* Pushed to ultra-wide */
+}
+
+/* Content Formatting */
+.fade-in-content { 
+    animation: fadeIn 0.5s ease-out forwards; 
+}
+
+.fade-in-content h2 { 
+    color: #2E7D32; 
+    font-size: 2.2rem; 
+    margin-bottom: 25px; 
+    border-bottom: 2px solid #E8F5E9; 
+    padding-bottom: 10px; 
+}
+
+.fade-in-content p { 
+    font-size: 1.1rem; 
+    color: #455A64; 
+    margin-bottom: 20px; 
+    line-height: 1.8; 
+}
+
+.fade-in-content ul { 
+    list-style: none; 
+    padding-left: 0; 
+}
+
+.fade-in-content ul li { 
+    padding: 12px 0; 
+    border-bottom: 1px solid #eee; 
+    font-size: 1.1rem; 
+    color: #455A64; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-box { 
+        padding: 35px 25px; 
+        margin: 0 15px;
+    }
+    
+    .fade-in-content h2 {
+        font-size: 1.8rem;
+    }
+}

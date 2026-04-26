@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Online | OJAS BIOFUEL. LLP</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components/navbar.css">
+    <link rel="stylesheet" href="../styles/components/footer.css">
+    <link rel="stylesheet" href="../styles/order.css">
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <main class="order-section">
+        <div class="container">
+            <div class="order-card">
+                <h2>Bulk Order Inquiry</h2>
+                <p>Submit your industrial fuel requirements for a custom quote.</p>
+                <form class="order-form">
+                    <div class="full-width">
+                        <label>Company/Industry Name</label>
+                        <input type="text" placeholder="Enter Company Name" required>
+                    </div>
+                    <div>
+                        <label>Product Selection</label>
+                        <select required>
+                            <option value="">Choose Product...</option>
+                            <option value="briquettes">Biomass Briquettes</option>
+                            <option value="pellets">Biomass Pellets</option>
+                            <option value="fuel">Industrial Fuel</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Required Quantity</label>
+                        <div class="input-group">
+                            <input type="number" placeholder="Example: 25" required>
+                            <select required>
+                                <option value="MT">MT</option>
+                                <option value="Tons">Tons</option>
+                                <option value="KG">KG</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Contact Person</label>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div>
+                        <label>Phone Number</label>
+                        <div class="phone-group">
+                            <span class="phone-prefix">+91</span>
+                            <input type="tel" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                        </div>
+                    </div>
+                    <div class="full-width">
+                        <label>Delivery Location</label>
+                        <textarea rows="3" placeholder="Factory/Warehouse Address" required></textarea>
+                    </div>
+                    <button type="submit" class="order-btn full-width">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/main.js" type="module"></script>
+    <script src="../scripts/nav.js"></script>
+    <script src="../scripts/footer.js"></script>
+</body>
+</html>

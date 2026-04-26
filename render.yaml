@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: ojasbiofuel
+    env: static
+    buildCommand: null
+    staticPublishPath: .
+
+    routes:
+      - type: rewrite
+        source: /about
+        destination: /src/about.html
+
+      - type: rewrite
+        source: /services
+        destination: /src/services.html
+
+      - type: rewrite
+        source: /products
+        destination: /src/products.html
+
+      - type: rewrite
+        source: /projects
+        destination: /src/projects.html
+
+      - type: rewrite
+        source: /contact
+        destination: /src/contact.html
+
+      - type: rewrite
+        source: /order
+        destination: /src/order.html

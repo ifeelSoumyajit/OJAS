@@ -1,0 +1,102 @@
+:root {
+    --primary-green: #2E7D32; /* Biofuel/Nature */
+    --primary-green-hover: #1B5E20; /* For button hovers */
+    --accent-orange: #EF6C00; /* Energy/Transformation */
+    
+    --industrial-gray: #37474F; /* Standard text */
+    --industrial-dark: #263238; /* Used in Footer and Contact Cards */
+    
+    --light-bg: #F5F5F5;
+    --white: #FFFFFF;
+    --transition: all 0.3s ease;
+}
+
+/* Enable smooth gliding for all #anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    color: var(--industrial-gray);
+    /* Prevents horizontal scrollbar issues */
+    overflow-x: hidden; 
+}
+
+/* Global Container */
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: auto; 
+}
+
+/* Clean up default links globally */
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* Global Button Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--primary-green);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px; /* Changed to 8px to match the order form inputs */
+    font-weight: 700;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover { 
+    background: var(--primary-green-hover); 
+    transform: translateY(-2px); /* Adds a subtle lift effect */
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+}
+
+@keyframes smoothLoad {
+    0% { opacity: 0; transform: translateY(5px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   CUSTOM GREEN SCROLLBAR
+   ========================================= */
+
+/* Firefox Support */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-green) var(--light-bg);
+}
+
+/* WebKit (Chrome, Safari, newer Edge) Support */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the vertical scrollbar */
+}
+
+/* The track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+    background: var(--light-bg); 
+}
+
+/* The draggable scrolling handle */
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-green); 
+    border-radius: 10px; /* Makes it pill-shaped */
+    border: 3px solid var(--light-bg); /* Creates a nice padded border effect */
+}
+
+/* Hover effect for the handle */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-green-hover); 
+}
