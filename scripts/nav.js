@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <nav class="navbar">
         <div class="nav-container">
             <a href="${prefix}index.html" class="nav-logo">
-                <img src="${prefix}assets/images/OJAS_LOGO.png" alt="OJAS Logo" class="logo-img">
-                <span class="logo-text">OJAS BIOFUEL.</span>
+                <img src="${prefix}assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
+                <!--- <span class="logo-text">OJAS BIOFUEL.</span> --->
             </a>
             
             <label class="hamburger-menu">
