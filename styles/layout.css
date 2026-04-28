@@ -142,16 +142,38 @@
    ========================================= */
 
 @media (max-width: 768px) {
-    /* FIX: Make the banner fit on mobile by disabling the fixed attachment */
+    /* TRUE MOBILE PARALLAX FIX */
     .hero-banner {
-        background-attachment: scroll; /* Stops the massive mobile zoom issue */
-        background-position: center center;
-        min-height: 60vh; /* Slightly shorter on mobile so it doesn't take up the whole screen */
+        background: none !important; 
+        clip-path: inset(0 0 0 0); 
+        position: relative;
+        min-height: 60vh;
+    }
+
+    .hero-banner::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        
+        /* THE FIX: Reduced from 100vh to 70vh. 
+           This stops the browser from zooming in so intensely 
+           while keeping the image large enough for the parallax effect. */
+        height: 70vh; 
+        
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/Banner2.jpg');
+        background-size: cover;
+        
+        /* Anchoring to the top center usually keeps the focus on the best part of the image */
+        background-position: center top; 
+        z-index: -1;
+        pointer-events: none;
     }
 
     /* Shrink Hero Text for Mobile */
     .hero-content h1 {
-        font-size: 2.2rem; /* Smaller font so it doesn't overflow */
+        font-size: 2.2rem; 
         padding: 0 20px;
     }
 
@@ -164,19 +186,9 @@
         font-size: 1.8rem;
     }
 
-    /* Adjust the scaling trick so it doesn't cause horizontal scrolling on mobile */
+    /* Adjust the scaling trick so it doesn't cause horizontal scrolling */
     .process-img {
         transform: scale(1.02);
         width: 95%;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .vision-box {
-        padding: 25px;
     }
 }
