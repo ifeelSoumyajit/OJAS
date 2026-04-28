@@ -209,7 +209,6 @@
     .hamburger-menu input:checked ~ .bar-bot { transform: translateY(-9px) rotate(-45deg); }
 
     /* 2. "Floating Glass Island" Overlay */
-    /* 2. "Floating Glass Island" Overlay */
     .nav-links {
         position: fixed;
         top: 90px; 
@@ -266,6 +265,7 @@
     }
 
     /* 3. "Widget Cards" Navigation */
+    /* 3. "Widget Cards" Navigation */
     .nav-links > li {
         background: #ffffff;
         border-radius: 16px;
@@ -273,8 +273,11 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         border: 1px solid rgba(46, 125, 50, 0.05);
         transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        overflow: hidden; /* Keeps dropdown confined inside the card */
+        overflow: hidden; 
         width: 100%;
+        
+        /* THE SCROLL FIX: Stops cards from shrinking so the menu actually scrolls */
+        flex-shrink: 0; 
     }
 
     .nav-links > li:last-child {
