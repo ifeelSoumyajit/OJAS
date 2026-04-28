@@ -14,6 +14,96 @@
     <link rel="stylesheet" href="../styles/components/navbar.css">
     <link rel="stylesheet" href="../styles/components/footer.css">
     <link rel="stylesheet" href="../styles/about.css">
+
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: #fdfdfd;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 5px solid #2E7D32;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .team-image-wrapper {
+            width: 100%;
+            height: 350px;
+            background: #e9ecef;
+            overflow: hidden;
+        }
+
+        .team-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center; /* Focuses on the face */
+        }
+
+        .team-info {
+            padding: 30px;
+        }
+
+        .team-info h3 {
+            color: #2E7D32;
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .team-info h4 {
+            color: #37474F;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .team-info p {
+            font-size: 1rem;
+            color: #546E7A;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .team-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border-top: 1px solid #eeeeee;
+            padding-top: 20px;
+        }
+
+        .team-contact a {
+            color: #455A64;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .team-contact a i {
+            color: #2E7D32;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .team-contact a:hover {
+            color: #1B5E20;
+        }
+    </style>
 </head>
 <body>
 
@@ -28,16 +118,44 @@
 
     <main class="about-page-section">
         <div class="container">
-            <div class="content-box">
-                <div class="fade-in-content">
-                    <h2>Leadership Team</h2>
-                    <p>Our organization is driven by dedicated professionals with deep expertise in biomass trading, supply chain management, and sustainable energy solutions.</p>
+            <div class="content-box fade-in-content">
+                <h2>Leadership Team</h2>
+                <p>Our organization is driven by dedicated professionals with deep expertise in biomass trading, supply chain management, and sustainable energy solutions.</p>
+                
+                <div class="team-grid">
                     
-                    <div style="background: #f4f7f6; padding: 25px; border-radius: 12px; margin-top: 20px; border-left: 5px solid #2E7D32;">
-                        <h3 style="color: #2E7D32; margin-bottom: 5px;">Vinod Zalake</h3>
-                        <p style="margin-bottom: 15px; font-weight: 600; color: #37474F;">Founder & Director</p>
-                        <p style="margin-bottom: 0;">Vinod leads OJAS BIOFUEL. with a visionary approach to indigenous technology and sustainable supply chains. Under his direction, the company has established itself as a reliable pillar in Pune's green energy sector.</p>
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="../assets/images/Vinod.png" alt="Vinod Zalake">
+                        </div>
+                        <div class="team-info">
+                            <h3>Vinod Zalake</h3>
+                            <h4>Founder & Director</h4>
+                            <p>Vinod leads OJAS BIOFUEL. with a visionary approach to indigenous technology and sustainable supply chains. Under his direction, the company has established itself as a reliable pillar in Pune's green energy sector.</p>
+                            
+                            <div class="team-contact">
+                                <a href="mailto:vinodzalake25@gmail.com"><i class="fa-solid fa-envelope"></i> vinodzalake25@gmail.com</a>
+                                <a href="tel:+917030721875"><i class="fa-solid fa-phone"></i> +91 70307 21875</a>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="../assets/images/Dhaval.png" alt="Dhaval Jadhav">
+                        </div>
+                        <div class="team-info">
+                            <h3>Dhaval Jadhav</h3>
+                            <h4>Co-Founder / Director</h4>
+                            <p>Dhaval plays a critical role in driving the strategic and operational initiatives at OJAS BIOFUEL. His expertise ensures the seamless execution of the integrated waste-to-energy model and strengthens partnerships across the biomass supply chain.</p>
+                            
+                            <div class="team-contact">
+                                <a href="mailto:dhavaljadhav01@gmail.com"><i class="fa-solid fa-envelope"></i> dhavaljadhav01@gmail.com</a>
+                                <a href="tel:+918412060840"><i class="fa-solid fa-phone"></i> +91 8412060840</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
