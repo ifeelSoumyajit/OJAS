@@ -142,6 +142,13 @@
    ========================================= */
 
 @media (max-width: 768px) {
+    /* FIX: Make the banner fit on mobile by disabling the fixed attachment */
+    .hero-banner {
+        background-attachment: scroll; /* Stops the massive mobile zoom issue */
+        background-position: center center;
+        min-height: 60vh; /* Slightly shorter on mobile so it doesn't take up the whole screen */
+    }
+
     /* Shrink Hero Text for Mobile */
     .hero-content h1 {
         font-size: 2.2rem; /* Smaller font so it doesn't overflow */
