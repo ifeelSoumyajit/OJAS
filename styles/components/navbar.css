@@ -184,7 +184,7 @@
     .logo-img { height: 45px; padding-left: 10px; }
     .logo-text { font-size: 1.6rem; }
 
-    /* 1. Show Hamburger Icon & Perfect Cross Logic */
+    /* 1. Hamburger Icon Logic */
     .hamburger-menu {
         display: flex;
         flex-direction: column;
@@ -194,9 +194,7 @@
         z-index: 2000; 
     }
 
-    .hamburger-menu input {
-        display: none; 
-    }
+    .hamburger-menu input { display: none; }
 
     .hamburger-menu .bar {
         height: 3px;
@@ -210,39 +208,80 @@
     .hamburger-menu input:checked ~ .bar-mid { opacity: 0; transform: scale(0.5); }
     .hamburger-menu input:checked ~ .bar-bot { transform: translateY(-9px) rotate(-45deg); }
 
-    /* 2. Transform Links into Mobile Side-Drawer Menu */
+    /* 2. "Floating Glass Island" Overlay */
     .nav-links {
         position: fixed;
-        top: 0;
-        right: -100%; 
-        width: 80vw;
-        max-width: 400px;
-        height: 100vh;
-        background: #ffffff;
+        top: 90px; /* Floats independently below the navbar */
+        right: -120%; /* Hidden off-screen */
+        width: calc(100vw - 30px); /* Leaves a 15px gap on sides */
+        max-width: 380px;
+        max-height: calc(100vh - 110px);
+        background: rgba(248, 250, 249, 0.75); /* Highly translucent base */
+        backdrop-filter: blur(25px); /* Heavy frosted glass effect */
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 24px;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 100px 30px 40px;
-        box-shadow: -10px 0 40px rgba(0,0,0,0.1);
-        transition: right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        align-items: stretch;
+        padding: 20px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.12), inset 0 2px 10px rgba(255,255,255,0.5);
+        transition: right 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Custom iOS Spring Bounce! */
         overflow-y: auto;
-        gap: 25px; 
+        gap: 0; 
     }
 
     .nav-links.active {
-        right: 0; 
+        right: 15px; /* Snaps beautifully into place with a gap */
     }
 
+    /* 3. "Widget Cards" Navigation */
+    .nav-links > li {
+        background: #ffffff;
+        border-radius: 16px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        border: 1px solid rgba(46, 125, 50, 0.05);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        overflow: hidden; /* Keeps dropdown confined inside the card */
+        width: 100%;
+    }
+
+    .nav-links > li:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Active Card "Pop" Effect */
+    .dropdown.mobile-active {
+        border-color: rgba(46, 125, 50, 0.3);
+        box-shadow: 0 10px 30px rgba(46, 125, 50, 0.12);
+        transform: scale(1.02); /* Card pops forward subtly */
+    }
+
+    /* Main Link Text inside Cards */
     .nav-links li a {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #37474F;
+        padding: 16px 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: color 0.3s ease;
     }
 
-    /* 3. Mobile Dropdown Accordion */
+    .dropdown.mobile-active > a {
+        color: #2E7D32;
+    }
+
+    /* 4. Inside the Widget (Accordion Dropdown) */
     .dropdown-content {
         position: static;
         transform: none !important;
+        background: #ffffff;
         box-shadow: none;
         border: none;
-        border-left: 3px solid #E8F5E9;
+        border-top: 1px dashed #e0e0e0; /* Clean separator line inside card */
         border-radius: 0;
         min-width: 100%;
         
@@ -250,46 +289,73 @@
         max-height: 0; 
         opacity: 0; 
         visibility: hidden;
-        overflow: hidden; 
-        padding: 0 0 0 15px; 
-        margin-top: 0;
+        padding: 0 20px; 
+        margin: 0;
         
-        transition: max-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                     opacity 0.3s ease,
-                    margin-top 0.3s ease,
                     padding 0.3s ease,
                     visibility 0.3s ease;
     }
 
+    /* Neutralize desktop hover interference */
     .dropdown:hover .dropdown-content {
         max-height: 0;
         opacity: 0;
         visibility: hidden;
-        margin-top: 0;
-        padding: 0 0 0 15px;
+        padding: 0 20px;
     }
 
+    /* Reveal the sub-links */
     .dropdown.mobile-active .dropdown-content {
-        max-height: 400px; 
+        max-height: 350px; 
         opacity: 1;
         visibility: visible;
-        margin-top: 10px;
-        padding: 5px 0 5px 15px;
+        padding: 10px 20px 15px; /* Opens up space inside the card */
     }
 
-    .dropdown.mobile-active .dropbtn::after {
-        transform: rotate(180deg);
-        color: #2E7D32;
+    /* Sub-link Styling */
+    .dropdown-content li {
+        border-bottom: none;
     }
 
     .dropdown-content li a {
-        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #546E7A;
+        padding: 12px 0;
+        border-bottom: 1px solid #f9fbf9;
+    }
+
+    .dropdown-content li:last-child a {
+        border-bottom: none;
     }
     
     .dropdown-content li a:hover,
     .dropdown-content li a:active {
-        background-color: #E8F5E9;
         color: #2E7D32;
-        padding-left: 22px; 
+        padding-left: 10px; /* satisfying micro-indent */
+    }
+
+    /* 5. Circular Interactive Badge for Arrows */
+    .dropbtn::after {
+        margin-left: auto; 
+        background: #f4f7f6;
+        color: #90A4AE;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .dropdown.mobile-active .dropbtn::after {
+        transform: rotate(180deg);
+        background: #2E7D32;
+        color: #ffffff;
+        box-shadow: 0 4px 10px rgba(46, 125, 50, 0.25);
     }
 }
