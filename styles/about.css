@@ -1,5 +1,5 @@
 /* =========================================
-   ABOUT PAGE HEADER
+   1. SHARED HEADER (Used on all 4 pages)
    ========================================= */
 
 .about-header {
@@ -25,7 +25,7 @@
 }
 
 /* =========================================
-   STANDALONE CONTENT BOX
+   2. STANDALONE PAGES (Vision, Team, History)
    ========================================= */
 
 .about-page-section { 
@@ -35,14 +35,13 @@
 }
 
 .content-box {
-    max-width: 2000px; /* Pushed to ultra-wide */
-    margin: 0 auto; /* Centers the box */
+    max-width: 1400px; /* Adjusted for optimal reading width, ultra-wide can stretch text too far */
+    margin: 0 auto; 
     background: #fff;
     padding: 50px 60px;
     border-radius: 20px;
     box-shadow: 0 15px 45px rgba(0,0,0,0.04);
     border-top: 6px solid #2E7D32; 
-    max-width: 2000px; /* Pushed to ultra-wide */
 }
 
 /* Content Formatting */
@@ -82,8 +81,135 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
+/* =========================================
+   3. MAIN ABOUT PAGE (Tabbed Layout)
+   ========================================= */
+
+.tab-section {
+    padding: 80px 0;
+    background: #fdfdfd;
+}
+
+.tab-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.tab-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 280px;
+    flex-shrink: 0; 
+}
+
+.tab-btn {
+    padding: 18px 25px;
+    background: #f4f7f6;
+    border: none;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #546E7A;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.tab-btn:hover {
+    background: #e9ecef;
+    color: #2E7D32;
+    transform: translateX(5px); 
+}
+
+.tab-btn.active {
+    background: #2E7D32;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.25);
+    transform: translateX(5px);
+}
+
+.tab-content-area {
+    flex-grow: 1;
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    border-top: 5px solid #2E7D32;
+}
+
+.tab-content-area h2 {
+    color: #2E7D32;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.tab-content-area p {
+    font-size: 1.1rem;
+    color: #546E7A;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.tab-content-area ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.tab-content-area ul li {
+    font-size: 1.1rem;
+    color: #455A64;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* =========================================
+   4. RESPONSIVE DESIGN (Mobile & Tablet)
+   ========================================= */
+
+@media (max-width: 992px) {
+    /* Main About Page Tabs */
+    .tab-container {
+        flex-direction: column; 
+        gap: 25px;
+    }
+    
+    .tab-sidebar {
+        width: 100%;
+        flex-direction: row; 
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .tab-btn {
+        white-space: nowrap; 
+        text-align: center;
+        padding: 15px 30px;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+        transform: translateY(-3px); 
+    }
+
+    .tab-content-area {
+        padding: 30px 25px;
+    }
+}
+
 @media (max-width: 768px) {
+    /* Standalone Pages */
     .content-box { 
         padding: 35px 25px; 
         margin: 0 15px;

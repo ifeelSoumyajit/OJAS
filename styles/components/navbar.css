@@ -4,7 +4,7 @@
 
 /* Navbar Container Styling */
 .navbar {
-    height: 120px; 
+    height: 100px; 
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
