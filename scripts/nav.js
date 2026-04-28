@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="nav-container">
             <a href="${prefix}index.html" class="nav-logo">
                 <img src="${prefix}assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
-                <!--- <span class="logo-text">OJAS BIOFUEL.</span> --->
-            </a>
+                </a>
             
             <label class="hamburger-menu">
                 <input type="checkbox" id="mobile-menu-toggle">
@@ -27,16 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul class="dropdown-content">
                         <li><a href="${prefix}src/vision.html">Our Vision</a></li>
                         <li><a href="${prefix}src/team.html">Our Team</a></li>
-                        <li><a href="${prefix}src/history.html">Company History</a></li>
+                        <li><a href="${prefix}src/foundation.html">Company Origin</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/projects.html#current">Current Projects</a></li>
-                        <li><a href="${prefix}src/projects.html#completed">Completed Projects</a></li>
-                        <li><a href="${prefix}src/projects.html#initiatives">Green Initiatives</a></li>
+                        <li><a href="${prefix}src/current_projects.html">Current Projects</a></li>
+                        <li><a href="${prefix}src/completed_projects.html">Completed Projects</a></li>
+                        <li><a href="${prefix}src/initiatives.html#initiatives">Green Initiatives</a></li>
                     </ul>
                 </li>
 

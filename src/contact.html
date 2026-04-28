@@ -24,13 +24,17 @@
             <div class="contact-stack">
                 <section class="form-card">
                     <h2>Send us a Query</h2>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="text" placeholder="Subject" class="full-width">
-                        <textarea rows="4" placeholder="How can we help you?" class="full-width" required></textarea>
+                    
+                    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xpqkeevn" method="POST">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <input type="text" name="Subject" placeholder="Subject" class="full-width">
+                        <textarea name="Message" rows="4" placeholder="How can we help you?" class="full-width" required></textarea>
                         <button type="submit" class="submit-btn full-width">Send Message</button>
                     </form>
+                    
+                    <div id="formStatus" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; padding: 15px; border-radius: 8px; font-size: 1.05rem;"></div>
+
                 </section>
 
                 <section class="email-direct-section">
@@ -41,10 +45,10 @@
                 <section class="info-card">
                     <div class="info-content">
                         <h2>Direct Contact</h2>
-                        <p><strong>👤 Vinod Zalake</strong><br>Founder & Director</p>
-                        <p>📞 +91 70307 21875 / 74</p>
-                        <p>✉️ vinodzalake25@gmail.com</p>
-                        <p>📍 FL NO 03, CHINTAMANI NR MAHADEV MANDIR,<br> 
+                        <p><strong><i class="fa-solid fa-user"></i> Vinod Zalake</strong><br>Founder & Director</p>
+                        <p><i class="fa-solid fa-phone"></i> +91 70307 21875 / 74</p>
+                        <p><i class="fa-solid fa-envelope"></i> vinodzalake25@gmail.com</p>
+                        <p><i class="fa-solid fa-location-dot"></i> FL NO 03, CHINTAMANI NR MAHADEV MANDIR,<br> 
                            KHADAKWASLA, PUNE 411024</p>
                     </div>
                     <div class="map-frame">
@@ -67,5 +71,66 @@
     <script src="../scripts/main.js" type="module"></script>
     <script src="../scripts/nav.js"></script>
     <script src="../scripts/footer.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var form = document.getElementById("contactForm");
+            var status = document.getElementById("formStatus");
+            var submitBtn = form.querySelector('button[type="submit"]');
+
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault(); // Stops the redirect
+                
+                // Show loading state
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                status.style.display = "none";
+
+                var data = new FormData(form);
+
+                fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // Success formatting
+                        status.innerHTML = "Thanks for getting in touch. Our team will connect you shortly.";
+                        status.style.backgroundColor = "#E8F5E9";
+                        status.style.color = "#2E7D32";
+                        status.style.border = "1px solid #C8E6C9";
+                        status.style.display = "block";
+                        form.reset();
+                    } else {
+                        // Formspree error handling
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                            } else {
+                                status.innerHTML = "Oops! There was a problem submitting your form.";
+                            }
+                            status.style.backgroundColor = "#FFEBEE";
+                            status.style.color = "#D32F2F";
+                            status.style.border = "1px solid #FFCDD2";
+                            status.style.display = "block";
+                        })
+                    }
+                }).catch(error => {
+                    // Network error handling
+                    status.innerHTML = "Oops! There was a network problem submitting your form.";
+                    status.style.backgroundColor = "#FFEBEE";
+                    status.style.color = "#D32F2F";
+                    status.style.border = "1px solid #FFCDD2";
+                    status.style.display = "block";
+                }).finally(() => {
+                    // Reset button back to normal
+                    submitBtn.textContent = 'Send Message';
+                    submitBtn.disabled = false;
+                });
+            });
+        });
+    </script>
 </body>
 </html>

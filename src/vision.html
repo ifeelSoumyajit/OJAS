@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Vision | OJAS BIOFUEL. LLP</title>
+    <title>Our Vision & Values | OJAS BIOFUEL. LLP</title>
     
     <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
     
@@ -14,6 +14,57 @@
     <link rel="stylesheet" href="../styles/components/navbar.css">
     <link rel="stylesheet" href="../styles/components/footer.css">
     <link rel="stylesheet" href="../styles/about.css">
+
+    <style>
+        /* Custom styling for the Vision quote and Core Values grid */
+        .vision-quote {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            font-weight: 600;
+            color: #2E7D32;
+            background: #f4f7f6;
+            padding: 30px 40px;
+            border-left: 6px solid #2E7D32;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: #ffffff;
+            border: 1px solid #eeeeee;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #2E7D32;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .value-card h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: 1rem !important; /* Overrides the larger paragraph default in about.css */
+            color: #546E7A;
+            margin: 0 !important;
+            line-height: 1.6 !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -21,7 +72,7 @@
 
     <header class="about-header">
         <div class="container">
-            <h1>About OJAS BIOFUEL.</h1>
+            <h1>Vision & Mission</h1>
             <p>Pioneering the transition to clean, sustainable industrial energy through indigenous circular economy solutions.</p>
         </div>
     </header>
@@ -30,14 +81,50 @@
         <div class="container">
             <div class="content-box">
                 <div class="fade-in-content">
-                    <h2>Our Vision & Mission</h2>
-                    <p>At OJAS BIOFUEL. LLP, we believe the future of industrial energy lies in the sustainable transformation of what others discard. We are committed to establishing a robust <strong>Circular Economy</strong> that benefits both local agriculture and heavy industry.</p>
-                    <p>Our core mission revolves around solving two massive challenges simultaneously: reducing agricultural waste pollution and lowering the carbon footprint of manufacturing sectors.</p>
+                    
+                    <h2>Our Vision</h2>
+                    <div class="vision-quote">
+                        "To become a leading clean-energy company in India by building a complete biofuel ecosystem that transforms waste into sustainable energy, reduces carbon emissions, and supports a greener and self-reliant future."
+                    </div>
+
+                    <h2>Our Mission</h2>
+                    <p>Our mission articulates the operating commitments through which our vision will be realised:</p>
                     <ul>
-                        <li>🌱 <strong>Zero-Waste Lifecycle:</strong> Transforming agri-residue into premium fuel.</li>
-                        <li>⚡ <strong>Carbon Neutrality:</strong> Helping industries transition away from fossil fuels.</li>
-                        <li>🤝 <strong>Farmer Empowerment:</strong> Creating secondary income streams for local agriculture.</li>
+                        <li><strong>High-Quality Conversion:</strong> Convert agricultural and organic waste into high-quality biofuels—briquettes, pellets, biodiesel, and bio-ethanol—using safe, efficient, and standards-compliant processes.</li>
+                        <li><strong>Eco-Friendly Alternatives:</strong> Provide affordable and eco-friendly fuel alternatives to industries and the transportation sector, with consistent quality and reliable supply.</li>
+                        <li><strong>Pollution Reduction:</strong> Reduce environmental pollution and dependence on fossil fuels by displacing coal, furnace oil, diesel, and petrol with biomass-derived equivalents.</li>
+                        <li><strong>Rural Empowerment:</strong> Empower rural communities by creating value from biomass waste, providing farmers with an additional, predictable source of income and reducing the practice of stubble burning.</li>
+                        <li><strong>Continuous Scale & Innovation:</strong> Continuously innovate and expand sustainable energy solutions across India, scaling from regional operations to a nationwide network of manufacturing units and supply hubs.</li>
                     </ul>
+
+                    <h2 style="margin-top: 60px;">Our Core Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <h3>Sustainability</h3>
+                            <p>Every product, process, and partnership is evaluated for its long-term environmental and social impact.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Inclusivity</h3>
+                            <p>Farmers, aggregators, and rural workers are treated as primary stakeholders in the value chain—not as a cost centre.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Integrity</h3>
+                            <p>Transparent pricing, honest specifications, and full compliance with statutory norms.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Innovation</h3>
+                            <p>Continuous improvement of conversion technology, supply-chain efficiency, and product blends to stay ahead of customer needs.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Reliability</h3>
+                            <p>Consistent calorific value, moisture, ash, and density across batches; on-time delivery against contracted volumes.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Self-Reliance</h3>
+                            <p>Strengthening India's energy security by replacing imported fossil fuels with locally produced bioenergy.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
