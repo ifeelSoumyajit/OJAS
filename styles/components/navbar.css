@@ -179,8 +179,19 @@
    ========================================= */
 @media (max-width: 992px) {
     
-    /* Shrink Navbar & Logo */
-    .navbar { height: 80px; }
+    /* Shrink Navbar & FORCE it to stay locked at the top */
+    .navbar { 
+        height: 80px; 
+        position: fixed !important; /* The magic lock */
+        top: 0 !important; 
+        left: 0;
+        width: 100%;
+        z-index: 9999 !important; /* Forces it above all page content */
+        background: rgba(255, 255, 255, 0.95); 
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); /* Safari support for the blur */
+    }
+
     .logo-img { height: 45px; padding-left: 10px; }
     .logo-text { font-size: 1.6rem; }
 
@@ -208,6 +219,7 @@
     .hamburger-menu input:checked ~ .bar-mid { opacity: 0; transform: scale(0.5); }
     .hamburger-menu input:checked ~ .bar-bot { transform: translateY(-9px) rotate(-45deg); }
 
+    /* 2. "Floating Glass Island" Overlay */
     /* 2. "Floating Glass Island" Overlay */
     .nav-links {
         position: fixed;
@@ -263,8 +275,7 @@
     .nav-links::-webkit-scrollbar-thumb:hover {
         background: rgba(46, 125, 50, 0.6); /* Darkens when touched */
     }
-
-    /* 3. "Widget Cards" Navigation */
+    
     /* 3. "Widget Cards" Navigation */
     .nav-links > li {
         background: #ffffff;
