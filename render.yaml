@@ -6,6 +6,7 @@ services:
     staticPublishPath: .
 
     routes:
+      # Main Hub Pages
       - type: rewrite
         source: /about
         destination: /src/about.html
@@ -22,6 +23,59 @@ services:
         source: /projects
         destination: /src/projects.html
 
+      # About Sub-pages
+      - type: rewrite
+        source: /vision
+        destination: /src/vision.html
+
+      - type: rewrite
+        source: /team
+        destination: /src/team.html
+
+      - type: rewrite
+        source: /foundation
+        destination: /src/foundation.html
+
+      # Services Sub-pages
+      - type: rewrite
+        source: /supply
+        destination: /src/supply.html
+
+      - type: rewrite
+        source: /trading
+        destination: /src/trading.html
+
+      - type: rewrite
+        source: /distribution
+        destination: /src/distribution.html
+
+      # Products Sub-pages
+      - type: rewrite
+        source: /fuel
+        destination: /src/fuel.html
+
+      - type: rewrite
+        source: /briquettes
+        destination: /src/briquettes.html
+
+      - type: rewrite
+        source: /pellets
+        destination: /src/pellets.html
+
+      # Projects Sub-pages
+      - type: rewrite
+        source: /current-projects
+        destination: /src/current-projects.html
+
+      - type: rewrite
+        source: /completed-projects
+        destination: /src/completed-projects.html
+
+      - type: rewrite
+        source: /initiatives
+        destination: /src/initiatives.html
+
+      # Action & Legal Pages
       - type: rewrite
         source: /contact
         destination: /src/contact.html
@@ -29,3 +83,11 @@ services:
       - type: rewrite
         source: /order
         destination: /src/order.html
+
+      - type: rewrite
+        source: /terms
+        destination: /src/terms.html
+
+      - type: rewrite
+        source: /policy
+        destination: /src/policy.html
