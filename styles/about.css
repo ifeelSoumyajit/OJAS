@@ -35,7 +35,7 @@
 }
 
 .content-box {
-    max-width: 1400px; /* Adjusted for optimal reading width, ultra-wide can stretch text too far */
+    max-width: 1400px; 
     margin: 0 auto; 
     background: #fff;
     padding: 50px 60px;
@@ -82,7 +82,100 @@
 }
 
 /* =========================================
-   3. MAIN ABOUT PAGE (Tabbed Layout)
+   3. TEAM PAGE STYLING (Cards & Images)
+   ========================================= */
+
+.team-grid {
+    display: grid;
+    /* Reduced min-width to 280px to prevent horizontal overflow on small phones */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.team-card {
+    background: #fdfdfd;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-bottom: 5px solid #2E7D32;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.team-image-wrapper {
+    width: 100%;
+    height: 350px;
+    background: #e9ecef;
+    overflow: hidden;
+}
+
+.team-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.team-info {
+    padding: 30px;
+}
+
+.team-info h3 {
+    color: #2E7D32;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.team-info h4 {
+    color: #37474F;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.team-info p {
+    font-size: 1rem;
+    color: #546E7A;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.team-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #eeeeee;
+    padding-top: 20px;
+}
+
+.team-contact a {
+    color: #455A64;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.3s ease;
+}
+
+.team-contact a i {
+    color: #2E7D32;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.team-contact a:hover {
+    color: #1B5E20;
+}
+
+/* =========================================
+   4. MAIN ABOUT PAGE (Tabbed Layout - TEASERS)
    ========================================= */
 
 .tab-section {
@@ -176,7 +269,7 @@
 }
 
 /* =========================================
-   4. RESPONSIVE DESIGN (Mobile & Tablet)
+   5. RESPONSIVE DESIGN (Mobile & Tablet)
    ========================================= */
 
 @media (max-width: 992px) {
@@ -217,5 +310,19 @@
     
     .fade-in-content h2 {
         font-size: 1.8rem;
+    }
+
+    /* TEAM PAGE MOBILE FIXES */
+    .team-grid {
+        grid-template-columns: 1fr; /* Forces exactly one card per row on mobile */
+        gap: 30px;
+    }
+
+    .team-image-wrapper {
+        height: 260px; /* Shrinks the image height so it fits nicely on the phone screen */
+    }
+
+    .team-info {
+        padding: 25px 20px;
     }
 }
