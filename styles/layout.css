@@ -125,16 +125,36 @@
     max-width: 100%; 
     height: auto; 
     border-radius: 15px; 
-    
-    /* Your trick to remove the white background */
     mix-blend-mode: multiply; 
-    
-    /* Makes the image 10% larger */
     transform: scale(1.05); 
     
-    /* Prevents the user from clicking and dragging the image */
-    -webkit-user-drag: none; 
-    user-select: none; /* Prevents highlight selection */
+    /* Ultimate Locks */
+    -webkit-user-drag: none; /* Stops desktop dragging */
+    user-select: none; /* Stops highlighting */
+    
+    /* NEW: The Ghost Effect */
+    pointer-events: none; /* Makes the image physically untouchable by the browser */
+}
+
+/* --- NEW: Image Protection Styles --- */
+
+.image-protect-wrapper {
+    position: relative;
+    display: inline-block; /* Keeps the wrapper tightly fitted to the image size */
+    max-width: 100%;
+}
+
+.transparent-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Fully invisible */
+    z-index: 10; /* Forces it to sit on top of the image */
+    
+    /* Disables the right-click menu entirely on the overlay */
+    -webkit-touch-callout: none; /* Stops iOS popup menu */
 }
 
 /* =========================================

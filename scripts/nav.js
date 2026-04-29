@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="nav-container">
             <a href="${prefix}index.html" class="nav-logo">
                 <img src="${prefix}assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
-                </a>
+            </a>
             
             <label class="hamburger-menu">
                 <input type="checkbox" id="mobile-menu-toggle">
@@ -26,16 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul class="dropdown-content">
                         <li><a href="${prefix}src/vision.html">Our Vision</a></li>
                         <li><a href="${prefix}src/team.html">Our Team</a></li>
-                        <li><a href="${prefix}src/foundation.html">Company Origin</a></li>
+                        <li><a href="${prefix}src/history.html">Company History</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/current-projects.html">Current Projects</a></li>
-                        <li><a href="${prefix}src/completed-projects.html">Completed Projects</a></li>
-                        <li><a href="${prefix}src/initiatives.html#initiatives">Green Initiatives</a></li>
+                        <li><a href="${prefix}src/current_projects.html">Current Projects</a></li>
+                        <li><a href="${prefix}src/completed_projects.html">Completed Projects</a></li>
+                        <li><a href="${prefix}src/green_initiative.html">Green Initiatives</a></li>
                     </ul>
                 </li>
 
@@ -74,12 +74,45 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinksMenu = document.getElementById('nav-links-menu');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // Toggle sliding menu
+        // --- NEW RESET LOGIC ---
+        // Function to force-close the menu and reset the screen lock
+        const closeMenu = () => {
+            if (mobileToggle) mobileToggle.checked = false; // Changes 'X' back to Hamburger
+            if (navLinksMenu) navLinksMenu.classList.remove('active'); // Hides the menu
+            document.body.style.overflow = 'auto'; // Unlocks background scrolling
+            
+            // Closes any dropdowns that were left open
+            dropdowns.forEach(drop => drop.classList.remove('mobile-active'));
+        };
+
+        // 1. Force close on initial load (just in case the browser cached the checked state)
+        closeMenu();
+
+        // 2. Force close when restoring from the Browser Back Button (BFCache)
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                closeMenu();
+            }
+        });
+
+        // 3. Force close when any actual link is clicked (useful for mobile navigation)
+        const allLinks = document.querySelectorAll('.nav-links a:not(.dropbtn)');
+        allLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    closeMenu();
+                }
+            });
+        });
+        // --- END NEW RESET LOGIC ---
+
+
+        // Toggle sliding menu normally
         if (mobileToggle && navLinksMenu) {
             mobileToggle.addEventListener('change', function() {
                 if (this.checked) {
                     navLinksMenu.classList.add('active');
-                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                    document.body.style.overflow = 'hidden'; 
                 } else {
                     navLinksMenu.classList.remove('active');
                     document.body.style.overflow = 'auto';
@@ -92,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const dropbtn = dropdown.querySelector('.dropbtn');
             dropbtn.addEventListener('click', function(e) {
                 if (window.innerWidth <= 992) {
-                    e.preventDefault(); // Prevent jump to top
+                    e.preventDefault(); 
                     dropdown.classList.toggle('mobile-active');
                 }
             });

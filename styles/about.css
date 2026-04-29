@@ -82,36 +82,34 @@
 }
 
 /* =========================================
-   3. TEAM PAGE STYLING (Cards & Images)
+   3. TEAM PAGE STYLING (Bulletproof Slide-Up)
    ========================================= */
 
 .team-grid {
     display: grid;
-    /* Reduced min-width to 280px to prevent horizontal overflow on small phones */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
     margin-top: 40px;
 }
 
 .team-card {
-    background: #fdfdfd;
+    position: relative;
+    height: 460px; 
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border-bottom: 5px solid #2E7D32;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .team-image-wrapper {
+    position: relative; /* CRITICAL: Anchors the invisible shield! */
     width: 100%;
-    height: 350px;
+    height: 100%;
     background: #e9ecef;
-    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .team-image-wrapper img {
@@ -119,38 +117,96 @@
     height: 100%;
     object-fit: cover;
     object-position: top center;
+    
+    /* THE GHOST EFFECT & ULTIMATE LOCKS */
+    pointer-events: none; /* Makes the image physically untouchable */
+    -webkit-user-drag: none; /* Stops desktop dragging */
+    user-select: none; /* Stops highlighting */
 }
 
+/* The Invisible Shield for the Team Images */
+.transparent-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Fully invisible */
+    z-index: 10; /* Sits on top of the image */
+    -webkit-touch-callout: none; /* Stops iOS popup menu */
+}
+
+.team-card:hover .team-image-wrapper,
+.team-card:focus .team-image-wrapper {
+    transform: scale(1.06);
+}
+
+/* Frosted Glass Overlay - Anchored to the bottom */
 .team-info {
-    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 25px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,0.7);
+    display: flex;
+    flex-direction: column;
 }
 
-.team-info h3 {
+.team-visible {
+    width: 100%;
+}
+
+.team-visible h3 {
     color: #2E7D32;
-    font-size: 1.6rem;
-    margin-bottom: 5px;
+    font-size: 1.5rem;
+    margin: 0 0 5px 0;
 }
 
-.team-info h4 {
+.team-visible h4 {
     color: #37474F;
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 1rem;
+    margin: 0;
 }
 
-.team-info p {
-    font-size: 1rem;
+/* The hidden content - Uses max-height expansion */
+.team-hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.4s ease, 
+                margin-top 0.4s ease;
+}
+
+/* Single, correct hover rule for 500px expansion */
+.team-card:hover .team-hidden,
+.team-card:focus .team-hidden {
+    max-height: 500px; 
+    opacity: 1;
+    margin-top: 15px; 
+    transition-delay: 0s, 0.1s, 0s; 
+}
+
+.team-hidden p {
+    font-size: 0.95rem;
     color: #546E7A;
-    margin-bottom: 25px;
-    line-height: 1.7;
+    margin: 0 0 20px 0; 
+    line-height: 1.6;
 }
 
 .team-contact {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border-top: 1px solid #eeeeee;
-    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
 }
 
 .team-contact a {
@@ -175,7 +231,7 @@
 }
 
 /* =========================================
-   4. MAIN ABOUT PAGE (Tabbed Layout - TEASERS)
+   4. MAIN ABOUT PAGE (Tabbed Layout)
    ========================================= */
 
 .tab-section {
@@ -273,7 +329,6 @@
    ========================================= */
 
 @media (max-width: 992px) {
-    /* Main About Page Tabs */
     .tab-container {
         flex-direction: column; 
         gap: 25px;
@@ -302,7 +357,6 @@
 }
 
 @media (max-width: 768px) {
-    /* Standalone Pages */
     .content-box { 
         padding: 35px 25px; 
         margin: 0 15px;
@@ -312,17 +366,32 @@
         font-size: 1.8rem;
     }
 
-    /* TEAM PAGE MOBILE FIXES */
+    /* COMPLETE TEAM PAGE MOBILE FIXES */
     .team-grid {
-        grid-template-columns: 1fr; /* Forces exactly one card per row on mobile */
+        grid-template-columns: 1fr; 
         gap: 30px;
     }
 
-    .team-image-wrapper {
-        height: 260px; /* Shrinks the image height so it fits nicely on the phone screen */
+    .team-card {
+        height: 480px; 
     }
 
     .team-info {
-        padding: 25px 20px;
+        padding: 20px; 
+    }
+
+    .team-hidden p {
+        font-size: 0.9rem; 
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+
+    .team-contact {
+        padding-top: 12px;
+        gap: 10px;
+    }
+    
+    .team-contact a {
+        font-size: 0.9rem;
     }
 }

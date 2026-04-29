@@ -404,3 +404,28 @@
         box-shadow: 0 4px 10px rgba(46, 125, 50, 0.25);
     }
 }
+/* =========================================================
+       FIX: Prevent "Sticky Hover" on Mobile Dropdown Buttons 
+       ========================================================= */
+       
+    /* 1. Force the default (closed) state, overriding any sticky hovers */
+    .dropdown > a.dropbtn {
+        color: #37474F !important; /* Dark text */
+    }
+    
+    .dropdown > a.dropbtn::after {
+        transform: rotate(0deg) !important; /* Arrow points down */
+        background-color: #f4f7f6 !important; /* Grey circle */
+        color: #546E7A !important; /* Grey arrow */
+    }
+
+    /* 2. ONLY apply the active (open) state when the menu is actually open */
+    .dropdown.mobile-active > a.dropbtn {
+        color: #2E7D32 !important; /* Green text */
+    }
+
+    .dropdown.mobile-active > a.dropbtn::after {
+        transform: rotate(180deg) !important; /* Arrow points up */
+        background-color: #E8F5E9 !important; /* Green circle */
+        color: #2E7D32 !important; /* Green arrow */
+    }
