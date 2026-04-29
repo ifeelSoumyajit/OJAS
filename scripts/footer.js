@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
                     <span class="legal-divider">|</span>
                     <a href="${prefix}src/terms.html" class="footer-legal-link">Terms & Conditions</a>
+                    <span class="legal-divider">|</span>
+                    <a href="${prefix}src/policy.html" class="footer-legal-link">Privacy Policy</a>
                 </div>
             </div>
         </div>

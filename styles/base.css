@@ -100,3 +100,99 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--primary-green-hover); 
 }
+
+/* =========================================
+   COOKIE CONSENT BANNER
+   ========================================= */
+
+.cookie-banner {
+    position: fixed;
+    bottom: -100%; /* Hidden by default */
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999; /* Ensures it stays on top of everything */
+    transition: bottom 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border-top: 4px solid #2E7D32;
+    gap: 20px;
+}
+
+.cookie-banner.show {
+    bottom: 0; /* Slides up */
+}
+
+.cookie-text {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: #455A64;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cookie-text a {
+    color: #2E7D32;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.cookie-btn.accept {
+    background: #2E7D32;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+}
+
+.cookie-btn.accept:hover {
+    background: #1B5E20;
+    transform: translateY(-2px);
+}
+
+.cookie-btn.decline {
+    background: #f4f7f6;
+    color: #546E7A;
+    border: 1px solid #cfd8dc;
+}
+
+.cookie-btn.decline:hover {
+    background: #e9ecef;
+    color: #37474F;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .cookie-btn {
+        width: 100%; /* Full width buttons on mobile */
+    }
+}

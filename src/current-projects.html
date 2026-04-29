@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Projects | OJAS BIOFUEL. LLP</title>
+    
+    <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components/navbar.css">
+    <link rel="stylesheet" href="../styles/components/footer.css">
+
+    <style>
+        .coming-soon-wrapper {
+            padding: 160px 20px 100px; /* Extra top padding to account for the fixed navbar */
+            text-align: center;
+            background: #fdfdfd;
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coming-soon-card {
+            background: #ffffff;
+            padding: 60px 45px;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.04);
+            border-top: 6px solid #2E7D32;
+            max-width: 550px;
+            width: 100%;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .coming-soon-icon {
+            font-size: 3.5rem;
+            color: #2E7D32;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .coming-soon-card h1 {
+            color: #37474F;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .coming-soon-card p {
+            color: #546E7A;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <main class="coming-soon-wrapper">
+        <div class="coming-soon-card">
+            <i class="fa-solid fa-person-digging coming-soon-icon"></i>
+            <h1>Current Projects</h1>
+            <p>We are currently updating our portfolio with our latest waste-to-energy initiatives. Please check back soon for detailed insights into our active deployments.</p>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/main.js" type="module"></script>
+    <script src="../scripts/nav.js"></script>
+    <script src="../scripts/footer.js"></script>    
+</body>
+</html>

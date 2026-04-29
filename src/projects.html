@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects & Impact | OJAS BIOFUEL. LLP</title>
+    
+    <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components/navbar.css">
+    <link rel="stylesheet" href="../styles/components/footer.css">
+
+    <style>
+        .projects-header {
+            background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.95)), url('../assets/images/Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 160px 0 80px 0; 
+            text-align: center;
+            color: white;
+        }
+
+        .projects-header h1 { 
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+        }
+
+        .projects-header p { 
+            font-size: 1.2rem; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            opacity: 0.9; 
+            line-height: 1.6;
+        }
+
+        .projects-hub-section {
+            padding: 80px 0;
+            background: #fdfdfd;
+            min-height: 60vh;
+        }
+
+        .projects-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .projects-intro h2 {
+            color: #2E7D32;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .projects-intro p {
+            font-size: 1.15rem;
+            color: #546E7A;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            padding: 45px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border-top: 5px solid #2E7D32;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .project-icon {
+            background: #e8f5e9;
+            color: #2E7D32;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+
+        .project-card:hover .project-icon {
+            background: #2E7D32;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .project-card h3 {
+            color: #37474F;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            font-size: 1.05rem;
+            color: #546E7A;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            flex-grow: 1; 
+        }
+
+        .project-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: #f4f7f6;
+            color: #2E7D32;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        
+        .project-link-btn:hover {
+            background: #2E7D32;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .projects-header { padding: 130px 20px 60px 20px; }
+            .projects-header h1 { font-size: 2.2rem; }
+            .project-card { padding: 35px 25px; }
+            .projects-intro h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <header class="projects-header">
+        <div class="container">
+            <h1>Deployments & Impact</h1>
+            <p>Discover how we are replacing fossil fuels and building sustainable circular economies across various industrial sectors.</p>
+        </div>
+    </header>
+
+    <main class="projects-hub-section">
+        <div class="container">
+            
+            <div class="projects-intro fade-in-content">
+                <h2>Our Portfolio</h2>
+                <p>Visit our two dedicated project pages below for more detailed information on our active deployments and successful past executions.</p>
+            </div>
+
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fa-solid fa-bars-progress"></i>
+                    </div>
+                    <h3>Current Projects</h3>
+                    <p>Explore the active waste-to-energy initiatives we are currently deploying across our manufacturing and industrial partner network.</p>
+                    <a href="current-projects.html" class="project-link-btn">View Active Projects <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                    <h3>Completed Projects</h3>
+                    <p>Review our case studies and successful past executions where we have permanently transitioned facilities to carbon-neutral biofuel.</p>
+                    <a href="completed-projects.html" class="project-link-btn">View Case Studies <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3>Green Initiatives</h3>
+                    <p>Learn about the measurable environmental, social, and economic impacts our circular economy model brings to rural and industrial India.</p>
+                    <a href="initiatives.html" class="project-link-btn">Explore Our Impact <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/main.js" type="module"></script>
+    <script src="../scripts/nav.js"></script>
+    <script src="../scripts/footer.js"></script>    
+</body>
+</html>

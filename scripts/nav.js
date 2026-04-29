@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/current_projects.html">Current Projects</a></li>
-                        <li><a href="${prefix}src/completed_projects.html">Completed Projects</a></li>
+                        <li><a href="${prefix}src/current-projects.html">Current Projects</a></li>
+                        <li><a href="${prefix}src/completed-projects.html">Completed Projects</a></li>
                         <li><a href="${prefix}src/initiatives.html#initiatives">Green Initiatives</a></li>
                     </ul>
                 </li>
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Services</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/services.html#agri-waste">Agri Waste Supply</a></li>
-                        <li><a href="${prefix}src/services.html#biomass">Biomass Trading</a></li>
-                        <li><a href="${prefix}src/services.html#distribution">Biofuel Distribution</a></li>
+                        <li><a href="${prefix}src/supply.html">Agri Waste Supply</a></li>
+                        <li><a href="${prefix}src/trading.html">Biomass Trading</a></li>
+                        <li><a href="${prefix}src/distribution.html">Biofuel Distribution</a></li>
                     </ul>
                 </li>
 
