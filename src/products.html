@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | OJAS BIOFUEL. LLP</title>
+    
+    <link rel="icon" type="image/png" href="../assets/images/Tab2.png?v=2">
+    <link rel="apple-touch-icon" href="../assets/images/Tab2.png?v=2">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components/navbar.css">
+    <link rel="stylesheet" href="../styles/components/footer.css">
+
+    <!-- Specific styles for the Products Grid Layout -->
+    <style>
+        .products-header {
+            background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.95)), url('../assets/images/Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 160px 0 80px 0; 
+            text-align: center;
+            color: white;
+        }
+
+        .products-header h1 { 
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+        }
+
+        .products-header p { 
+            font-size: 1.2rem; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            opacity: 0.9; 
+            line-height: 1.6;
+        }
+
+        .products-hub-section {
+            padding: 80px 0;
+            background: #fdfdfd;
+            min-height: 60vh;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            padding: 45px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border-top: 5px solid #2E7D32;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .product-icon {
+            background: #e8f5e9;
+            color: #2E7D32;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+
+        .product-card:hover .product-icon {
+            background: #2E7D32;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .product-card h2 {
+            color: #37474F;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .product-card p {
+            font-size: 1.05rem;
+            color: #546E7A;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            flex-grow: 1; /* Pushes the button perfectly to the bottom */
+        }
+
+        .product-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: #f4f7f6;
+            color: #2E7D32;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        
+        .product-link-btn:hover {
+            background: #2E7D32;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+        }
+
+        /* Special styling for the Order Card to make it stand out */
+        .order-card {
+            border-top: 5px solid #F57C00;
+        }
+        .order-card .product-icon {
+            color: #F57C00;
+            background: #FFF3E0;
+        }
+        .order-card:hover .product-icon {
+            background: #F57C00;
+            color: #ffffff;
+        }
+        .order-card .product-link-btn {
+            color: #F57C00;
+        }
+        .order-card .product-link-btn:hover {
+            background: #F57C00;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(245, 124, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .products-header { padding: 130px 20px 60px 20px; }
+            .products-header h1 { font-size: 2.2rem; }
+            .product-card { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <header class="products-header">
+        <div class="container">
+            <h1>Premium Biofuel Products</h1>
+            <p>High-efficiency, carbon-neutral energy solutions engineered to replace fossil fuels across industrial manufacturing and commercial heating.</p>
+        </div>
+    </header>
+
+    <main class="products-hub-section">
+        <div class="container">
+            <div class="products-grid">
+                
+                <!-- Product 1: Industrial Fuel -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <h2>Industrial Fuel</h2>
+                    <p>Clean, high-performance liquid biofuels designed as a direct drop-in replacement for diesel and furnace oil in industrial generators and heavy machinery.</p>
+                    <a href="fuel.html" class="product-link-btn">View Specifications <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Product 2: Biomass Briquettes -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h2>Biomass Briquettes</h2>
+                    <p>Dense, high-calorific solid fuel blocks manufactured from compacted agricultural waste. Ideal for industrial boilers, offering sustained heat with minimal ash.</p>
+                    <a href="briquettes.html" class="product-link-btn">View Specifications <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Product 3: Biomass Pellets -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fa-solid fa-fire-burner"></i>
+                    </div>
+                    <h2>Biomass Pellets</h2>
+                    <p>Premium, uniform, low-moisture biomass pellets that provide consistent, automated combustion for specialized commercial heating and power generation.</p>
+                    <a href="pellets.html" class="product-link-btn">View Specifications <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Action Card: Order Online -->
+                <div class="product-card order-card">
+                    <div class="product-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h2>Bulk Ordering</h2>
+                    <p>Ready to decarbonize your facility? Secure your supply chain today. Place bulk orders or request a sample of our sustainable fuels for testing.</p>
+                    <a href="order.html" class="product-link-btn">Place an Order <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/main.js" type="module"></script>
+    <script src="../scripts/nav.js"></script>
+    <script src="../scripts/footer.js"></script>    
+</body>
+</html>
