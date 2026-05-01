@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navHTML = `
     <nav class="navbar">
         <div class="nav-container">
-            <a href="${prefix}index.html" class="nav-logo">
+            <!-- ADDED: oncontextmenu="return false;" to block right-clicks/long-presses -->
+            <a href="${prefix}index.html" class="nav-logo" oncontextmenu="return false;">
                 <img src="${prefix}assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
             </a>
             
@@ -26,16 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul class="dropdown-content">
                         <li><a href="${prefix}src/vision.html">Our Vision</a></li>
                         <li><a href="${prefix}src/team.html">Our Team</a></li>
-                        <li><a href="${prefix}src/history.html">Company History</a></li>
+                        <li><a href="${prefix}src/foundation.html">Company History</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/current_projects.html">Current Projects</a></li>
-                        <li><a href="${prefix}src/completed_projects.html">Completed Projects</a></li>
-                        <li><a href="${prefix}src/green_initiative.html">Green Initiatives</a></li>
+                        <li><a href="${prefix}src/current-projects.html">Current Projects</a></li>
+                        <li><a href="${prefix}src/completed-projects.html">Completed Projects</a></li>
+                        <li><a href="${prefix}src/initiatives.html">Green Initiatives</a></li>
                     </ul>
                 </li>
 

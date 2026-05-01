@@ -29,13 +29,13 @@
 }
 
 /* Logo and Brand Text */
+/* Logo and Brand Text */
 .nav-logo {
     display: flex;
     align-items: center;
     text-decoration: none;
     gap: 15px;
     flex-shrink: 0; 
-    pointer-events: none; 
     user-select: none; 
     -webkit-user-select: none; 
 }
@@ -44,7 +44,9 @@
     height: 55px; 
     width: auto;
     padding-left: 40px;
-    -webkit-user-drag: none; 
+    /* Ultimate Locks */
+    -webkit-user-drag: none; /* Stops desktop dragging */
+    pointer-events: none; /* Makes the image a ghost, stopping downloads but allowing clicks to pass through to the link! */
 }
 
 .logo-text {
@@ -133,7 +135,7 @@
     padding-left: 22px; 
 }
 
-/* Rotating Arrow Indicator */
+/* Desktop Rotating Arrow Indicator */
 .dropbtn::after {
     content: '▾';
     font-size: 1.1rem;
@@ -141,7 +143,8 @@
     display: flex; 
     align-items: center; 
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
+    background: transparent; /* Ensures no background on desktop */
 }
 
 .dropdown:hover .dropbtn::after {
@@ -182,14 +185,14 @@
     /* Shrink Navbar & FORCE it to stay locked at the top */
     .navbar { 
         height: 80px; 
-        position: fixed !important; /* The magic lock */
+        position: fixed !important; 
         top: 0 !important; 
         left: 0;
         width: 100%;
-        z-index: 9999 !important; /* Forces it above all page content */
+        z-index: 9999 !important; 
         background: rgba(255, 255, 255, 0.95); 
         backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px); /* Safari support for the blur */
+        -webkit-backdrop-filter: blur(10px); 
     }
 
     .logo-img { height: 45px; padding-left: 10px; }
@@ -220,17 +223,13 @@
     .hamburger-menu input:checked ~ .bar-bot { transform: translateY(-9px) rotate(-45deg); }
 
     /* 2. "Floating Glass Island" Overlay */
-    /* 2. "Floating Glass Island" Overlay */
     .nav-links {
         position: fixed;
         top: 90px; 
         right: -120%; 
         width: calc(100vw - 30px); 
         max-width: 380px;
-        
-        /* Forces the menu to stop before the bottom of the screen */
         max-height: calc(100vh - 110px); 
-        
         background: rgba(248, 250, 249, 0.75); 
         backdrop-filter: blur(25px); 
         -webkit-backdrop-filter: blur(25px);
@@ -238,18 +237,13 @@
         border-radius: 24px;
         flex-direction: column;
         align-items: stretch;
-        
-        /* Extra bottom padding ensures the last item isn't cut off when fully scrolled */
         padding: 20px 20px 40px 20px; 
-        box-sizing: border-box; /* Keeps padding inside the max-height */
-        
+        box-sizing: border-box; 
         box-shadow: 0 30px 60px rgba(0,0,0,0.12), inset 0 2px 10px rgba(255,255,255,0.5);
         transition: right 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
-        
-        /* THE SCROLLING ENGINE */
         overflow-y: auto; 
         overflow-x: hidden;
-        overscroll-behavior: contain; /* PRO TRICK: Stops the website underneath from scrolling! */
+        overscroll-behavior: contain; 
         gap: 0; 
     }
 
@@ -257,24 +251,10 @@
         right: 15px; 
     }
 
-    /* Sleek Custom Scrollbar for the Mobile Menu */
-    .nav-links::-webkit-scrollbar {
-        width: 5px; /* Very thin, native-app feel */
-    }
-    
-    .nav-links::-webkit-scrollbar-track {
-        background: transparent; 
-        margin: 20px 0; /* Keeps the scrollbar away from the rounded corners */
-    }
-    
-    .nav-links::-webkit-scrollbar-thumb {
-        background: rgba(46, 125, 50, 0.25); /* Subtle transparent green */
-        border-radius: 10px;
-    }
-    
-    .nav-links::-webkit-scrollbar-thumb:hover {
-        background: rgba(46, 125, 50, 0.6); /* Darkens when touched */
-    }
+    .nav-links::-webkit-scrollbar { width: 5px; }
+    .nav-links::-webkit-scrollbar-track { background: transparent; margin: 20px 0; }
+    .nav-links::-webkit-scrollbar-thumb { background: rgba(46, 125, 50, 0.25); border-radius: 10px; }
+    .nav-links::-webkit-scrollbar-thumb:hover { background: rgba(46, 125, 50, 0.6); }
     
     /* 3. "Widget Cards" Navigation */
     .nav-links > li {
@@ -286,8 +266,6 @@
         transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         overflow: hidden; 
         width: 100%;
-        
-        /* THE SCROLL FIX: Stops cards from shrinking so the menu actually scrolls */
         flex-shrink: 0; 
     }
 
@@ -295,14 +273,12 @@
         margin-bottom: 0;
     }
 
-    /* Active Card "Pop" Effect */
     .dropdown.mobile-active {
         border-color: rgba(46, 125, 50, 0.3);
         box-shadow: 0 10px 30px rgba(46, 125, 50, 0.12);
-        transform: scale(1.02); /* Card pops forward subtly */
+        transform: scale(1.02); 
     }
 
-    /* Main Link Text inside Cards */
     .nav-links li a {
         font-size: 1.1rem;
         font-weight: 700;
@@ -326,24 +302,21 @@
         background: #ffffff;
         box-shadow: none;
         border: none;
-        border-top: 1px dashed #e0e0e0; /* Clean separator line inside card */
+        border-top: 1px dashed #e0e0e0; 
         border-radius: 0;
         min-width: 100%;
-        
         display: block; 
         max-height: 0; 
         opacity: 0; 
         visibility: hidden;
         padding: 0 20px; 
         margin: 0;
-        
         transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                     opacity 0.3s ease,
                     padding 0.3s ease,
                     visibility 0.3s ease;
     }
 
-    /* Neutralize desktop hover interference */
     .dropdown:hover .dropdown-content {
         max-height: 0;
         opacity: 0;
@@ -351,18 +324,14 @@
         padding: 0 20px;
     }
 
-    /* Reveal the sub-links */
     .dropdown.mobile-active .dropdown-content {
         max-height: 350px; 
         opacity: 1;
         visibility: visible;
-        padding: 10px 20px 15px; /* Opens up space inside the card */
+        padding: 10px 20px 15px; 
     }
 
-    /* Sub-link Styling */
-    .dropdown-content li {
-        border-bottom: none;
-    }
+    .dropdown-content li { border-bottom: none; }
 
     .dropdown-content li a {
         font-size: 0.95rem;
@@ -372,20 +341,18 @@
         border-bottom: 1px solid #f9fbf9;
     }
 
-    .dropdown-content li:last-child a {
-        border-bottom: none;
-    }
+    .dropdown-content li:last-child a { border-bottom: none; }
     
     .dropdown-content li a:hover,
     .dropdown-content li a:active {
         color: #2E7D32;
-        padding-left: 10px; /* satisfying micro-indent */
+        padding-left: 10px; 
     }
 
-    /* 5. Circular Interactive Badge for Arrows */
+    /* 5. Circular Interactive Badge for Arrows (MOBILE ONLY) */
     .dropbtn::after {
         margin-left: auto; 
-        background: #f4f7f6;
+        background: #f4f7f6; /* Grey circle */
         color: #90A4AE;
         width: 34px;
         height: 34px;
@@ -403,29 +370,29 @@
         color: #ffffff;
         box-shadow: 0 4px 10px rgba(46, 125, 50, 0.25);
     }
-}
-/* =========================================================
+
+    /* =========================================================
        FIX: Prevent "Sticky Hover" on Mobile Dropdown Buttons 
+       (PROPERLY PLACED INSIDE THE MOBILE MEDIA QUERY)
        ========================================================= */
        
-    /* 1. Force the default (closed) state, overriding any sticky hovers */
     .dropdown > a.dropbtn {
-        color: #37474F !important; /* Dark text */
+        color: #37474F !important; 
     }
     
     .dropdown > a.dropbtn::after {
-        transform: rotate(0deg) !important; /* Arrow points down */
-        background-color: #f4f7f6 !important; /* Grey circle */
-        color: #546E7A !important; /* Grey arrow */
+        transform: rotate(0deg) !important; 
+        background-color: #f4f7f6 !important; 
+        color: #546E7A !important; 
     }
 
-    /* 2. ONLY apply the active (open) state when the menu is actually open */
     .dropdown.mobile-active > a.dropbtn {
-        color: #2E7D32 !important; /* Green text */
+        color: #2E7D32 !important; 
     }
 
     .dropdown.mobile-active > a.dropbtn::after {
-        transform: rotate(180deg) !important; /* Arrow points up */
-        background-color: #E8F5E9 !important; /* Green circle */
-        color: #2E7D32 !important; /* Green arrow */
+        transform: rotate(180deg) !important; 
+        background-color: #E8F5E9 !important; 
+        color: #2E7D32 !important; 
     }
+} /* <--- CLOSING BRACKET FOR MOBILE MEDIA QUERY */

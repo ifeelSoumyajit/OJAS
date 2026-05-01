@@ -216,6 +216,46 @@
 }
 
 /* =========================================
+   RESOURCE CREDITS BOX
+   ========================================= */
+
+.resource-credits-box {
+    grid-column: 1 / -1; /* Fixes the width: forces the box to span across both columns */
+    background: #f8faf9; 
+    padding: 30px 40px; 
+    border-radius: 12px; 
+    border-left: 6px solid #2E7D32; 
+    margin: 0 15px 15px 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.resource-credits-box p {
+    color: #455A64;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+    text-align: justify;
+}
+
+/* Fixes the broken lines: Forces the bold words back inside the paragraph */
+.resource-credits-box p strong {
+    display: inline; 
+    color: #2E7D32;
+    font-size: inherit;
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .resource-credits-box {
+        padding: 25px 20px;
+        margin: 0 0 20px 0;
+    }
+}
+
+/* =========================================
    COMPREHENSIVE LICENSE SECTION
    ========================================= */
 

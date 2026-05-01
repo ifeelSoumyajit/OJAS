@@ -1,37 +1,150 @@
 /* =========================================
-   CONTACT PAGE WRAPPER
+   CONTACT PAGE WRAPPER & HEADER
    ========================================= */
 
 .contact-wrapper { 
-    padding: 60px 0; 
-    background: #f9fbf9; 
-    margin-top: 120px; /* Prevents overlap with fixed navbar */
+    padding: 60px 0 100px 0; 
+    background: #fdfdfd; 
+    margin-top: 100px; /* Accounts for navbar */
     min-height: 80vh;
 }
 
-.contact-stack { 
-    max-width: 900px; 
-    margin: 0 auto; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 40px; 
+.contact-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.contact-header h1 {
+    font-size: 3rem;
+    color: #2E7D32;
+    margin-bottom: 15px;
+}
+
+.contact-header p {
+    font-size: 1.15rem;
+    color: #546E7A;
+    line-height: 1.6;
 }
 
 /* =========================================
-   FORM CARD
+   EMAIL COPY FEATURE (THE "BIG EMAIL")
    ========================================= */
 
+.email-direct-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.email-copy-container {
+    background: #E8F5E9;
+    padding: 25px 40px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative; /* Anchor for the tooltip */
+    border: 1px dashed rgba(46, 125, 50, 0.3);
+}
+
+.email-copy-container p {
+    color: #455A64;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.big-email-btn {
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #2E7D32;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.big-email-btn i {
+    font-size: 1.5rem;
+    color: #81C784;
+    transition: all 0.3s ease;
+}
+
+.big-email-btn:hover {
+    color: #1B5E20;
+    transform: translateY(-2px);
+}
+
+.big-email-btn:hover i {
+    color: #1B5E20;
+}
+
+/* The Tooltip */
+.copied-tooltip {
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #263238;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+
+/* Tooltip little triangle pointer */
+.copied-tooltip::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #263238 transparent;
+}
+
+.copied-tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =========================================
+   MODERN SPLIT LAYOUT (FORM & INFO)
+   ========================================= */
+
+.contact-grid { 
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Form takes slightly more space than info */
+    gap: 40px; 
+    align-items: stretch; /* Makes both cards equal height */
+}
+
+/* --- THE FORM CARD --- */
 .form-card { 
-    background: #fff; 
-    padding: 40px; 
-    border-radius: 15px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+    background: #ffffff; 
+    padding: 50px 45px; 
+    border-radius: 20px; 
+    box-shadow: 0 15px 45px rgba(0,0,0,0.04); 
+    border-top: 6px solid #2E7D32;
 }
 
 .form-card h2 { 
-    color: var(--primary-green); 
-    margin-bottom: 20px; 
-    text-align: center; 
+    color: #2E7D32; 
+    margin-bottom: 25px; 
+    font-size: 2rem;
 }
 
 .contact-form { 
@@ -46,112 +159,137 @@
 
 .contact-form input, 
 .contact-form textarea { 
-    padding: 15px; 
-    border: 1px solid #e0e0e0; 
-    border-radius: 8px; 
+    padding: 16px 20px; 
+    border: 1px solid #cfd8dc; 
+    border-radius: 12px; 
     font-family: inherit; 
-    transition: border-color 0.3s;
+    font-size: 1rem;
+    color: #37474F;
+    background: #fdfdfd;
+    transition: all 0.3s ease;
 }
 
 .contact-form input:focus, 
 .contact-form textarea:focus {
-    border-color: var(--primary-green);
+    border-color: #2E7D32;
+    background: #ffffff;
     outline: none;
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
 }
 
 .submit-btn { 
-    background: var(--primary-green); 
+    background: #2E7D32; 
     color: white; 
-    padding: 15px; 
+    padding: 18px; 
     border: none; 
-    border-radius: 8px; 
+    border-radius: 12px; 
     cursor: pointer; 
     font-weight: 700; 
-    transition: 0.3s; 
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease; 
 }
 
 .submit-btn:hover { 
     background: #1B5E20; 
-    transform: translateY(-2px); 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.25); 
 }
 
-/* =========================================
-   EMAIL HIGHLIGHT SECTION
-   ========================================= */
-
-.email-direct-section { 
-    text-align: center; 
-    padding: 20px 0; 
-}
-
-.email-direct-section p { 
-    font-size: 1.2rem; 
-    color: #455A64; 
-    margin: 0; 
-}
-
-.big-email { 
-    display: block; 
-    font-size: 2.5rem; 
-    font-weight: 800; 
-    color: var(--primary-green); 
-    margin-top: 10px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.big-email:hover { 
-    color: #1B5E20; 
-    transform: scale(1.02); 
-}
-
-/* =========================================
-   INFO CARD (DIRECT CONTACT & MAP)
-   ========================================= */
-
+/* --- THE INFO CARD --- */
 .info-card { 
-    background: #263238; 
+    background: #263238; /* Industrial dark blue/grey */
     color: #ffffff; 
-    padding: 40px; 
-    border-radius: 15px; 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 40px; 
-    align-items: center; 
+    padding: 50px 45px; 
+    border-radius: 20px; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+}
+
+.info-content {
+    flex-grow: 1; /* Pushes map to the bottom naturally */
 }
 
 .info-content h2 { 
     color: #81C784; 
-    margin-bottom: 25px; 
+    margin-bottom: 30px; 
+    font-size: 2rem;
 }
 
-.info-content p { 
-    margin-bottom: 15px; 
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.info-row i {
+    color: #81C784;
+    font-size: 1.3rem;
+    margin-top: 4px;
+}
+
+.info-row p { 
+    margin: 0; 
     line-height: 1.6; 
+    font-size: 1.05rem;
+    color: #ECEFF1;
+}
+
+.info-row p span {
+    color: #90A4AE;
+    font-size: 0.9rem;
 }
 
 .map-frame { 
     height: 250px; 
-    border-radius: 10px; 
+    border-radius: 12px; 
     overflow: hidden; 
     border: 2px solid rgba(255,255,255,0.1); 
+    margin-top: 20px;
 }
 
 /* =========================================
    RESPONSIVE ADJUSTMENTS
    ========================================= */
 
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stacks the form and info card on top of each other */
+    }
+}
+
 @media (max-width: 768px) { 
-    .contact-form, 
-    .info-card { 
+    .contact-wrapper {
+        padding: 40px 0 60px 0;
+    }
+
+    .contact-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .big-email-btn { 
+        font-size: 1.4rem; 
+        gap: 10px;
+    }
+
+    .big-email-btn i {
+        font-size: 1.2rem;
+    }
+
+    .contact-form { 
         grid-template-columns: 1fr; 
     } 
     
     .contact-form .full-width { 
         grid-column: span 1; 
     }
-    
-    .big-email { 
-        font-size: 1.8rem; 
+
+    .form-card, .info-card {
+        padding: 35px 25px;
     }
 }

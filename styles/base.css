@@ -29,6 +29,19 @@ body {
     color: var(--industrial-gray);
     /* Prevents horizontal scrollbar issues */
     overflow-x: hidden; 
+    
+    /* =========================================
+       NEW: STICKY FOOTER FIX
+       ========================================= */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Forces body to be at least the height of the screen */
+    margin: 0;
+}
+
+/* Tells the main content area to stretch and fill all empty space */
+main {
+    flex-grow: 1; 
 }
 
 /* Global Container */

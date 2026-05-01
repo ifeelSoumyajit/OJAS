@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <ul>
                     <li><a href="${prefix}index.html">Home</a></li>
                     <li><a href="${prefix}src/about.html">About</a></li>
+                    <li><a href="${prefix}src/products.html">Products</a></li>
                     <li><a href="${prefix}src/projects.html">Projects</a></li>
                     <li><a href="${prefix}src/services.html">Services</a></li>
                 </ul>
@@ -47,23 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>Credits & Attributes</h3>
                 <hr>
                 <div class="attributes-list">
-                    <div class="attr-item">
-                        <strong>Icons:</strong>
-                        <p>Font Awesome, Flaticon</p>
-                    </div>
-                    <div class="attr-item">
-                        <strong>Photography:</strong>
-                        <p>All images featured on this site are 100% AI-generated.</p>
-                    </div>
-                    <div class="attr-item">
-                        <strong>Typography:</strong>
-                        <p>Google Fonts (Montserrat / Open Sans)</p>
-                    </div>
-                    <div class="attr-item">
-                        <strong>Mapping Services:</strong>
-                        <p>Powered by Google Maps</p>
-                    </div>
                     
+                    <!-- BOX 1: The Resource Credits summarized as a paragraph -->
+                    <div class="attr-item resource-credits-box">
+                        <strong>Resource Credits:</strong>
+                        <p>
+                            To deliver a seamless and engaging digital experience, this platform leverages industry-leading third-party technologies. 
+                            Our interface is crafted using typography from Google Fonts (Montserrat and Open Sans) alongside premium iconography from Font 
+                            Awesome and Flaticon. For unique visual storytelling, all photography featured across the site is entirely self-conceived. 
+                            Additionally, our geolocation and mapping services are securely powered by Google Maps.
+                        </p>
+                    </div>
+
+                    <!-- BOX 2: The Comprehensive License Details -->
                     <div class="attr-item license-context">
                         <strong>Comprehensive License Details:</strong>
                         <p class="license-paragraph">
@@ -83,8 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         </p>
                     </div>
 
+                    <!-- BOX 3: Dev Signature -->
                     <div class="attr-item dev-signature">
-                        <p class="engineered-text">Engineered by</p>
+                        <p class="engineered-text">Designed by</p>
                         <p class="dev-name">SOUMYAJIT MANDAL</p>
                         <a href="https://pixeldesigns.onrender.com" target="_blank" class="pixel-link">
                             PIXEL DESIGNS. <i class="fa-solid fa-link"></i>

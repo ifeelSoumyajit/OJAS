@@ -7,7 +7,7 @@
     
     <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="../styles/base.css">
     <link rel="stylesheet" href="../styles/layout.css">
@@ -21,36 +21,60 @@
 
     <main class="contact-wrapper">
         <div class="container">
-            <div class="contact-stack">
+            
+            <div class="contact-header">
+                <h1>Let's Connect</h1>
+                <p>Have questions about our sustainable energy solutions or want to discuss a bulk order? Our team is ready to help.</p>
+            </div>
+
+            <!-- The Redesigned Big Email Section -->
+            <section class="email-direct-section">
+                <div class="email-copy-container">
+                    <p>Reach us directly at</p>
+                    <button class="big-email-btn" id="copy-email-btn" title="Click to copy">
+                        vinodzalake25@gmail.com <i class="fa-regular fa-copy"></i>
+                    </button>
+                    <!-- The Hidden Tooltip -->
+                    <span class="copied-tooltip" id="copied-tooltip">Copied to clipboard!</span>
+                </div>
+            </section>
+
+            <!-- Modern Split Layout -->
+            <div class="contact-grid">
+                
+                <!-- Left: The Form -->
                 <section class="form-card">
-                    <h2>Send us a Query</h2>
+                    <h2>Send a Message</h2>
                     
                     <form id="contactForm" class="contact-form" action="https://formspree.io/f/xpqkeevn" method="POST">
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <input type="text" name="Subject" placeholder="Subject" class="full-width">
-                        <textarea name="Message" rows="4" placeholder="How can we help you?" class="full-width" required></textarea>
-                        <button type="submit" class="submit-btn full-width">Send Message</button>
+                        <input type="text" name="Name" placeholder="Your Full Name" required>
+                        <input type="email" name="Email" placeholder="Your Email Address" required>
+                        <input type="text" name="Subject" placeholder="Subject / Company Name" class="full-width">
+                        <textarea name="Message" rows="5" placeholder="How can we help you achieve your energy goals?" class="full-width" required></textarea>
+                        <button type="submit" class="submit-btn full-width">Send Message <i class="fa-solid fa-paper-plane"></i></button>
                     </form>
                     
                     <div id="formStatus" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; padding: 15px; border-radius: 8px; font-size: 1.05rem;"></div>
-
                 </section>
 
-                <section class="email-direct-section">
-                    <p>Or directly connect to</p>
-                    <a href="mailto:vinodzalake25@gmail.com" class="big-email">vinodzalake25@gmail.com</a>
-                </section>
-
+                <!-- Right: The Info & Map -->
                 <section class="info-card">
                     <div class="info-content">
-                        <h2>Direct Contact</h2>
-                        <p><strong><i class="fa-solid fa-user"></i> Vinod Zalake</strong><br>Founder & Director</p>
-                        <p><i class="fa-solid fa-phone"></i> +91 70307 21875 / 74</p>
-                        <p><i class="fa-solid fa-envelope"></i> vinodzalake25@gmail.com</p>
-                        <p><i class="fa-solid fa-location-dot"></i> FL NO 03, CHINTAMANI NR MAHADEV MANDIR,<br> 
-                           KHADAKWASLA, PUNE 411024</p>
+                        <h2>Headquarters</h2>
+                        <div class="info-row">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p>FL NO 03, CHINTAMANI NR MAHADEV MANDIR,<br>KHADAKWASLA, PUNE 411024</p>
+                        </div>
+                        <div class="info-row">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>+91 70307 21875 / 74</p>
+                        </div>
+                        <div class="info-row">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <p><strong>Vinod Zalake</strong><br><span>Founder & Director</span></p>
+                        </div>
                     </div>
+                    
                     <div class="map-frame">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.843603417734!2d73.77458631489163!3d18.445413187453472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI2JzQzLjUiTiA3M8KwNDYnMzYuNSJF!5e0!3m2!1sen!2sin!4v1649660000000!5m2!1sen!2sin" 
@@ -62,6 +86,7 @@
                         </iframe>
                     </div>
                 </section>
+                
             </div>
         </div>
     </main>
@@ -74,15 +99,15 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // --- 1. Formspree Submission Logic ---
             var form = document.getElementById("contactForm");
             var status = document.getElementById("formStatus");
             var submitBtn = form.querySelector('button[type="submit"]');
 
             form.addEventListener("submit", async function(event) {
-                event.preventDefault(); // Stops the redirect
+                event.preventDefault(); 
                 
-                // Show loading state
-                submitBtn.textContent = 'Sending...';
+                submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-circle-notch fa-spin"></i>';
                 submitBtn.disabled = true;
                 status.style.display = "none";
 
@@ -91,12 +116,9 @@
                 fetch(form.action, {
                     method: form.method,
                     body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 }).then(response => {
                     if (response.ok) {
-                        // Success formatting
                         status.innerHTML = "Thanks for getting in touch. Our team will connect you shortly.";
                         status.style.backgroundColor = "#E8F5E9";
                         status.style.color = "#2E7D32";
@@ -104,7 +126,6 @@
                         status.style.display = "block";
                         form.reset();
                     } else {
-                        // Formspree error handling
                         response.json().then(data => {
                             if (Object.hasOwn(data, 'errors')) {
                                 status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
@@ -118,16 +139,41 @@
                         })
                     }
                 }).catch(error => {
-                    // Network error handling
                     status.innerHTML = "Oops! There was a network problem submitting your form.";
                     status.style.backgroundColor = "#FFEBEE";
                     status.style.color = "#D32F2F";
                     status.style.border = "1px solid #FFCDD2";
                     status.style.display = "block";
                 }).finally(() => {
-                    // Reset button back to normal
-                    submitBtn.textContent = 'Send Message';
+                    submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
                     submitBtn.disabled = false;
+                });
+            });
+
+            // --- 2. Copy Email to Clipboard Logic ---
+            const copyBtn = document.getElementById('copy-email-btn');
+            const tooltip = document.getElementById('copied-tooltip');
+            const emailToCopy = "vinodzalake25@gmail.com";
+
+            copyBtn.addEventListener('click', function() {
+                // Use the modern clipboard API
+                navigator.clipboard.writeText(emailToCopy).then(() => {
+                    // Show tooltip
+                    tooltip.classList.add('show');
+                    
+                    // Change icon temporarily to a checkmark
+                    const icon = copyBtn.querySelector('i');
+                    icon.className = "fa-solid fa-check";
+                    copyBtn.style.color = "#1B5E20";
+
+                    // Hide tooltip and reset icon after 2.5 seconds
+                    setTimeout(() => {
+                        tooltip.classList.remove('show');
+                        icon.className = "fa-regular fa-copy";
+                        copyBtn.style.color = ""; // resets to default css
+                    }, 2500);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
                 });
             });
         });
