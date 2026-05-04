@@ -158,10 +158,10 @@
    ========================================= */
 
 .toast {
-    position: fixed; /* This anchors it to the screen, not the page */
-    bottom: 40px; /* Always 40px from the bottom of the monitor */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%) translateY(100px); /* Start hidden below the screen */
+    position: fixed; 
+    bottom: 40px; 
+    left: 50%; 
+    transform: translateX(-50%) translateY(100px); 
     background: #2E7D32;
     color: #ffffff;
     padding: 16px 28px;
@@ -172,7 +172,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    z-index: 9999; /* Ensures it is above everything else */
+    z-index: 999999; /* Increased to ensure nothing overlaps it! */
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
