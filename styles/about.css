@@ -153,6 +153,43 @@
     transform: scale(1.06);
 }
 
+/* =========================================
+   TOAST NOTIFICATION (Bulletproof Fixed Position)
+   ========================================= */
+
+.toast {
+    position: fixed; /* This anchors it to the screen, not the page */
+    bottom: 40px; /* Always 40px from the bottom of the monitor */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%) translateY(100px); /* Start hidden below the screen */
+    background: #2E7D32;
+    color: #ffffff;
+    padding: 16px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 15px 30px rgba(46, 125, 50, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999; /* Ensures it is above everything else */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+/* When the JavaScript adds the .show class, it slides up and fades in */
+.toast.show {
+    transform: translateX(-50%) translateY(0); 
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast i {
+    font-size: 1.3rem;
+    color: #a4df10; 
+}
+
 /* Frosted Glass Overlay - Anchored to the bottom */
 .team-info {
     position: absolute;
