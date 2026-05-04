@@ -5,7 +5,8 @@
 /* Navbar Container Styling */
 .navbar {
     height: 100px; 
-    background: rgba(255, 255, 255, 0.95);
+    /* Added Micro-Texture: SVG Noise blended with semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
@@ -19,16 +20,17 @@
 }
 
 .nav-container {
-    max-width: 1400px; 
-    margin: 0 auto;
-    width: 95%; 
+    max-width: 100%; 
+    width: 100%; 
+    padding-left: 40px; 
+    padding-right: 0; 
+    margin: 0;
     display: flex;
     justify-content: space-between; 
     align-items: center;
     height: 100%;
 }
 
-/* Logo and Brand Text */
 /* Logo and Brand Text */
 .nav-logo {
     display: flex;
@@ -43,10 +45,9 @@
 .logo-img {
     height: 55px; 
     width: auto;
-    padding-left: 40px;
-    /* Ultimate Locks */
-    -webkit-user-drag: none; /* Stops desktop dragging */
-    pointer-events: none; /* Makes the image a ghost, stopping downloads but allowing clicks to pass through to the link! */
+    padding-left: 80px;
+    -webkit-user-drag: none; 
+    pointer-events: none; 
 }
 
 .logo-text {
@@ -144,7 +145,7 @@
     align-items: center; 
     justify-content: center;
     transition: transform 0.3s ease, color 0.3s ease;
-    background: transparent; /* Ensures no background on desktop */
+    background: transparent; 
 }
 
 .dropdown:hover .dropbtn::after {
@@ -190,12 +191,14 @@
         left: 0;
         width: 100%;
         z-index: 9999 !important; 
-        background: rgba(255, 255, 255, 0.95); 
+        /* Added Micro-Texture for Mobile Navbar */
+        background-color: rgba(255, 255, 255, 0.92);
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px); 
     }
 
-    .logo-img { height: 45px; padding-left: 10px; }
+    .logo-img { height: 45px; padding-left: 0px; }
     .logo-text { font-size: 1.6rem; }
 
     /* 1. Hamburger Icon Logic */
@@ -205,7 +208,8 @@
         gap: 6px;
         width: 32px;
         cursor: pointer;
-        z-index: 2000; 
+        z-index: 2000;
+        margin-right: 20px;
     }
 
     .hamburger-menu input { display: none; }
@@ -230,7 +234,9 @@
         width: calc(100vw - 30px); 
         max-width: 380px;
         max-height: calc(100vh - 110px); 
-        background: rgba(248, 250, 249, 0.75); 
+        /* Added Micro-Texture for the Mobile Menu Island */
+        background-color: rgba(248, 250, 249, 0.85); 
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
         backdrop-filter: blur(25px); 
         -webkit-backdrop-filter: blur(25px);
         border: 1px solid rgba(255, 255, 255, 0.8);
@@ -396,3 +402,71 @@
         color: #2E7D32 !important; 
     }
 } /* <--- CLOSING BRACKET FOR MOBILE MEDIA QUERY */
+
+/* Creates extra distance between 'Products' and the 'Contact' button */
+@media (min-width: 993px) {
+    .nav-links > li:last-child {
+        margin-left: 2px;
+    }
+}
+
+/* =========================================
+   CONTACT BUTTON (Sweep In Left, Sweep Out Right + Active State)
+   ========================================= */
+
+@media (min-width: 993px) {
+    
+    .nav-links > li:last-child {
+        height: 100px; 
+        display: flex;
+        align-items: center;
+        margin-left: 100px; 
+        padding-right: 0; 
+    }
+
+    .nav-links > li:last-child > a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 101%; 
+        padding: 0 50px; 
+        background-color: #2F4213; 
+        color: #ffffff !important;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        overflow: hidden; 
+        z-index: 1;
+        transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Change text to black when hovering OR when active */
+    .nav-links > li:last-child > a:hover,
+    .nav-links > li:last-child > a.active {
+        color: #000000 !important;
+    }
+
+    /* 1. RESTING / EXIT STATE: Anchored to the right, width shrinks to 0 */
+    .nav-links > li:last-child > a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 101%;
+        background-color: #a4df10; 
+        z-index: -1; 
+        right: 0; 
+        left: auto;
+        width: 0; 
+        transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* 2. HOVER / ACTIVE STATE: Anchored to the left, width grows to 100% */
+    .nav-links > li:last-child > a:hover::before,
+    .nav-links > li:last-child > a.active::before {
+        left: 0; 
+        right: auto;
+        width: 100%; 
+        transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+}

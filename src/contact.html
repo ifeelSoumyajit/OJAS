@@ -176,6 +176,17 @@
                     console.error('Failed to copy text: ', err);
                 });
             });
+
+            // --- 3. Persistent Active State for Navbar ---
+            // Because nav.js loads the navbar dynamically, we wait a fraction of a second 
+            // for it to appear on the screen, then force the Contact button to stay "active".
+            setTimeout(() => {
+                const contactNavLink = document.querySelector('.nav-links > li:last-child > a');
+                if (contactNavLink) {
+                    contactNavLink.classList.add('active');
+                }
+            }, 300); 
+            
         });
     </script>
 </body>
