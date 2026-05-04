@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const inPagesFolder = window.location.pathname.includes('/src/');
-    const prefix = inPagesFolder ? '../' : '';
-
+    
     const footerHTML = `
     <footer class="main-footer">
         <div class="container footer-grid">
@@ -14,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="footer-links">
                 <h4>Explore</h4>
                 <ul>
-                    <li><a href="${prefix}index.html">Home</a></li>
-                    <li><a href="${prefix}src/about.html">About</a></li>
-                    <li><a href="${prefix}src/products.html">Products</a></li>
-                    <li><a href="${prefix}src/projects.html">Projects</a></li>
-                    <li><a href="${prefix}src/services.html">Services</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/services">Services</a></li>
                 </ul>
             </div>
 
@@ -30,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="footer-legal-group">
                     <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
                     <span class="legal-divider">|</span>
-                    <a href="${prefix}src/terms.html" class="footer-legal-link">Terms & Conditions</a>
+                    <a href="/terms" class="footer-legal-link">Terms & Conditions</a>
                     <span class="legal-divider">|</span>
-                    <a href="${prefix}src/policy.html" class="footer-legal-link">Privacy Policy</a>
+                    <a href="/policy" class="footer-legal-link">Privacy Policy</a>
                 </div>
             </div>
         </div>
