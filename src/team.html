@@ -90,9 +90,7 @@
                 
                 <div class="team-grid">
                     
-                    <!-- THE FIX: Changed from team-grid to team-card -->
                     <div class="team-card" tabindex="0">
-                        
                         <div class="team-image-wrapper" oncontextmenu="return false;">
                             <img src="../assets/images/Soumyajit2.png" alt="Soumyajit Mandal">
                             <div class="transparent-overlay"></div>
@@ -113,8 +111,8 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
+
                 </div>
 
             </div>
@@ -122,6 +120,45 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    
+    <!-- The Hidden Toast Pop-up moved to the root body level for accurate coordinate tracking -->
+    <div id="toast-notification" class="toast">
+        <i class="fa-solid fa-circle-check"></i> Email copied to clipboard!
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            const emailLinks = document.querySelectorAll('.team-contact a[href^="mailto:"]');
+            const toast = document.getElementById('toast-notification');
+            let toastTimer; 
+
+            emailLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    
+                    const emailToCopy = this.getAttribute('href').replace('mailto:', '');
+                    
+                    navigator.clipboard.writeText(emailToCopy).then(() => {
+                        
+                        clearTimeout(toastTimer);
+                        
+                        // Just add the class, the CSS handles the placement perfectly now!
+                        toast.classList.add('show');
+
+                        // Hide it after 3 seconds
+                        toastTimer = setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                        
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                    });
+                });
+            });
+            
+        });
+    </script>
 
     <script src="../scripts/main.js" type="module"></script>
     <script src="../scripts/nav.js"></script>
