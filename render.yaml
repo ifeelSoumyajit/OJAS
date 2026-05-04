@@ -95,9 +95,4 @@ services:
 
       - type: rewrite
         source: /policy
-        destination: /src/policy.html
-        
-        type: rewrite
-        source: /products/order
-        destination: /src/order.html
-        
+        destination: /src/policy.html 
