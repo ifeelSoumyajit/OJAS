@@ -49,6 +49,11 @@ services:
         source: /distribution
         destination: /src/distribution.html
         
+      # Products Page
+      - type: rewrite
+        source: /products
+        destination: /src/products.html
+
       # Products Sub-pages
       - type: rewrite
         source: /fuel
