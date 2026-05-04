@@ -126,7 +126,7 @@
         <i class="fa-solid fa-circle-check"></i> Email copied to clipboard!
     </div>
     
-    <script>
+<script>
         document.addEventListener("DOMContentLoaded", function() {
             
             const emailLinks = document.querySelectorAll('.team-contact a[href^="mailto:"]');
@@ -139,21 +139,44 @@
                     
                     const emailToCopy = this.getAttribute('href').replace('mailto:', '');
                     
-                    navigator.clipboard.writeText(emailToCopy).then(() => {
-                        
+                    // Function to show the toast
+                    const showToast = () => {
                         clearTimeout(toastTimer);
-                        
-                        // Just add the class, the CSS handles the placement perfectly now!
                         toast.classList.add('show');
-
-                        // Hide it after 3 seconds
                         toastTimer = setTimeout(() => {
                             toast.classList.remove('show');
                         }, 3000);
+                    };
+
+                    // MODERN COPY (For live HTTPS websites)
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(emailToCopy).then(showToast).catch(err => {
+                            console.error('Modern copy failed: ', err);
+                        });
+                    } 
+                    // FALLBACK COPY (For local file:// testing)
+                    else {
+                        let textArea = document.createElement("textarea");
+                        textArea.value = emailToCopy;
                         
-                    }).catch(err => {
-                        console.error('Failed to copy text: ', err);
-                    });
+                        // Hide the textarea off-screen
+                        textArea.style.position = "fixed";
+                        textArea.style.left = "-999999px";
+                        textArea.style.top = "-999999px";
+                        document.body.appendChild(textArea);
+                        
+                        textArea.focus();
+                        textArea.select();
+                        
+                        try {
+                            document.execCommand('copy');
+                            showToast(); // Trigger the pop-up
+                        } catch (err) {
+                            console.error('Fallback copy failed', err);
+                        }
+                        
+                        textArea.remove();
+                    }
                 });
             });
             
