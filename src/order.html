@@ -22,53 +22,77 @@
     <main class="order-section">
         <div class="container">
             <div class="order-card">
-                <h2>Bulk Order Inquiry</h2>
-                <p>Submit your industrial fuel requirements for a custom quote.</p>
+                <div class="order-header">
+                    <h2>Bulk Order Inquiry</h2>
+                    <p>Submit your industrial fuel requirements for a custom quote and dedicated supply chain consultation.</p>
+                </div>
                 
                 <form id="orderForm" class="order-form" action="https://formspree.io/f/mqewovzb" method="POST">
+                    
                     <div class="full-width">
-                        <label>Company/Industry Name</label>
-                        <input type="text" name="Company Name" placeholder="Enter Company Name" required>
+                        <label><i class="fa-regular fa-building"></i> Company/Industry Name</label>
+                        <input type="text" name="Company Name" placeholder="Enter full corporate or facility name" required>
                     </div>
+                    
                     <div>
-                        <label>Product Selection</label>
+                        <label><i class="fa-solid fa-leaf"></i> Product Selection</label>
                         <select name="Product" required>
-                            <option value="">Choose Product...</option>
+                            <option value="" disabled selected>Choose a sustainable product...</option>
                             <option value="Biomass Briquettes">Biomass Briquettes</option>
                             <option value="Biomass Pellets">Biomass Pellets</option>
-                            <option value="Industrial Fuel">Industrial Fuel</option>
+                            <option value="Industrial Fuel">Industrial Fuel Mix</option>
                         </select>
                     </div>
+                    
                     <div>
-                        <label>Required Quantity</label>
-                        <div class="input-group">
-                            <input type="number" name="Quantity" placeholder="Example: 25" required>
+                        <label><i class="fa-solid fa-weight-scale"></i> Required Quantity</label>
+                        <div class="input-group" id="qty-container">
+                            <input type="number" name="Quantity" id="qty-input" placeholder="Min 10 (e.g. 50)" min="10" max="99999" required>
                             <select name="Unit" required>
-                                <option value="MT">MT</option>
+                                <option value="MT">MT (Metric Tons)</option>
                                 <option value="Tons">Tons</option>
                                 <option value="KG">KG</option>
                             </select>
                         </div>
-                    </div>
-                    <div>
-                        <label>Contact Person</label>
-                        <input type="text" name="Contact Person" placeholder="Full Name" required>
-                    </div>
-                    <div>
-                        <label>Phone Number</label>
-                        <div class="phone-group">
-                            <span class="phone-prefix">+91</span>
-                            <input type="tel" name="Phone Number" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                        <div id="qty-warning" style="display: none; color: #D32F2F; font-size: 0.85rem; font-weight: 700; margin-top: 8px;">
+                            <i class="fa-solid fa-circle-exclamation"></i> Maximum Quantity 99999.
                         </div>
                     </div>
-                    <div class="full-width">
-                        <label>Delivery Location</label>
-                        <textarea name="Delivery Address" rows="3" placeholder="Factory/Warehouse Address" required></textarea>
+                    
+                    <!-- THE FIX: Separated Name and Designation -->
+                    <div>
+                        <label><i class="fa-regular fa-user"></i> Full Name</label>
+                        <input type="text" name="Full Name" placeholder="First & Last Name" required>
                     </div>
-                    <button type="submit" class="order-btn full-width">Submit Inquiry</button>
+
+                    <div>
+                        <label><i class="fa-regular fa-id-badge"></i> Designation</label>
+                        <input type="text" name="Designation" placeholder="e.g. Procurement Manager" required>
+                    </div>
+                    
+                    <!-- Added Email Address to balance the grid! -->
+                    <div>
+                        <label><i class="fa-regular fa-envelope"></i> Email Address</label>
+                        <input type="email" name="Email" placeholder="Official business email" required>
+                    </div>
+
+                    <div>
+                        <label><i class="fa-solid fa-phone"></i> Mobile Number</label>
+                        <div class="phone-group">
+                            <span class="phone-prefix">+91</span>
+                            <input type="tel" name="Phone Number" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit number" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                        </div>
+                    </div>
+                    
+                    <div class="full-width">
+                        <label><i class="fa-solid fa-location-dot"></i> Delivery Location</label>
+                        <textarea name="Delivery Address" rows="3" placeholder="Provide the exact factory, warehouse, or plant address for logistics planning..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="order-btn full-width">Request Custom Quote <i class="fa-solid fa-arrow-right"></i></button>
                 </form>
 
-                <div id="formStatus" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; padding: 15px; border-radius: 8px; font-size: 1.05rem;"></div>
+                <div id="formStatus" style="display: none; text-align: center; margin-top: 25px; font-weight: 600; padding: 18px; border-radius: 12px; font-size: 1.05rem;"></div>
             </div>
         </div>
     </main>
@@ -85,11 +109,33 @@
             var status = document.getElementById("formStatus");
             var submitBtn = form.querySelector('button[type="submit"]');
 
+            // --- QUANTITY VALIDATION LOGIC ---
+            var qtyInput = document.getElementById("qty-input");
+            var qtyContainer = document.getElementById("qty-container");
+            var qtyWarning = document.getElementById("qty-warning");
+
+            qtyInput.addEventListener("input", function() {
+                if (this.value.startsWith('0')) {
+                    this.value = this.value.replace(/^0+/, '');
+                }
+
+                if (this.value.length > 5) {
+                    this.value = this.value.slice(0, 5); 
+                    qtyWarning.style.display = "block";
+                    qtyContainer.style.borderColor = "#D32F2F"; 
+                    qtyContainer.style.boxShadow = "0 0 0 4px rgba(211, 47, 47, 0.1)"; 
+                } else {
+                    qtyWarning.style.display = "none";
+                    qtyContainer.style.borderColor = ""; 
+                    qtyContainer.style.boxShadow = ""; 
+                }
+            });
+            // ---------------------------------
+
             form.addEventListener("submit", async function(event) {
-                event.preventDefault(); // Stops the redirect
+                event.preventDefault(); 
                 
-                // Show loading state
-                submitBtn.textContent = 'Sending Inquiry...';
+                submitBtn.innerHTML = 'Processing Request... <i class="fa-solid fa-circle-notch fa-spin"></i>';
                 submitBtn.disabled = true;
                 status.style.display = "none";
 
@@ -98,25 +144,21 @@
                 fetch(form.action, {
                     method: form.method,
                     body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 }).then(response => {
                     if (response.ok) {
-                        // Success formatting
-                        status.innerHTML = "Thanks for your order inquiry. Our team will connect with you shortly.";
+                        status.innerHTML = "<i class='fa-solid fa-circle-check'></i> Thanks for your order inquiry. Our commercial team will connect with you shortly.";
                         status.style.backgroundColor = "#E8F5E9";
                         status.style.color = "#2E7D32";
                         status.style.border = "1px solid #C8E6C9";
                         status.style.display = "block";
                         form.reset();
                     } else {
-                        // Formspree error handling
                         response.json().then(data => {
                             if (Object.hasOwn(data, 'errors')) {
                                 status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
                             } else {
-                                status.innerHTML = "Oops! There was a problem submitting your inquiry.";
+                                status.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Oops! There was a problem submitting your inquiry.";
                             }
                             status.style.backgroundColor = "#FFEBEE";
                             status.style.color = "#D32F2F";
@@ -125,15 +167,13 @@
                         })
                     }
                 }).catch(error => {
-                    // Network error handling
-                    status.innerHTML = "Oops! There was a network problem submitting your inquiry.";
+                    status.innerHTML = "<i class='fa-solid fa-wifi'></i> Oops! There was a network problem submitting your inquiry.";
                     status.style.backgroundColor = "#FFEBEE";
                     status.style.color = "#D32F2F";
                     status.style.border = "1px solid #FFCDD2";
                     status.style.display = "block";
                 }).finally(() => {
-                    // Reset button back to normal
-                    submitBtn.textContent = 'Submit Inquiry';
+                    submitBtn.innerHTML = 'Request Custom Quote <i class="fa-solid fa-arrow-right"></i>';
                     submitBtn.disabled = false;
                 });
             });
