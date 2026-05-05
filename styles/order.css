@@ -1,162 +1,206 @@
 /* =========================================
-   INPUT GROUP (Quantity + Unit)
-   ========================================= */
-
-.input-group {
-    display: flex;
-    border: 1px solid #E0E0E0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #fff;
-    transition: 0.3s;
-}
-
-.input-group:focus-within {
-    border-color: #2E7D32; 
-}
-
-.input-group input {
-    border: none !important; /* Overrides global input borders */
-    border-radius: 0;
-    flex: 1;
-}
-
-.input-group select {
-    border: none !important;
-    border-left: 1px solid #E0E0E0 !important;
-    border-radius: 0;
-    width: auto;
-    background: #f9fbf9;
-    cursor: pointer;
-    padding-right: 10px;
-}
-
-.input-group input:focus, 
-.input-group select:focus {
-    outline: none; 
-}
-
-/* =========================================
-   PHONE NUMBER GROUP
-   ========================================= */
-
-.phone-group {
-    display: flex;
-    align-items: center;
-    border: 1px solid #E0E0E0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #fff;
-    transition: 0.3s;
-}
-
-.phone-group:focus-within {
-    border-color: #2E7D32;
-}
-
-.phone-prefix {
-    background: #f4f7f6;
-    color: #37474F;
-    padding: 14px 16px;
-    font-weight: 700;
-    border-right: 1px solid #E0E0E0;
-    user-select: none; /* Prevents users from highlighting the +91 */
-}
-
-.phone-group input {
-    border: none !important;
-    border-radius: 0;
-    flex: 1;
-    padding-left: 12px;
-}
-
-.phone-group input:focus {
-    outline: none;
-}
-
-/* =========================================
    ORDER CARD & FORM LAYOUT
    ========================================= */
 
 .order-section { 
     padding: 80px 0; 
-    background: #fdfdfd; 
+    /* Adding the subtle micro-texture from the navbar for consistency */
+    background-color: #f8faf9;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
     min-height: 70vh; 
-    margin-top: 120px; /* Prevents overlap with fixed navbar */
+    margin-top: 100px; 
 }
 
 .order-card { 
-    max-width: 750px; 
+    max-width: 1900px; 
     margin: 0 auto; 
-    background: #fff; 
-    padding: 45px; 
-    border-radius: 20px; 
-    box-shadow: 0 15px 45px rgba(0,0,0,0.06);
-    border-top: 6px solid #2E7D32; 
+    background: #ffffff; 
+    padding: 50px 60px; 
+    border-radius: 24px; 
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05), 0 5px 15px rgba(46, 125, 50, 0.05);
+    border-top: 8px solid #2E7D32; 
 }
 
-.order-card h2 { 
+.order-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.order-header h2 { 
     color: #2E7D32; 
-    font-size: 2rem; 
-    text-align: center; 
-    margin-bottom: 10px; 
+    font-size: 2.2rem; 
+    font-weight: 800;
+    margin-bottom: 12px; 
 }
 
-.order-card p { 
-    text-align: center; 
+.order-header p { 
     color: #546E7A; 
-    margin-bottom: 35px; 
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 0 auto;
 }
 
 .order-form { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    gap: 25px; 
+    gap: 30px; 
 }
 
 .full-width { 
     grid-column: span 2; 
 }
 
+/* =========================================
+   MODERN FORM INPUTS
+   ========================================= */
+
 label { 
-    display: block; 
-    margin-bottom: 10px; 
+    display: flex; 
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px; 
     font-weight: 700; 
     color: #37474F; 
     font-size: 0.95rem; 
 }
 
+label i {
+    color: #81C784;
+    font-size: 1.1rem;
+}
+
 input, select, textarea { 
     width: 100%; 
-    padding: 14px; 
-    border: 1px solid #E0E0E0; 
-    border-radius: 8px; 
+    padding: 16px 20px; 
+    border: 2px solid #eef2f0; 
+    background-color: #f4f7f6;
+    border-radius: 12px; 
     font-family: inherit; 
+    font-size: 1rem;
+    color: #263238;
+    transition: all 0.3s ease;
 }
+
+input::placeholder, textarea::placeholder {
+    color: #90A4AE;
+}
+
+/* Beautiful Focus States */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #2E7D32;
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+}
+
+/* =========================================
+   CUSTOM INPUT GROUPS (Quantity + Phone)
+   ========================================= */
+
+.input-group, .phone-group {
+    display: flex;
+    border: 2px solid #eef2f0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f4f7f6;
+    transition: all 0.3s ease;
+}
+
+/* Group Focus States */
+.input-group:focus-within, .phone-group:focus-within {
+    border-color: #2E7D32;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+}
+
+/* Reset internal borders so the group acts as the boundary */
+.input-group input, .phone-group input, .input-group select {
+    border: none !important; 
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0;
+}
+
+.input-group input { flex: 1; }
+
+.input-group select {
+    border-left: 2px solid #eef2f0 !important;
+    width: auto;
+    cursor: pointer;
+    font-weight: 600;
+    color: #2E7D32;
+    padding-right: 15px;
+}
+
+.phone-prefix {
+    background: transparent;
+    color: #546E7A;
+    padding: 16px 0 16px 20px;
+    font-weight: 700;
+    user-select: none; 
+}
+
+.phone-group input {
+    flex: 1;
+    padding-left: 8px;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+   ========================================= */
 
 .order-btn { 
     background: #2E7D32; 
     color: white; 
-    padding: 18px; 
+    padding: 20px; 
     border: none; 
-    border-radius: 8px; 
+    border-radius: 12px; 
     font-weight: 800; 
-    font-size: 1.1rem; 
+    font-size: 1.15rem; 
     cursor: pointer; 
-    transition: 0.3s; 
-    margin-top: 10px; 
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+    margin-top: 15px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
 .order-btn:hover { 
     background: #1B5E20; 
-    transform: translateY(-3px); 
+    transform: translateY(-4px); 
+    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.3);
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) { 
+.order-btn:disabled {
+    background: #9E9E9E;
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) { 
+    .order-card { 
+        padding: 40px 25px; 
+        border-radius: 20px;
+    }
+    
+    .order-header h2 {
+        font-size: 1.8rem;
+    }
+
     .order-form { 
         grid-template-columns: 1fr; 
+        gap: 20px;
     } 
+    
     .full-width { 
         grid-column: span 1; 
     } 
