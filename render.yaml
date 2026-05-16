@@ -95,4 +95,4 @@ services:
 
       - type: rewrite
         source: /policy
-        destination: /src/policy.html 
+        destination: /src/policy.html
