@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB63Q39E96"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GB63Q39E96');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Projects & Impact | OJAS BIOFUEL. LLP</title>
     
-    <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
+    <link rel="icon" type="image/png" href="/assets/images/Tab2.png">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../styles/base.css">
-    <link rel="stylesheet" href="../styles/layout.css">
-    <link rel="stylesheet" href="../styles/components/navbar.css">
-    <link rel="stylesheet" href="../styles/components/footer.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/components/navbar.css">
+    <link rel="stylesheet" href="/styles/components/footer.css">
 
     <style>
         .projects-header {
-            background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.95)), url('../assets/images/Banner.jpg');
+            /* Updated background image to Absolute Path */
+            background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.95)), url('/assets/images/Banner.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -181,7 +190,7 @@
                     </div>
                     <h3>Current Projects</h3>
                     <p>Explore the active waste-to-energy initiatives we are currently deploying across our manufacturing and industrial partner network.</p>
-                    <a href="current-projects.html" class="project-link-btn">View Active Projects <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="/current-projects" class="project-link-btn">View Active Projects <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
 
                 <div class="project-card">
@@ -190,7 +199,7 @@
                     </div>
                     <h3>Completed Projects</h3>
                     <p>Review our case studies and successful past executions where we have permanently transitioned facilities to carbon-neutral biofuel.</p>
-                    <a href="completed-projects.html" class="project-link-btn">View Case Studies <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="/completed-projects" class="project-link-btn">View Case Studies <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
 
                 <div class="project-card">
@@ -199,7 +208,7 @@
                     </div>
                     <h3>Green Initiatives</h3>
                     <p>Learn about the measurable environmental, social, and economic impacts our circular economy model brings to rural and industrial India.</p>
-                    <a href="initiatives.html" class="project-link-btn">Explore Our Impact <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="/initiatives" class="project-link-btn">Explore Our Impact <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
 
             </div>
@@ -208,8 +217,8 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="../scripts/main.js" type="module"></script>
-    <script src="../scripts/nav.js"></script>
-    <script src="../scripts/footer.js"></script>    
+    <script src="/scripts/main.js" type="module"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/footer.js"></script>    
 </body>
 </html>

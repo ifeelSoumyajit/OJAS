@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB63Q39E96"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GB63Q39E96');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Vision & Values | OJAS BIOFUEL. LLP</title>
     
-    <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
+    <link rel="icon" type="image/png" href="/assets/images/Tab2.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../styles/base.css">
-    <link rel="stylesheet" href="../styles/layout.css">
-    <link rel="stylesheet" href="../styles/components/navbar.css">
-    <link rel="stylesheet" href="../styles/components/footer.css">
-    <link rel="stylesheet" href="../styles/about.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/components/navbar.css">
+    <link rel="stylesheet" href="/styles/components/footer.css">
+    <link rel="stylesheet" href="/styles/about.css">
 
     <style>
         /* Custom styling for the Vision quote and Core Values grid */
@@ -63,6 +71,17 @@
             color: #546E7A;
             margin: 0 !important;
             line-height: 1.6 !important;
+        }
+        
+        /* Updated background image to Absolute Path */
+        .about-header {
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(27, 94, 32, 0.9)), url('/assets/images/Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 160px 0 80px 0; 
+            text-align: center;
+            color: white;
         }
     </style>
 </head>
@@ -132,8 +151,8 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="../scripts/main.js" type="module"></script>
-    <script src="../scripts/nav.js"></script>
-    <script src="../scripts/footer.js"></script>    
+    <script src="/scripts/main.js" type="module"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/footer.js"></script>    
 </body>
 </html>
