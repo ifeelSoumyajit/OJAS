@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="nav-container">
             <!-- ADDED: oncontextmenu="return false;" to block right-clicks/long-presses -->
             <a href="${prefix}index.html" class="nav-logo" oncontextmenu="return false;">
-                <img src="${prefix}assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
+                <img src="${prefix}assets/images/Ojas3.png" alt="OJAS Logo" class="logo-img">
             </a>
             
             <label class="hamburger-menu">
