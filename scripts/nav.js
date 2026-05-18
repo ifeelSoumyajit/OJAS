@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li class="dropdown">
                     <a href="#" class="dropbtn">About</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/vision.html">Our Vision</a></li>
-                        <li><a href="${prefix}src/team.html">Our Team</a></li>
-                        <li><a href="${prefix}src/foundation.html">Company History</a></li>
+                        <li><a href="${prefix}src/vision">Our Vision</a></li>
+                        <li><a href="${prefix}src/team">Our Team</a></li>
+                        <li><a href="${prefix}src/foundation">Company History</a></li>
                     </ul>
                 </li>
 
