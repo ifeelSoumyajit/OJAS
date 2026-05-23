@@ -1,4 +1,82 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+# ==============================================================================
+# OJAS BIOFUEL. LLP - SERVER CONFIGURATION (.htaccess)
+# ==============================================================================
+
+<IfModule mod_rewrite.c>
+    # Enable the rewrite engine
+    RewriteEngine On
+    # Set the base URL for rewrites
+    RewriteBase /
+
+    # ----------------------------------------------------------------------
+    # 1. FORCE HTTPS
+    # ----------------------------------------------------------------------
+    # Redirect all HTTP traffic to HTTPS for security
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # ----------------------------------------------------------------------
+    # 2. CLEAN URLs: EXTERNAL REDIRECTS (SEO)
+    # ----------------------------------------------------------------------
+    # If a user or search engine directly accesses /in/page.html, redirect to /page
+    RewriteCond %{THE_REQUEST} \s/+in/([^/.]+)\.html[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L,NE]
+
+    # If a user directly accesses /page.html (old structure), redirect to /page
+    RewriteCond %{THE_REQUEST} \s/+(?!in/)([^/.]+)\.html[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L,NE]
+
+    # ----------------------------------------------------------------------
+    # 3. INTERNAL ROUTING: MAP CLEAN URLs TO THE /in/ DIRECTORY
+    # ----------------------------------------------------------------------
+    # Ignore existing directories (like /styles/, /scripts/, /public/)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Ignore existing files (like index.html, sitemap.xml)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # Check if the requested URL matches an .html file inside the /in/ folder
+    RewriteCond %{DOCUMENT_ROOT}/in/$1.html -f
+    # Silently serve the file from the /in/ folder without changing the URL bar
+    RewriteRule ^([^/]+)/?$ /in/$1.html [L]
+
+</IfModule>
+
+# ==============================================================================
+# PERFORMANCE & CACHING (SitePoint Best Practices)
+# ==============================================================================
+
+<IfModule mod_expires.c>
+    # Enable expirations
+    ExpiresActive On
+
+    # Default directive
+    ExpiresDefault "access plus 1 month"
+
+    # My favicon
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # Images (WebP optimizations for the /public/ folder)
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    # Force compression for text files (HTML, CSS, JS, XML)
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript image/svg+xml
+</IfModule>
+
+# ==============================================================================
+# SECURITY HEADERS
+# ==============================================================================
+<IfModule mod_headers.c>
+    # Prevent browsers from incorrectly detecting non-scripts as scripts
+    Header set X-Content-Type-Options "nosniff"
+    # Clickjacking defense
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
