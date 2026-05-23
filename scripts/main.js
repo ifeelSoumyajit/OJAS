@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (footerPlaceholder) {
         // Determine the correct path to the footer file
-        // If we are in the 'src/' folder, we need to go up one level ('../')
-        const isSubPage = window.location.pathname.includes('/src/');
+        // If we are in the 'in/' folder, we need to go up one level ('../')
+        const isSubPage = window.location.pathname.includes('/in/');
         const footerPath = isSubPage ? '../styles/components/footer.html' : 'styles/components/footer.html';
 
         // Fetch the HTML file and inject it into the page
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
        2. COOKIE CONSENT BANNER LOGIC
        ========================================== */
     // Determine the correct path for the Privacy Policy link
-    const inPagesFolder = window.location.pathname.includes('/src/');
+    const inPagesFolder = window.location.pathname.includes('/in/');
     const prefix = inPagesFolder ? '../' : '';
 
     // The HTML for the Cookie Banner
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="cookie-text">
                 We use cookies to improve your experience on our site and to analyze web traffic. 
                 By clicking "Accept", you consent to our use of cookies as described in our 
-                <a href="${prefix}src/policy.html">Privacy Policy</a>.
+                <a href="${prefix}in/policy.html">Privacy Policy</a>.
             </p>
             <div class="cookie-buttons">
                 <button id="declineCookies" class="cookie-btn decline">Decline</button>

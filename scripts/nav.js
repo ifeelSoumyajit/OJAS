@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Check if we are in the 'src' folder to fix links and images
-    const inPagesFolder = window.location.pathname.includes('/src/');
+    // 1. Check if we are in the 'in' folder to fix links and images
+    const inPagesFolder = window.location.pathname.includes('/in/');
     const prefix = inPagesFolder ? '../' : '';
 
     // 2. The Universal Navbar HTML (With Animated Hamburger)
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="nav-container">
             <!-- ADDED: oncontextmenu="return false;" to block right-clicks/long-presses -->
             <a href="${prefix}index.html" class="nav-logo" oncontextmenu="return false;">
-                <img src="${prefix}assets/images/Ojas3.png" alt="OJAS Logo" class="logo-img">
+                <img src="${prefix}assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
             </a>
             
             <label class="hamburger-menu">
@@ -25,41 +25,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li class="dropdown">
                     <a href="#" class="dropbtn">About</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/vision">Our Vision</a></li>
-                        <li><a href="${prefix}src/team">Our Team</a></li>
-                        <li><a href="${prefix}src/foundation">Company History</a></li>
+                        <li><a href="${prefix}in/vision.html">Our Vision</a></li>
+                        <li><a href="${prefix}in/team.html">Our Team</a></li>
+                        <li><a href="${prefix}in/foundation.html">Company History</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/current-projects.html">Current Projects</a></li>
-                        <li><a href="${prefix}src/completed-projects.html">Completed Projects</a></li>
-                        <li><a href="${prefix}src/initiatives.html">Green Initiatives</a></li>
+                        <li><a href="${prefix}in/current-projects.html">Current Projects</a></li>
+                        <li><a href="${prefix}in/completed-projects.html">Completed Projects</a></li>
+                        <li><a href="${prefix}in/initiatives.html">Green Initiatives</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Services</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/supply.html">Agri Waste Supply</a></li>
-                        <li><a href="${prefix}src/trading.html">Biomass Trading</a></li>
-                        <li><a href="${prefix}src/distribution.html">Biofuel Distribution</a></li>
+                        <li><a href="${prefix}in/supply.html">Agri Waste Supply</a></li>
+                        <li><a href="${prefix}in/trading.html">Biomass Trading</a></li>
+                        <li><a href="${prefix}in/distribution.html">Biofuel Distribution</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Products</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}src/fuel.html">Industrial Fuel</a></li>
-                        <li><a href="${prefix}src/briquettes.html">Biomass Briquettes</a></li>
-                        <li><a href="${prefix}src/pellets.html">Biomass Pellets</a></li>
-                        <li><a href="${prefix}src/order.html">Order Online</a></li>
+                        <li><a href="${prefix}in/fuel.html">Industrial Fuel</a></li>
+                        <li><a href="${prefix}in/briquettes.html">Biomass Briquettes</a></li>
+                        <li><a href="${prefix}in/pellets.html">Biomass Pellets</a></li>
+                        <li><a href="${prefix}in/order.html">Order Online</a></li>
                     </ul>
                 </li>
 
-                <li><a href="${prefix}src/contact.html">Contact</a></li>
+                <li><a href="${prefix}in/contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>

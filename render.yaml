@@ -9,90 +9,90 @@ services:
       # Main Hub Pages
       - type: rewrite
         source: /about
-        destination: /src/about.html
+        destination: /in/about.html
 
       - type: rewrite
         source: /services
-        destination: /src/services.html
+        destination: /in/services.html
 
       - type: rewrite
         source: /products
-        destination: /src/products.html
+        destination: /in/products.html
 
       - type: rewrite
         source: /projects
-        destination: /src/projects.html
+        destination: /in/projects.html
 
       # About Sub-pages
       - type: rewrite
         source: /vision
-        destination: /src/vision.html
+        destination: /in/vision.html
 
       - type: rewrite
         source: /team
-        destination: /src/team.html
+        destination: /in/team.html
 
       - type: rewrite
         source: /foundation
-        destination: /src/foundation.html
+        destination: /in/foundation.html
 
       # Services Sub-pages
       - type: rewrite
         source: /supply
-        destination: /src/supply.html
+        destination: /in/supply.html
 
       - type: rewrite
         source: /trading
-        destination: /src/trading.html
+        destination: /in/trading.html
 
       - type: rewrite
         source: /distribution
-        destination: /src/distribution.html
+        destination: /in/distribution.html
         
       # Products Page
       - type: rewrite
         source: /products
-        destination: /src/products.html
+        destination: /in/products.html
 
       # Products Sub-pages
       - type: rewrite
         source: /fuel
-        destination: /src/fuel.html
+        destination: /in/fuel.html
 
       - type: rewrite
         source: /briquettes
-        destination: /src/briquettes.html
+        destination: /in/briquettes.html
 
       - type: rewrite
         source: /pellets
-        destination: /src/pellets.html
+        destination: /in/pellets.html
 
       # Projects Sub-pages
       - type: rewrite
         source: /current-projects
-        destination: /src/current-projects.html
+        destination: /in/current-projects.html
 
       - type: rewrite
         source: /completed-projects
-        destination: /src/completed-projects.html
+        destination: /in/completed-projects.html
 
       - type: rewrite
         source: /initiatives
-        destination: /src/initiatives.html
+        destination: /in/initiatives.html
 
       # Action & Legal Pages
       - type: rewrite
         source: /contact
-        destination: /src/contact.html
+        destination: /in/contact.html
 
       - type: rewrite
         source: /order
-        destination: /src/order.html
+        destination: /in/order.html
 
       - type: rewrite
         source: /terms
-        destination: /src/terms.html
+        destination: /in/terms.html
 
       - type: rewrite
         source: /policy
-        destination: /src/policy.html
+        destination: /in/policy.html

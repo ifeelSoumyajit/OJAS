@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | OJAS BIOFUEL. LLP</title>
+    
+    <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components/navbar.css">
+    <link rel="stylesheet" href="../styles/components/footer.css">
+
+    <style>
+        .services-header {
+            background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.95)), url('../assets/images/Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 160px 0 80px 0; 
+            text-align: center;
+            color: white;
+        }
+
+        .services-header h1 { 
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+        }
+
+        .services-header p { 
+            font-size: 1.2rem; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            opacity: 0.9; 
+            line-height: 1.6;
+        }
+
+        .services-hub-section {
+            padding: 80px 0;
+            background: #fdfdfd;
+            min-height: 60vh;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 45px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border-top: 5px solid #2E7D32;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            background: #e8f5e9;
+            color: #2E7D32;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: #2E7D32;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .service-card h2 {
+            color: #37474F;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 1.05rem;
+            color: #546E7A;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            flex-grow: 1; /* Pushes the button to the bottom evenly */
+        }
+
+        .service-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: #f4f7f6;
+            color: #2E7D32;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        
+        .service-link-btn:hover {
+            background: #2E7D32;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .services-header { padding: 130px 20px 60px 20px; }
+            .services-header h1 { font-size: 2.2rem; }
+            .service-card { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <header class="services-header">
+        <div class="container">
+            <h1>Integrated Supply Chain</h1>
+            <p>We don't just manufacture fuel; we manage the entire lifecycle from farm procurement to factory gate delivery, ensuring reliability at every step.</p>
+        </div>
+    </header>
+
+    <main class="services-hub-section">
+        <div class="container">
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-tractor"></i>
+                    </div>
+                    <h2>Agri Waste Supply</h2>
+                    <p>Transforming agricultural liabilities into valuable energy assets directly from the source. We work with farmers to clear fields safely without burning.</p>
+                    <a href="supply.html" class="service-link-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h2>Biomass Trading</h2>
+                    <p>Bridging the gap between rural aggregators and industrial energy demands. We provide quality-assured, bulk raw materials with price stability.</p>
+                    <a href="trading.html" class="service-link-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h2>Biofuel Distribution</h2>
+                    <p>Uninterrupted, last-mile delivery of clean industrial fuels. We ensure continuous supply for your manufacturing processes without downtime.</p>
+                    <a href="distribution.html" class="service-link-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/main.js" type="module"></script>
+    <script src="../scripts/nav.js"></script>
+    <script src="../scripts/footer.js"></script>    
+</body>
+</html>
