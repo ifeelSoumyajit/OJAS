@@ -1,17 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const footerHTML = `
     <style>
-        /* 1. MAIN FOOTER GRID FIX */
+        /* 1. MAIN FOOTER GRID */
         .footer-grid-wrapper {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr; /* Desktop Layout */
+            grid-template-columns: 1fr 2fr 1fr;
             gap: 40px;
         }
 
-        /* Responsive Breakpoints for Main Footer */
         @media (max-width: 992px) {
             .footer-grid-wrapper {
-                grid-template-columns: 1fr; /* Stack vertically on tablets and mobile */
+                grid-template-columns: 1fr;
                 gap: 30px;
             }
         }
@@ -19,9 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
         /* 2. SITEMAP GRID STYLES */
         .sitemap-grid { 
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
+            /* UPDATED: Forces exactly 4 equal columns on one row */
+            grid-template-columns: repeat(4, 1fr); 
             row-gap: 35px; 
-            column-gap: 20px; 
+            column-gap: 15px; 
             margin-top: 15px; 
         }
         .sitemap-group h5 { 
@@ -61,39 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
             .sitemap-grid { grid-template-columns: 1fr; }
         }
 
-        /* 3. LEGAL LINKS FIX FOR MOBILE */
+        /* 3. LEGAL LINKS FIX (Keeps them inline like the photo) */
         .footer-legal-group {
             margin-top: 25px;
             display: flex;
-            flex-wrap: wrap; /* Allows links to wrap if they run out of space */
+            flex-wrap: wrap; 
             align-items: center;
-            gap: 8px;
+            gap: 8px 0; 
         }
         .footer-legal-link {
             color: #689F38; 
             font-weight: 700;
             text-decoration: none;
             transition: color 0.3s ease;
+            white-space: nowrap; 
         }
         .footer-legal-link:hover {
             color: #558B2F;
         }
         .legal-divider {
             color: #546E7A;
-            margin: 0 4px;
+            margin: 0 8px;
             font-weight: 400;
-        }
-
-        /* Hide the dividers on tiny screens and stack the legal links */
-        @media (max-width: 480px) {
-            .footer-legal-group {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            .legal-divider {
-                display: none;
-            }
         }
     </style>
 
@@ -107,13 +96,33 @@ document.addEventListener('DOMContentLoaded', () => {
             
             <div class="footer-links">
                 <h4 style="color: #ffffff; font-weight: bold; margin-bottom: 20px;">Sitemap Explorer</h4>
+                
                 <div class="sitemap-grid">
+                    
                     <div class="sitemap-group">
                         <h5><a href="/about">About Us</a></h5>
                         <ul>
                             <li><a href="/vision">Our Vision</a></li>
                             <li><a href="/team">Our Team</a></li>
                             <li><a href="/foundation">History</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sitemap-group">
+                        <h5><a href="/projects">Projects</a></h5>
+                        <ul>
+                            <li><a href="/current-projects">Current</a></li>
+                            <li><a href="/completed-projects">Completed</a></li>
+                            <li><a href="/initiatives">Initiatives</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sitemap-group">
+                        <h5><a href="/services">Services</a></h5>
+                        <ul>
+                            <li><a href="/supply">Agri Supply</a></li>
+                            <li><a href="/trading">Trading</a></li>
+                            <li><a href="/distribution">Distribution</a></li>
                         </ul>
                     </div>
                     
@@ -127,23 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
 
-                    <div class="sitemap-group">
-                        <h5><a href="/services">Services</a></h5>
-                        <ul>
-                            <li><a href="/supply">Agri Supply</a></li>
-                            <li><a href="/trading">Trading</a></li>
-                            <li><a href="/distribution">Distribution</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sitemap-group">
-                        <h5><a href="/projects">Projects</a></h5>
-                        <ul>
-                            <li><a href="/current-projects">Current</a></li>
-                            <li><a href="/completed-projects">Completed</a></li>
-                            <li><a href="/initiatives">Initiatives</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
 
