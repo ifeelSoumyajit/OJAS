@@ -70,7 +70,7 @@ services:
       # Projects Sub-pages
       - type: rewrite
         source: /current-projects
-        destination: /in/current-projects.html
+        destination: /in/current-projects
 
       - type: rewrite
         source: /completed-projects
