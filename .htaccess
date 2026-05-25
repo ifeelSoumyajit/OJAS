@@ -1,4 +1,4 @@
-# 1. Disable MultiViews (Crucial for clean URLs)
+# 1. Disable MultiViews (Prevents server confusion)
 Options -MultiViews -Indexes
 
 # 2. Custom Error Page
@@ -6,32 +6,31 @@ ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /
-
-    # ==========================================
-    # 1. FORCE HTTPS
-    # ==========================================
+    
+    # ---------------------------------------------------------
+    # FORCE HTTPS
+    # ---------------------------------------------------------
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # ==========================================
-    # 2. EXTERNAL REDIRECTS (Clean the URL Bar)
-    # ==========================================
-    RewriteCond %{ENV:REDIRECT_STATUS} ^$
-    RewriteRule ^in/([^/.]+)\.html$ /$1 [R=301,L]
-    
-    RewriteCond %{ENV:REDIRECT_STATUS} ^$
-    RewriteRule ^in/([^/.]+)$ /$1 [R=301,L]
+    # ---------------------------------------------------------
+    # EXTERNAL REDIRECTS (Forces the URL bar to change)
+    # ---------------------------------------------------------
+    # Rule A: If user visits /in/vision.html or /in/vision -> Redirect to /vision
+    RewriteCond %{THE_REQUEST} \s/+in/([^/.\s]+) [NC]
+    RewriteRule ^ /%1 [R=301,L,NE]
 
-    RewriteCond %{ENV:REDIRECT_STATUS} ^$
-    RewriteRule ^([^/.]+)\.html$ /$1 [R=301,L]
+    # Rule B: If user visits /vision.html -> Redirect to /vision
+    RewriteCond %{THE_REQUEST} \s/+([^/.\s]+)\.html [NC]
+    RewriteRule ^ /%1 [R=301,L,NE]
 
-    # ==========================================
-    # 3. INTERNAL ROUTING (Serve from /in/ safely)
-    # ==========================================
-    # Ignore existing folders and files
+    # ---------------------------------------------------------
+    # INTERNAL ROUTING (Secretly load the file)
+    # ---------------------------------------------------------
+    # If the request is NOT a real folder (/public/, /styles/)...
     RewriteCond %{REQUEST_FILENAME} !-d
+    # And is NOT a real file (index.html, sitemap.xml)...
     RewriteCond %{REQUEST_FILENAME} !-f
-    # Safely route the clean URL to the /in/ folder without crashing
-    RewriteRule ^([^/]+)/?$ in/$1.html [L]
+    # Safely route the clean name to the /in/ folder!
+    RewriteRule ^([^/]+)/?$ /in/$1.html [L]
 </IfModule>
