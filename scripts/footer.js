@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const inPagesFolder = window.location.pathname.includes('/in/');
-    const prefix = inPagesFolder ? '../' : '';
-
     const footerHTML = `
     <footer class="main-footer">
         <div class="container footer-grid">
@@ -14,11 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="footer-links">
                 <h4>Explore</h4>
                 <ul>
-                    <li><a href="${prefix}index">Home</a></li>
-                    <li><a href="${prefix}in/about">About</a></li>
-                    <li><a href="${prefix}in/products">Products</a></li>
-                    <li><a href="${prefix}in/projects">Projects</a></li>
-                    <li><a href="${prefix}in/services">Services</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/services">Services</a></li>
                 </ul>
             </div>
 
@@ -30,9 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="footer-legal-group">
                     <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
                     <span class="legal-divider">|</span>
-                    <a href="${prefix}terms" class="footer-legal-link">Terms & Conditions</a>
+                    <a href="/sitemap.xml" target="_blank" class="footer-legal-link">Sitemap</a>
                     <span class="legal-divider">|</span>
-                    <a href="${prefix}policy" class="footer-legal-link">Privacy Policy</a>
+                    <a href="/terms" class="footer-legal-link">Terms & Conditions</a>
+                    <span class="legal-divider">|</span>
+                    <a href="/policy" class="footer-legal-link">Privacy Policy</a>
                 </div>
             </div>
         </div>
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <hr>
                 <div class="attributes-list">
                     
-                    <!-- BOX 1: The Resource Credits summarized as a paragraph -->
                     <div class="attr-item resource-credits-box">
                         <strong>Resource Credits:</strong>
                         <p>
@@ -60,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </p>
                     </div>
 
-                    <!-- BOX 2: The Comprehensive License Details -->
                     <div class="attr-item license-context">
                         <strong>Comprehensive License Details:</strong>
                         <p class="license-paragraph">
@@ -80,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </p>
                     </div>
 
-                    <!-- BOX 3: Dev Signature -->
                     <div class="attr-item dev-signature">
                         <p class="engineered-text">Designed by</p>
                         <p class="dev-name">SOUMYAJIT MANDAL</p>
