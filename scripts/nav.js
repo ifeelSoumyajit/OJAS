@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. The Universal Navbar HTML (With Animated Hamburger)
-    // Notice all links now use absolute paths (starting with "/") and no longer use the "prefix" or "in/" folder in the URL.
     const navHTML = `
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="nav-logo" oncontextmenu="return false;">
-                <img src="${prefix}assets/images/Ojas.png" class="logo-img">
+                <img src="/assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
             </a>
             
             <label class="hamburger-menu">
