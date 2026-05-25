@@ -1,247 +1,96 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const footerHTML = `
-    <style>
-        /* 1. MAIN FOOTER GRID FIX */
-        .footer-grid-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr; /* Desktop Layout */
-            gap: 40px;
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB63Q39E96"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        /* Responsive Breakpoints for Main Footer */
-        @media (max-width: 992px) {
-            .footer-grid-wrapper {
-                grid-template-columns: 1fr; /* Stack vertically on tablets and mobile */
-                gap: 30px;
-            }
-        }
+      gtag('config', 'G-GB63Q39E96');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OJAS BIOFUEL. LLP</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/Tab2.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components/navbar.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    
+</head>
+<body>
 
-        /* 2. SITEMAP GRID STYLES */
-        .sitemap-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            row-gap: 35px; 
-            column-gap: 20px; 
-            margin-top: 15px; 
-        }
-        .sitemap-group h5 { 
-            font-size: 1.05rem; 
-            margin-bottom: 12px; 
-            font-weight: 700; 
-        }
-        .sitemap-group h5 a { 
-            color: #689F38; 
-            text-decoration: none; 
-            transition: color 0.3s ease;
-        }
-        .sitemap-group h5 a:hover { color: #558B2F; }
-        
-        .sitemap-group ul { 
-            list-style: none; 
-            padding: 0; 
-            margin: 0; 
-        }
-        .sitemap-group ul li { margin-bottom: 12px; font-size: 0.95rem; }
-        .sitemap-group ul li a { 
-            color: #78909C; 
-            text-decoration: none; 
-            transition: all 0.3s ease; 
-            display: inline-block;
-        }
-        .sitemap-group ul li a:hover { 
-            color: #ffffff; 
-            transform: translateX(4px); 
-        }
+    <div id="nav-placeholder"></div>
 
-        /* Responsive Breakpoints for Sitemap */
-        @media (max-width: 768px) {
-            .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 480px) {
-            .sitemap-grid { grid-template-columns: 1fr; }
-        }
+<main>
+    <section class="hero-banner">
+        <div class="container hero-content">
+            <span class="badge">Integrated Biofuel Ecosystem</span>
+            <h1>TRANSFORMING <br><span class="highlight">AGRI WASTE</span><br> INTO CLEAN ENERGY</h1>
+        </div>
+    </section>
 
-        /* 3. LEGAL LINKS FIX FOR MOBILE */
-        .footer-legal-group {
-            margin-top: 25px;
-            display: flex;
-            flex-wrap: wrap; /* Allows links to wrap if they run out of space */
-            align-items: center;
-            gap: 8px;
-        }
-        .footer-legal-link {
-            color: #689F38; 
-            font-weight: 700;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer-legal-link:hover {
-            color: #558B2F;
-        }
-        .legal-divider {
-            color: #546E7A;
-            margin: 0 4px;
-            font-weight: 400;
-        }
+    <section class="home-intro">
+        <div class="container">
+            <h2>Building a Cleaner, Self-Reliant India</h2>
+            <p><strong>OJAS BIOFUEL. LLP</strong> is a clean-energy enterprise dedicated to building a complete biofuel ecosystem. By converting agricultural and organic waste into high-value energy products, we are driving the transition toward a low-carbon energy future.</p>
+        </div>
+    </section>
 
-        /* Hide the dividers on tiny screens and stack the legal links */
-        @media (max-width: 480px) {
-            .footer-legal-group {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            .legal-divider {
-                display: none;
-            }
-        }
-    </style>
+    <section class="home-body">
+        <div class="container">
+            <div class="grid-2">
+                <div class="content-text">
+                    <h2>Bridging the Energy and Waste Challenge</h2>
+                    <p class="lead-text">
+                        We integrate the entire value chain—from biomass aggregation at the farm gate, through manufacturing of solid and liquid biofuels, to distribution across industrial and transportation customers into a single platform.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <strong>✓ Closed-Loop Ecosystem</strong>
+                            <p>Seamlessly connecting farmers, biomass aggregators, manufacturing partners, and end-user industries.</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>✓ Diversified Product Portfolio</strong>
+                            <p>Manufacturing Briquettes, Pellets, Biodiesel, and Bio-ethanol to replace fossil fuels at a competitive cost.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vision-box">
+                    <h3>Our Vision & Impact</h3>
+                    <ul>
+                        <li><strong>Sustainable Energy:</strong> Powering heavy industry and transport while displacing coal, diesel, and furnace oil with high-efficiency biomass equivalents.</li>
+                        <li><strong>Circular Economy:</strong> Establishing a zero-waste lifecycle by transforming crop residue, sawdust, and used cooking oil into premium biofuels.</li>
+                        <li><strong>Rural Empowerment:</strong> Creating continuous value from agricultural waste, providing farmers with reliable secondary income, and actively reducing open-field stubble burning.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="main-footer">
-        <div class="container footer-grid-wrapper">
-            <div class="footer-brand">
-                <h2 class="footer-logo">OJAS BIOFUEL. LLP</h2>
-                <p>Transforming agricultural waste into </p>
-                <p>clean energy for a sustainable future.</p>
+    <section class="process-diagram">
+        <div class="container">
+            <h2>Our Integrated Value Chain</h2>
+            
+            <div class="image-protect-wrapper" oncontextmenu="return false;">
+                <img src="assets/images/Process.png" alt="OJAS BIOFUEL Circular Economy Process" class="process-img">
+                <div class="transparent-overlay"></div>
             </div>
             
-            <div class="footer-links">
-                <h4 style="color: #ffffff; font-weight: bold; margin-bottom: 20px;">Sitemap Explorer</h4>
-                <div class="sitemap-grid">
-                    <div class="sitemap-group">
-                        <h5><a href="/about">About Us</a></h5>
-                        <ul>
-                            <li><a href="/vision">Our Vision</a></li>
-                            <li><a href="/team">Our Team</a></li>
-                            <li><a href="/foundation">History</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="sitemap-group">
-                        <h5><a href="/products">Products</a></h5>
-                        <ul>
-                            <li><a href="/fuel">Industrial Fuel</a></li>
-                            <li><a href="/briquettes">Briquettes</a></li>
-                            <li><a href="/pellets">Pellets</a></li>
-                            <li><a href="/order">Order Online</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sitemap-group">
-                        <h5><a href="/services">Services</a></h5>
-                        <ul>
-                            <li><a href="/supply">Agri Supply</a></li>
-                            <li><a href="/trading">Trading</a></li>
-                            <li><a href="/distribution">Distribution</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sitemap-group">
-                        <h5><a href="/projects">Projects</a></h5>
-                        <ul>
-                            <li><a href="/current-projects">Current</a></li>
-                            <li><a href="/completed-projects">Completed</a></li>
-                            <li><a href="/initiatives">Initiatives</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-address">
-                <h4>Headquarters</h4>
-                <p>FL NO 03, CHINTAMANI NR MAHADEV MANDIR,<br>
-                KHADAKWASLA, PUNE 411024</p>
-                
-                <div class="footer-legal-group">
-                    <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
-                    <span class="legal-divider">|</span>
-                    <a href="/terms" class="footer-legal-link">Terms & Conditions</a>
-                    <span class="legal-divider">|</span>
-                    <a href="/policy" class="footer-legal-link">Privacy Policy</a>
-                </div>
-            </div>
         </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>© 2026 OJAS BIOFUEL. LLP. All Rights Reserved.</p>
-            </div>
-        </div>
+    </section>
+</main>
 
-        <div id="attributes-modal" class="modal-overlay">
-            <div class="modal-content">
-                <button class="modal-close" id="close-attributes">&times;</button>
-                <h3>Credits & Attributes</h3>
-                <hr>
-                <div class="attributes-list">
-                    
-                    <div class="attr-item resource-credits-box">
-                        <strong>Resource Credits:</strong>
-                        <p>
-                            To deliver a seamless and engaging digital experience, this platform leverages industry-leading third-party technologies. 
-                            Our interface is crafted using typography from Google Fonts (Montserrat and Open Sans) alongside premium iconography from Font 
-                            Awesome and Flaticon. For unique visual storytelling, all photography featured across the site is entirely self-conceived. 
-                            Additionally, our geolocation and mapping services are securely powered by Google Maps.
-                        </p>
-                    </div>
+    <div id="footer-placeholder"></div>
 
-                    <div class="attr-item license-context">
-                        <strong>Comprehensive License Details:</strong>
-                        <p class="license-paragraph">
-                            <strong>© 2026 OJAS BIOFUEL. LLP. All Rights Reserved.</strong> This digital property is engineered utilizing a meticulous blend of proprietary 
-                            development methodologies and open-source resources. The core UI/UX architecture, layout logic, and custom frontend codebase remain the exclusive 
-                            intellectual property of OJAS Grp. & PIXEL DESIGNS., protected under applicable international copyright laws.
-                        </p>
-                        <p class="license-paragraph">
-                            All visual assets, including the industrial and green energy photography featured throughout this platform, are 100% AI-generated. These generative 
-                            media files are free from traditional copyright restrictions and are implemented under Creative Commons Zero (CC0) or equivalent public domain terms, 
-                            permitting unrestricted commercial and personal application without mandatory attribution.
-                        </p>
-                        <p class="license-paragraph">
-                            Typography is exclusively powered by the Google Fonts API and deployed under the SIL Open Font License (OFL). User interface iconography integrates 
-                            assets from the Font Awesome Free License and Flaticon Basic License. Mapping services are provided by Google Maps APIs, subject to their respective 
-                            terms of service.
-                        </p>
-                    </div>
-
-                    <div class="attr-item dev-signature">
-                        <p class="engineered-text">Designed by</p>
-                        <p class="dev-name">SOUMYAJIT MANDAL</p>
-                        <a href="https://pixeldesigns.onrender.com" target="_blank" class="pixel-link">
-                            PIXEL DESIGNS. <i class="fa-solid fa-link"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    `;
-
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) {
-        footerPlaceholder.innerHTML = footerHTML;
-
-        // Modal Logic
-        const modal = document.getElementById('attributes-modal');
-        const openBtn = document.getElementById('open-attributes');
-        const closeBtn = document.getElementById('close-attributes');
-
-        if (openBtn && closeBtn && modal) {
-            openBtn.onclick = () => {
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            };
-
-            closeBtn.onclick = () => {
-                modal.classList.remove('show');
-                document.body.style.overflow = 'auto';
-            };
-
-            window.onclick = (event) => {
-                if (event.target == modal) {
-                    modal.classList.remove('show');
-                    document.body.style.overflow = 'auto';
-                }
-            };
-        }
-    }
-});
+    <script src="scripts/main.js"></script>
+    <script src="scripts/nav.js?v=2"></script>
+    <script src="scripts/footer.js?v=6"></script>
+</body>
+</html>
