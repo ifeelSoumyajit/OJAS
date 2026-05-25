@@ -102,37 +102,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="sitemap-group">
                         <h5><a href="/about">About Us</a></h5>
                         <ul>
-                            <li><a href="/vision">Our Vision</a></li>
-                            <li><a href="/team">Our Team</a></li>
-                            <li><a href="/foundation">History</a></li>
+                            <li><a href="in/vision">Our Vision</a></li>
+                            <li><a href="in/team">Our Team</a></li>
+                            <li><a href="in/foundation">History</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group">
                         <h5><a href="/projects">Projects</a></h5>
                         <ul>
-                            <li><a href="/current-projects">Current</a></li>
-                            <li><a href="/completed-projects">Completed</a></li>
-                            <li><a href="/initiatives">Initiatives</a></li>
+                            <li><a href="in/current-projects">Current</a></li>
+                            <li><a href="in/completed-projects">Completed</a></li>
+                            <li><a href="in/initiatives">Initiatives</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group">
                         <h5><a href="/services">Services</a></h5>
                         <ul>
-                            <li><a href="/supply">Agri Supply</a></li>
-                            <li><a href="/trading">Trading</a></li>
-                            <li><a href="/distribution">Distribution</a></li>
+                            <li><a href="in/supply">Agri Supply</a></li>
+                            <li><a href="in/trading">Trading</a></li>
+                            <li><a href="in/distribution">Distribution</a></li>
                         </ul>
                     </div>
                     
                     <div class="sitemap-group">
                         <h5><a href="/products">Products</a></h5>
                         <ul>
-                            <li><a href="/fuel">Industrial Fuel</a></li>
-                            <li><a href="/briquettes">Briquettes</a></li>
-                            <li><a href="/pellets">Pellets</a></li>
-                            <li><a href="/order">Order Online</a></li>
+                            <li><a href="in/fuel">Industrial Fuel</a></li>
+                            <li><a href="in/briquettes">Briquettes</a></li>
+                            <li><a href="in/pellets">Pellets</a></li>
+                            <li><a href="in/order">Order Online</a></li>
                         </ul>
                     </div>
 
