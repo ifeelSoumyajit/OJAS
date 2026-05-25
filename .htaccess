@@ -1,5 +1,39 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html
+Options -MultiViews -Indexes
 
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # ==========================================
+    # 1. FORCE HTTPS
+    # ==========================================
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # ==========================================
+    # 2. EXTERNAL REDIRECTS (Clean the URL Bar)
+    # ==========================================
+    # Strip /in/ and .html if someone types them directly
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^in/([^/.]+)\.html$ /$1 [R=301,L]
+    
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^in/([^/.]+)$ /$1 [R=301,L]
+
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^([^/.]+)\.html$ /$1 [R=301,L]
+
+    # ==========================================
+    # 3. INTERNAL ROUTING (Serve from /in/)
+    # ==========================================
+    # Ignore existing folders (like /styles/ or /public/)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Ignore existing files (like index.html)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # Check if the .html file actually exists inside the /in/ folder
+    RewriteCond %{DOCUMENT_ROOT}/in/$1.html -f
+    # Silently load the file without changing the URL bar!
+    RewriteRule ^([^/]+)/?$ /in/$1.html [L]
+</IfModule>
