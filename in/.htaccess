@@ -1,0 +1,21 @@
+ErrorDocument 404 /404.html
+# Turn off MultiViews (Crucial for clean URLs on many shared hosts)
+Options -MultiViews -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # 1. Force HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # 2. Redirect old .html or /in/ paths to clean URLs
+    RewriteCond %{THE_REQUEST} \s/+(in/)?([^/.]+)\.html[\s?] [NC]
+    RewriteRule ^ /%2 [R=301,L]
+
+    # 3. Serve the HTML from the /in/ folder behind the scenes
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^([^/]+)/?$ in/$1.html [L]
+</IfModule>
