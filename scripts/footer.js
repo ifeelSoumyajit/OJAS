@@ -1,7 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. The Universal Footer HTML (With Absolute Paths & Sitemap Grid)
     const footerHTML = `
+    <style>
+        /* Scoped styles to create a beautiful sitemap grid without breaking existing CSS */
+        .sitemap-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            gap: 25px; 
+            margin-top: 15px; 
+        }
+        .sitemap-group h5 { 
+            font-size: 1.05rem; 
+            margin-bottom: 12px; 
+            font-weight: 700; 
+        }
+        .sitemap-group h5 a { 
+            color: #2E7D32; 
+            text-decoration: none; 
+            transition: color 0.3s ease;
+        }
+        .sitemap-group h5 a:hover { color: #1B5E20; }
+        .sitemap-group ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+        }
+        .sitemap-group ul li { margin-bottom: 8px; font-size: 0.9rem; }
+        .sitemap-group ul li a { 
+            color: #546E7A; 
+            text-decoration: none; 
+            transition: all 0.3s ease; 
+            display: inline-block;
+        }
+        .sitemap-group ul li a:hover { 
+            color: #F57C00; 
+            transform: translateX(4px); 
+        }
+    </style>
+
     <footer class="main-footer">
-        <div class="container footer-grid">
+        <div class="container footer-grid" style="grid-template-columns: 1fr 2fr 1fr;">
             <div class="footer-brand">
                 <h2 class="footer-logo">OJAS BIOFUEL. LLP</h2>
                 <p>Transforming agricultural waste into </p>
@@ -9,14 +47,45 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             
             <div class="footer-links">
-                <h4>Explore</h4>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/products">Products</a></li>
-                    <li><a href="/projects">Projects</a></li>
-                    <li><a href="/services">Services</a></li>
-                </ul>
+                <h4>Sitemap Explorer</h4>
+                <div class="sitemap-grid">
+                    <div class="sitemap-group">
+                        <h5><a href="/about">About Us</a></h5>
+                        <ul>
+                            <li><a href="/vision">Our Vision</a></li>
+                            <li><a href="/team">Our Team</a></li>
+                            <li><a href="/foundation">History</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sitemap-group">
+                        <h5><a href="/products">Products</a></h5>
+                        <ul>
+                            <li><a href="/fuel">Industrial Fuel</a></li>
+                            <li><a href="/briquettes">Briquettes</a></li>
+                            <li><a href="/pellets">Pellets</a></li>
+                            <li><a href="/order">Order Online</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sitemap-group">
+                        <h5><a href="/services">Services</a></h5>
+                        <ul>
+                            <li><a href="/supply">Agri Supply</a></li>
+                            <li><a href="/trading">Trading</a></li>
+                            <li><a href="/distribution">Distribution</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sitemap-group">
+                        <h5><a href="/projects">Projects</a></h5>
+                        <ul>
+                            <li><a href="/current-projects">Current</a></li>
+                            <li><a href="/completed-projects">Completed</a></li>
+                            <li><a href="/initiatives">Initiatives</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="footer-address">
@@ -25,9 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 KHADAKWASLA, PUNE 411024</p>
                 
                 <div class="footer-legal-group">
-                    <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
+                    <a href="/" class="footer-legal-link">Home</a>
                     <span class="legal-divider">|</span>
-                    <a href="/sitemap.xml" target="_blank" class="footer-legal-link">Sitemap</a>
+                    <a href="/contact" class="footer-legal-link">Contact</a>
+                    <br><br>
+                    <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
                     <span class="legal-divider">|</span>
                     <a href="/terms" class="footer-legal-link">Terms & Conditions</a>
                     <span class="legal-divider">|</span>
