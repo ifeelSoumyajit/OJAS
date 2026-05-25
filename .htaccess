@@ -1,3 +1,4 @@
+ErrorDocument 404 /404.html
 # Turn off MultiViews (Crucial for clean URLs on many shared hosts)
 Options -MultiViews -Indexes
 
