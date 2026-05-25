@@ -1,51 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. The Universal Footer HTML (With Strict 3-Column Sitemap Grid)
+    // 1. The Universal Footer HTML (With Absolute Paths & Sitemap Grid)
     const footerHTML = `
     <style>
-        /* Scoped styles to create the exact 3-column sitemap grid from the screenshot */
+        /* Scoped styles to create a beautiful sitemap grid without breaking existing CSS */
         .sitemap-grid { 
             display: grid; 
-            /* Forces exactly 3 equal columns, wrapping the 4th item to the next row */
-            grid-template-columns: repeat(3, 1fr); 
-            row-gap: 35px; /* Vertical space between rows */
-            column-gap: 20px; /* Horizontal space between columns */
-            margin-top: 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            gap: 25px; 
+            margin-top: 15px; 
         }
         .sitemap-group h5 { 
-            font-size: 1.1rem; 
+            font-size: 1.05rem; 
             margin-bottom: 12px; 
             font-weight: 700; 
         }
         .sitemap-group h5 a { 
-            color: #689F38; /* Green heading color matching your screenshot */
+            color: #2E7D32; 
             text-decoration: none; 
             transition: color 0.3s ease;
         }
-        .sitemap-group h5 a:hover { color: #558B2F; }
-        
+        .sitemap-group h5 a:hover { color: #1B5E20; }
         .sitemap-group ul { 
             list-style: none; 
             padding: 0; 
             margin: 0; 
         }
-        .sitemap-group ul li { margin-bottom: 12px; font-size: 0.95rem; }
+        .sitemap-group ul li { margin-bottom: 8px; font-size: 0.9rem; }
         .sitemap-group ul li a { 
-            color: #78909C; /* Muted slate/grey link color matching your screenshot */
+            color: #546E7A; 
             text-decoration: none; 
             transition: all 0.3s ease; 
             display: inline-block;
         }
         .sitemap-group ul li a:hover { 
-            color: #ffffff; 
+            color: #F57C00; 
             transform: translateX(4px); 
         }
 
-        /* Responsive design so it doesn't break on mobile phones */
-        @media (max-width: 768px) {
-            .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
+        /* NEW: Styles to match the screenshot for the legal links */
+        .footer-legal-group {
+            margin-top: 25px;
         }
-        @media (max-width: 480px) {
-            .sitemap-grid { grid-template-columns: 1fr; }
+        .footer-legal-link {
+            color: #689F38; /* Green from the screenshot */
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-legal-link:hover {
+            color: #558B2F;
+        }
+        .legal-divider {
+            color: #546E7A;
+            margin: 0 12px;
+            font-weight: 400;
         }
     </style>
 
@@ -58,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             
             <div class="footer-links">
-                <h4 style="color: #ffffff; font-weight: bold; margin-bottom: 20px;">Sitemap Explorer</h4>
+                <h4>Sitemap Explorer</h4>
                 <div class="sitemap-grid">
                     <div class="sitemap-group">
                         <h5><a href="/about">About Us</a></h5>
@@ -105,10 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 KHADAKWASLA, PUNE 411024</p>
                 
                 <div class="footer-legal-group">
-                    <a href="/" class="footer-legal-link">Home</a>
-                    <span class="legal-divider">|</span>
-                    <a href="/contact" class="footer-legal-link">Contact</a>
-                    <br><br>
                     <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
                     <span class="legal-divider">|</span>
                     <a href="/terms" class="footer-legal-link">Terms & Conditions</a>
@@ -129,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>Credits & Attributes</h3>
                 <hr>
                 <div class="attributes-list">
+                    
                     <div class="attr-item resource-credits-box">
                         <strong>Resource Credits:</strong>
                         <p>
@@ -175,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (footerPlaceholder) {
         footerPlaceholder.innerHTML = footerHTML;
 
-        // Modal Logic Kept Intact
+        // Modal Logic
         const modal = document.getElementById('attributes-modal');
         const openBtn = document.getElementById('open-attributes');
         const closeBtn = document.getElementById('close-attributes');
