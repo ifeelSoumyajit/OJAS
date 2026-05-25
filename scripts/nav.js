@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="nav-logo" oncontextmenu="return false;">
-                <img src="/public/Ojas.webp" alt="OJAS Logo" class="logo-img">
+                <img src="/assets/Ojas.png" alt="OJAS Logo" class="logo-img">
             </a>
             
             <label class="hamburger-menu">
