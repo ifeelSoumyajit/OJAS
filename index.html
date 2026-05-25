@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const footerHTML = `
     <style>
-        /* 1. MAIN FOOTER GRID */
+        /* 1. MAIN FOOTER GRID FIX */
         .footer-grid-wrapper {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 2fr 1fr; /* Desktop Layout */
             gap: 40px;
         }
 
+        /* Responsive Breakpoints for Main Footer */
         @media (max-width: 992px) {
             .footer-grid-wrapper {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Stack vertically on tablets and mobile */
                 gap: 30px;
             }
         }
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             transform: translateX(4px); 
         }
 
+        /* Responsive Breakpoints for Sitemap */
         @media (max-width: 768px) {
             .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -59,28 +61,39 @@ document.addEventListener('DOMContentLoaded', () => {
             .sitemap-grid { grid-template-columns: 1fr; }
         }
 
-        /* 3. LEGAL LINKS FIX (Keeps them inline like the photo) */
+        /* 3. LEGAL LINKS FIX FOR MOBILE */
         .footer-legal-group {
             margin-top: 25px;
             display: flex;
-            flex-wrap: wrap; /* Allows the whole block to wrap naturally if the screen is too small */
+            flex-wrap: wrap; /* Allows links to wrap if they run out of space */
             align-items: center;
-            gap: 8px 0; /* Adds vertical spacing if it wraps to a new line */
+            gap: 8px;
         }
         .footer-legal-link {
             color: #689F38; 
             font-weight: 700;
             text-decoration: none;
             transition: color 0.3s ease;
-            white-space: nowrap; /* Forces the individual link to NEVER break into two lines */
         }
         .footer-legal-link:hover {
             color: #558B2F;
         }
         .legal-divider {
             color: #546E7A;
-            margin: 0 8px;
+            margin: 0 4px;
             font-weight: 400;
+        }
+
+        /* Hide the dividers on tiny screens and stack the legal links */
+        @media (max-width: 480px) {
+            .footer-legal-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .legal-divider {
+                display: none;
+            }
         }
     </style>
 
