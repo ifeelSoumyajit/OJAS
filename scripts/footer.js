@@ -147,9 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="footer-legal-group">
                     <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
                     <span class="legal-divider">|</span>
-                    <a href="/terms" class="footer-legal-link">Terms & Conditions</a>
+                    <a href="in/terms" class="footer-legal-link">Terms & Conditions</a>
                     <span class="legal-divider">|</span>
-                    <a href="/policy" class="footer-legal-link">Privacy Policy</a>
+                    <a href="in/policy" class="footer-legal-link">Privacy Policy</a>
                 </div>
             </div>
         </div>
