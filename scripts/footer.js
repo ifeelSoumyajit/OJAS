@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="${prefix}index">Home</a></li>
-                    <li><a href="${prefix}about">About</a></li>
-                    <li><a href="${prefix}products">Products</a></li>
-                    <li><a href="${prefix}projects">Projects</a></li>
-                    <li><a href="${prefix}services">Services</a></li>
+                    <li><a href="${prefix}in/about">About</a></li>
+                    <li><a href="${prefix}in/products">Products</a></li>
+                    <li><a href="${prefix}in/projects">Projects</a></li>
+                    <li><a href="${prefix}in/services">Services</a></li>
                 </ul>
             </div>
 
