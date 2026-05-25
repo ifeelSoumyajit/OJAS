@@ -1,12 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. The Universal Footer HTML (With Absolute Paths & Sitemap Grid)
     const footerHTML = `
     <style>
-        /* Scoped styles to create a beautiful sitemap grid without breaking existing CSS */
+        /* 1. MAIN FOOTER GRID FIX */
+        .footer-grid-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr; /* Desktop Layout */
+            gap: 40px;
+        }
+
+        /* Responsive Breakpoints for Main Footer */
+        @media (max-width: 992px) {
+            .footer-grid-wrapper {
+                grid-template-columns: 1fr; /* Stack vertically on tablets and mobile */
+                gap: 30px;
+            }
+        }
+
+        /* 2. SITEMAP GRID STYLES */
         .sitemap-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-            gap: 25px; 
+            grid-template-columns: repeat(3, 1fr); 
+            row-gap: 35px; 
+            column-gap: 20px; 
             margin-top: 15px; 
         }
         .sitemap-group h5 { 
@@ -15,34 +30,47 @@ document.addEventListener('DOMContentLoaded', () => {
             font-weight: 700; 
         }
         .sitemap-group h5 a { 
-            color: #2E7D32; 
+            color: #689F38; 
             text-decoration: none; 
             transition: color 0.3s ease;
         }
-        .sitemap-group h5 a:hover { color: #1B5E20; }
+        .sitemap-group h5 a:hover { color: #558B2F; }
+        
         .sitemap-group ul { 
             list-style: none; 
             padding: 0; 
             margin: 0; 
         }
-        .sitemap-group ul li { margin-bottom: 8px; font-size: 0.9rem; }
+        .sitemap-group ul li { margin-bottom: 12px; font-size: 0.95rem; }
         .sitemap-group ul li a { 
-            color: #546E7A; 
+            color: #78909C; 
             text-decoration: none; 
             transition: all 0.3s ease; 
             display: inline-block;
         }
         .sitemap-group ul li a:hover { 
-            color: #F57C00; 
+            color: #ffffff; 
             transform: translateX(4px); 
         }
 
-        /* NEW: Styles to match the screenshot for the legal links */
+        /* Responsive Breakpoints for Sitemap */
+        @media (max-width: 768px) {
+            .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .sitemap-grid { grid-template-columns: 1fr; }
+        }
+
+        /* 3. LEGAL LINKS FIX FOR MOBILE */
         .footer-legal-group {
             margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap; /* Allows links to wrap if they run out of space */
+            align-items: center;
+            gap: 8px;
         }
         .footer-legal-link {
-            color: #689F38; /* Green from the screenshot */
+            color: #689F38; 
             font-weight: 700;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -52,13 +80,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         .legal-divider {
             color: #546E7A;
-            margin: 0 12px;
+            margin: 0 4px;
             font-weight: 400;
+        }
+
+        /* Hide the dividers on tiny screens and stack the legal links */
+        @media (max-width: 480px) {
+            .footer-legal-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .legal-divider {
+                display: none;
+            }
         }
     </style>
 
     <footer class="main-footer">
-        <div class="container footer-grid" style="grid-template-columns: 1fr 2fr 1fr;">
+        <div class="container footer-grid-wrapper">
             <div class="footer-brand">
                 <h2 class="footer-logo">OJAS BIOFUEL. LLP</h2>
                 <p>Transforming agricultural waste into </p>
@@ -66,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             
             <div class="footer-links">
-                <h4>Sitemap Explorer</h4>
+                <h4 style="color: #ffffff; font-weight: bold; margin-bottom: 20px;">Sitemap Explorer</h4>
                 <div class="sitemap-grid">
                     <div class="sitemap-group">
                         <h5><a href="/about">About Us</a></h5>
