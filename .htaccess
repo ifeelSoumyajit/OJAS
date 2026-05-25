@@ -1,23 +1,36 @@
-# 1. Disable MultiViews (Prevents server from fighting clean URLs)
+# 1. Disable MultiViews (Crucial for clean URLs)
 Options -MultiViews -Indexes
 
-# 2. Set custom 404 page
+# 2. Custom Error Page
 ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
-    # 3. EXTERNAL REDIRECT: Strip .html AND hide the /in/ folder from the URL bar
-    # If someone types /about.html or /in/about.html, force it to just /about
-    RewriteCond %{THE_REQUEST} \s/+(?:in/)?([^/.\s]+)\.html [NC,OR]
-    RewriteCond %{THE_REQUEST} \s/+in/([^/.\s]+) [NC]
-    RewriteRule ^ /%1 [R=301,L]
+    # ==========================================
+    # EXTERNAL REDIRECTS (Cleans the URL bar)
+    # ==========================================
+    
+    # A. If browser shows /in/vision.html -> redirect to /vision
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^in/([^/.]+)\.html$ /$1 [R=301,L]
+    
+    # B. If browser shows /in/vision -> redirect to /vision
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^in/([^/.]+)$ /$1 [R=301,L]
 
-    # 4. INTERNAL ROUTING: Secretly fetch the .html file from the /in/ folder
-    # If it's not a real folder and not a real file in the root...
+    # C. If browser shows /vision.html -> redirect to /vision
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^([^/.]+)\.html$ /$1 [R=301,L]
+
+    # ==========================================
+    # INTERNAL ROUTING (Serves the actual file)
+    # ==========================================
+    
+    # If the requested clean URL isn't a real folder or root file...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    # ...then serve the .html file from the /in/ folder behind the scenes.
+    # ...silently load the .html file from inside the /in/ folder.
     RewriteRule ^([^/]+)/?$ in/$1.html [L]
 </IfModule>
