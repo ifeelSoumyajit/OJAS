@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </label>
 
             <ul class="nav-links" id="nav-links-menu">
-                <li><a href="${prefix}index">Home</a></li>
+                <li><a href="ojasbiofuel.in">Home</a></li>
                 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">About</a>
