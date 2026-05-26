@@ -7,30 +7,21 @@ services:
 
     routes:
       # =========================================================
-      # BULLETPROOF HOMEPAGE ROUTING
+      # 1. SPECIFIC REDIRECTS (Evaluated first)
       # =========================================================
       
-      # 1. If someone types ojasbiofuel.in directly, rewrite securely to index.html
-      - type: rewrite
-        source: /
-        destination: index.html
-
-      # 2. Redirect /index, /index.html, or lowercase /home to /Home
+      # Automatically convert /index or /index.html into clean /Home
       - type: redirect
         source: /index(?:\.html)?
         destination: /Home
 
+      # Automatically convert lowercase /home to standard /Home
       - type: redirect
         source: /home
         destination: /Home
 
-  # 3. Handle /Home with a capital 'H' and point it to the physical file without a leading slash
-      - type: rewrite
-        source: /Home
-        destination: index.html
-
       # =========================================================
-      # SUB-PAGES DIRECTORY (Notice: NO leading slashes on destinations)
+      # 2. SUB-PAGES REWRITES (Evaluated second)
       # =========================================================
       - type: rewrite
         source: /about
@@ -111,3 +102,12 @@ services:
       - type: rewrite
         source: /policy
         destination: in/policy.html
+
+      # =========================================================
+      # 3. GLOBAL CATCH-ALL ROUTE (Evaluated last)
+      # =========================================================
+      # This handles /Home, /, or anything else by sending them to index.html
+      # while perfectly preserving the clean "/Home" look in the URL bar!
+      - type: rewrite
+        source: /*
+        destination: index.html
