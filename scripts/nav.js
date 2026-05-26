@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. The Universal Navbar HTML (With Animated Hamburger)
-    // All paths have been updated to clean, absolute root positions starting with "/"
+    // Absolute paths pointed exactly to where the subpage files exist on your server
     const navHTML = `
     <nav class="navbar">
         <div class="nav-container">
@@ -21,41 +21,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li class="dropdown">
                     <a href="#" class="dropbtn">About</a>
                     <ul class="dropdown-content">
-                        <li><a href="/vision">Our Vision</a></li>
-                        <li><a href="/team">Our Team</a></li>
-                        <li><a href="/foundation">Company History</a></li>
+                        <li><a href="/in/vision">Our Vision</a></li>
+                        <li><a href="/in/team">Our Team</a></li>
+                        <li><a href="/in/foundation">Company History</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="/current-projects">Current Projects</a></li>
-                        <li><a href="/completed-projects">Completed Projects</a></li>
-                        <li><a href="/initiatives">Green Initiatives</a></li>
+                        <li><a href="/in/current-projects">Current Projects</a></li>
+                        <li><a href="/in/completed-projects">Completed Projects</a></li>
+                        <li><a href="/in/initiatives">Green Initiatives</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Services</a>
                     <ul class="dropdown-content">
-                        <li><a href="/supply">Agri Waste Supply</a></li>
-                        <li><a href="/trading">Biomass Trading</a></li>
-                        <li><a href="/distribution">Biofuel Distribution</a></li>
+                        <li><a href="/in/supply">Agri Waste Supply</a></li>
+                        <li><a href="/in/trading">Biomass Trading</a></li>
+                        <li><a href="/in/distribution">Biofuel Distribution</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Products</a>
                     <ul class="dropdown-content">
-                        <li><a href="/fuel">Industrial Fuel</a></li>
-                        <li><a href="/briquettes">Biomass Briquettes</a></li>
-                        <li><a href="/pellets">Biomass Pellets</a></li>
-                        <li><a href="/order">Order Online</a></li>
+                        <li><a href="/in/fuel">Industrial Fuel</a></li>
+                        <li><a href="/in/briquettes">Biomass Briquettes</a></li>
+                        <li><a href="/in/pellets">Biomass Pellets</a></li>
+                        <li><a href="/in/order">Order Online</a></li>
                     </ul>
                 </li>
 
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/in/contact">Contact</a></li>
             </ul>
         </div>
     </nav>
