@@ -1,24 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const footerHTML = `
-    <footer class="premium-footer">
-        <!-- Floating CTA Banner -->
-        <div class="container">
-            <div class="floating-cta">
-                <div class="cta-content">
-                    <h2>Ready to fuel a sustainable future?</h2>
-                    <p>Partner with Ojas Biofuel for high-calorific, zero-carbon green energy solutions.</p>
-                </div>
-                <div class="cta-action">
-                    <a href="/contact" class="btn-glow">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Footer Content -->
-        <div class="container footer-grid-modern">
-            <div class="footer-brand-modern">
-                <h2 class="footer-logo-glow">OJAS BIOFUEL. LLP</h2>
-                <p class="brand-tagline">Transforming agricultural waste into clean energy for a sustainable future.</p>
+    <footer class="main-footer">
+        <div class="container footer-grid-wrapper">
+            <div class="footer-brand">
+                <h2 class="footer-logo">OJAS BIOFUEL. LLP</h2>
+                <p>Transforming agricultural waste into </p>
+                <p>clean energy for a sustainable future.</p>
                 <div class="social-pills">
                     <a href="javascript:void(0)" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="javascript:void(0)" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
@@ -26,9 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             
-            <div class="footer-links-modern">
-                <div class="sitemap-grid-modern">
-                    <div class="sitemap-group-modern">
+            <div class="footer-links">
+                <h4 style="color: #ffffff; font-weight: bold; margin-bottom: 20px;">Sitemap Explorer</h4>
+                
+                <div class="sitemap-grid">
+                    <div class="sitemap-group">
                         <h5><a href="/about">About Us</a></h5>
                         <ul>
                             <li><a href="/vision">Our Vision</a></li>
@@ -37,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
 
-                    <div class="sitemap-group-modern">
+                    <div class="sitemap-group">
                         <h5><a href="/projects">Projects</a></h5>
                         <ul>
                             <li><a href="/current-projects">Current</a></li>
@@ -46,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
 
-                    <div class="sitemap-group-modern">
+                    <div class="sitemap-group">
                         <h5><a href="/services">Services</a></h5>
                         <ul>
                             <li><a href="/supply">Agri Supply</a></li>
@@ -55,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
                     
-                    <div class="sitemap-group-modern">
+                    <div class="sitemap-group">
                         <h5><a href="/products">Products</a></h5>
                         <ul>
                             <li><a href="/fuel">Industrial Fuel</a></li>
@@ -65,8 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
 
-                    <!-- NEW: Legal Column -->
-                    <div class="sitemap-group-modern">
+                    <div class="sitemap-group">
                         <h5>Legal</h5>
                         <ul>
                             <li><a href="javascript:void(0)" id="open-attributes">Attributes</a></li>
@@ -77,21 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         </div>
-
-        <!-- Sleek Bottom Bar (Simplified) -->
-        <div class="footer-bottom-modern">
+        
+        <div class="footer-bottom">
             <div class="container bottom-flex">
                 <div class="hq-compact">
                     <i class="fa-solid fa-location-dot hq-icon"></i> 
                     <span>FL NO 03, CHINTAMANI NR MAHADEV MANDIR, KHADAKWASLA, PUNE 411024</span>
                 </div>
-                <div class="copyright-modern">
-                    © 2026 OJAS BIOFUEL. LLP.
+                <div class="copyright-text">
+                    © 2026 OJAS BIOFUEL. LLP. All Rights Reserved.
                 </div>
             </div>
         </div>
 
-        <!-- The Modal (Kept 100% Intact) -->
         <div id="attributes-modal" class="modal-overlay">
             <div class="modal-content">
                 <button class="modal-close" id="close-attributes">&times;</button>
