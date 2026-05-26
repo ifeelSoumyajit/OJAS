@@ -6,7 +6,22 @@ services:
     staticPublishPath: .
 
     routes:
-      # Main Hub Pages
+      # =========================================================
+      # HOMEPAGE /HOME ROUTING
+      # =========================================================
+      # 1. If someone types /index or /index.html, force them to /Home
+      - type: redirect
+        source: /index(?:\.html)?
+        destination: /Home
+
+      # 2. Tell the server to secretly render index.html behind /Home
+      - type: rewrite
+        source: /Home
+        destination: /index.html
+
+      # =========================================================
+      # Main Hub Pages & Subpages (Keep your existing routes here)
+      # =========================================================
       - type: rewrite
         source: /about
         destination: /in/about.html
@@ -22,72 +37,5 @@ services:
       - type: rewrite
         source: /projects
         destination: /in/projects.html
-
-      # About Sub-pages
-      - type: rewrite
-        source: /vision
-        destination: /in/vision.html
-
-      - type: rewrite
-        source: /team
-        destination: /in/team.html
-
-      - type: rewrite
-        source: /foundation
-        destination: /in/foundation.html
-
-      # Services Sub-pages
-      - type: rewrite
-        source: /supply
-        destination: /in/supply.html
-
-      - type: rewrite
-        source: /trading
-        destination: /in/trading.html
-
-      - type: rewrite
-        source: /distribution
-        destination: /in/distribution.html
-
-      # Products Sub-pages
-      - type: rewrite
-        source: /fuel
-        destination: /in/fuel.html
-
-      - type: rewrite
-        source: /briquettes
-        destination: /in/briquettes.html
-
-      - type: rewrite
-        source: /pellets
-        destination: /in/pellets.html
-
-      # Projects Sub-pages
-      - type: rewrite
-        source: /current-projects
-        destination: /in/current-projects.html
-
-      - type: rewrite
-        source: /completed-projects
-        destination: /in/completed-projects.html
-
-      - type: rewrite
-        source: /initiatives
-        destination: /in/initiatives.html
-
-      # Action & Legal Pages
-      - type: rewrite
-        source: /contact
-        destination: /in/contact.html
-
-      - type: rewrite
-        source: /order
-        destination: /in/order.html
-
-      - type: rewrite
-        source: /terms
-        destination: /in/terms.html
-
-      - type: rewrite
-        source: /policy
-        destination: /in/policy.html
+        
+      # ... Keep the rest of your routes intact below ...
