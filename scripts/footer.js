@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const footerHTML = `
     <footer class="premium-footer">
+        <!-- Floating CTA Banner -->
         <div class="container">
             <div class="floating-cta">
                 <div class="cta-content">
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
 
+        <!-- Main Footer Content -->
         <div class="container footer-grid-modern">
             <div class="footer-brand-modern">
                 <h2 class="footer-logo-glow">OJAS BIOFUEL. LLP</h2>
@@ -62,22 +64,26 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><a href="/order">Order Online</a></li>
                         </ul>
                     </div>
+
+                    <!-- NEW: Legal Column -->
+                    <div class="sitemap-group-modern">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li><a href="javascript:void(0)" id="open-attributes">Attributes</a></li>
+                            <li><a href="/terms">Terms</a></li>
+                            <li><a href="/policy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Sleek Bottom Bar (Simplified) -->
         <div class="footer-bottom-modern">
             <div class="container bottom-flex">
                 <div class="hq-compact">
                     <i class="fa-solid fa-location-dot hq-icon"></i> 
                     <span>FL NO 03, CHINTAMANI NR MAHADEV MANDIR, KHADAKWASLA, PUNE 411024</span>
-                </div>
-                <div class="legal-compact">
-                    <a href="javascript:void(0)" id="open-attributes">Attributes</a>
-                    <span class="dot-divider"></span>
-                    <a href="/terms">Terms</a>
-                    <span class="dot-divider"></span>
-                    <a href="/policy">Privacy Policy</a>
                 </div>
                 <div class="copyright-modern">
                     © 2026 OJAS BIOFUEL. LLP.
@@ -85,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
 
+        <!-- The Modal (Kept 100% Intact) -->
         <div id="attributes-modal" class="modal-overlay">
             <div class="modal-content">
                 <button class="modal-close" id="close-attributes">&times;</button>
