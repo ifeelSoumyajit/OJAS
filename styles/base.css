@@ -3,12 +3,35 @@
     --primary-green-hover: #1B5E20; /* For button hovers */
     --accent-orange: #EF6C00; /* Energy/Transformation */
     
-    --industrial-gray: #37474F; /* Standard text */
-    --industrial-dark: #263238; /* Used in Footer and Contact Cards */
-    
-    --light-bg: #F5F5F5;
+    /* Dynamic Theme Mapped Variables (Light Defaults) */
+    --body-bg: #F5F5F5;
+    --section-white-bg: #FFFFFF;
+    --section-diagram-bg: #fdfdfd;
+    --text-primary: #37474F;
+    --text-secondary: #455A64;
+    --text-muted: #546E7A;
+    --card-bg: #f4f7f6;
+    --card-border: #ddd;
     --white: #FFFFFF;
+    --cookie-bg: #ffffff;
+    
+    --industrial-dark: #263238; /* Used in Footer and Contact Cards */
     --transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   DARK THEME VARIABLE OVERRIDES
+   ========================================================================== */
+body.dark-theme {
+    --body-bg: #121A1D; /* Rich dark primary background */
+    --section-white-bg: #1A2428; /* Layered container surface dark background */
+    --section-diagram-bg: #151F22;
+    --text-primary: #ECEFF1; /* High contrast text */
+    --text-secondary: #CFD8DC;
+    --text-muted: #90A4AE;
+    --card-bg: #1E2B30; /* Tinted deep green card surfaces */
+    --card-border: #2D3E45;
+    --cookie-bg: #1A2428;
 }
 
 /* Enable smooth gliding for all #anchor links */
@@ -25,17 +48,14 @@ html {
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
     line-height: 1.6;
-    background-color: var(--light-bg);
-    color: var(--industrial-gray);
-    /* Prevents horizontal scrollbar issues */
+    background-color: var(--body-bg);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden; 
     
-    /* =========================================
-       NEW: STICKY FOOTER FIX
-       ========================================= */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Forces body to be at least the height of the screen */
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -64,7 +84,7 @@ a {
     background: var(--primary-green);
     color: var(--white);
     text-decoration: none;
-    border-radius: 8px; /* Changed to 8px to match the order form inputs */
+    border-radius: 8px;
     font-weight: 700;
     transition: var(--transition);
     border: none;
@@ -73,7 +93,7 @@ a {
 
 .btn:hover { 
     background: var(--primary-green-hover); 
-    transform: translateY(-2px); /* Adds a subtle lift effect */
+    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
 }
 
@@ -85,31 +105,25 @@ a {
 /* =========================================
    CUSTOM GREEN SCROLLBAR
    ========================================= */
-
-/* Firefox Support */
 html {
     scrollbar-width: thin;
-    scrollbar-color: var(--primary-green) var(--light-bg);
+    scrollbar-color: var(--primary-green) var(--body-bg);
 }
 
-/* WebKit (Chrome, Safari, newer Edge) Support */
 ::-webkit-scrollbar {
-    width: 12px; /* Width of the vertical scrollbar */
+    width: 12px;
 }
 
-/* The track (background) of the scrollbar */
 ::-webkit-scrollbar-track {
-    background: var(--light-bg); 
+    background: var(--body-bg); 
 }
 
-/* The draggable scrolling handle */
 ::-webkit-scrollbar-thumb {
     background-color: var(--primary-green); 
-    border-radius: 10px; /* Makes it pill-shaped */
-    border: 3px solid var(--light-bg); /* Creates a nice padded border effect */
+    border-radius: 10px;
+    border: 3px solid var(--body-bg);
 }
 
-/* Hover effect for the handle */
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--primary-green-hover); 
 }
@@ -117,32 +131,31 @@ html {
 /* =========================================
    COOKIE CONSENT BANNER
    ========================================= */
-
 .cookie-banner {
     position: fixed;
-    bottom: -100%; /* Hidden by default */
+    bottom: -100%;
     left: 0;
     width: 100%;
-    background: #ffffff;
-    box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
+    background: var(--cookie-bg);
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
     padding: 25px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 9999; /* Ensures it stays on top of everything */
-    transition: bottom 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 9999;
+    transition: bottom 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.3s ease;
     border-top: 4px solid #2E7D32;
     gap: 20px;
 }
 
 .cookie-banner.show {
-    bottom: 0; /* Slides up */
+    bottom: 0;
 }
 
 .cookie-text {
     flex-grow: 1;
     font-size: 0.95rem;
-    color: #455A64;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
 }
@@ -181,9 +194,9 @@ html {
 }
 
 .cookie-btn.decline {
-    background: #f4f7f6;
-    color: #546E7A;
-    border: 1px solid #cfd8dc;
+    background: var(--body-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--card-border);
 }
 
 .cookie-btn.decline:hover {
@@ -191,7 +204,6 @@ html {
     color: #37474F;
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .cookie-banner {
         flex-direction: column;
@@ -206,6 +218,6 @@ html {
     }
     
     .cookie-btn {
-        width: 100%; /* Full width buttons on mobile */
+        width: 100%;
     }
 }
