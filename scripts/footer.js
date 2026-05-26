@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Partner with Ojas Biofuel for high-calorific, zero-carbon green energy solutions.</p>
                 </div>
                 <div class="cta-action">
-                    <a href="/contact" class="btn-glow">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
+                    <!-- FIXED: Pointed to the absolute path in the subfolder directory -->
+                    <a href="/in/contact" class="btn-glow">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -19,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="brand-tagline">Transforming agricultural waste into clean energy for a sustainable future.</p>
                 <div class="social-pills">
                     <a href="javascript:void(0)" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="javascript:void(0)" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <!-- FIXED: Changed to universally stable class name for maximum compatibility -->
+                    <a href="javascript:void(0)" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
                     <a href="javascript:void(0)" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
@@ -27,39 +29,39 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="footer-links-modern">
                 <div class="sitemap-grid-modern">
                     <div class="sitemap-group-modern">
-                        <h5><a href="/about">About Us</a></h5>
+                        <h5><a href="/in/about">About Us</a></h5>
                         <ul>
-                            <li><a href="/vision">Our Vision</a></li>
-                            <li><a href="/team">Our Team</a></li>
-                            <li><a href="/foundation">History</a></li>
+                            <li><a href="/in/vision">Our Vision</a></li>
+                            <li><a href="/in/team">Our Team</a></li>
+                            <li><a href="/in/foundation">History</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group-modern">
-                        <h5><a href="/projects">Projects</a></h5>
+                        <h5><a href="/in/projects">Projects</a></h5>
                         <ul>
-                            <li><a href="/current-projects">Current</a></li>
-                            <li><a href="/completed-projects">Completed</a></li>
-                            <li><a href="/initiatives">Initiatives</a></li>
+                            <li><a href="/in/current-projects">Current</a></li>
+                            <li><a href="/in/completed-projects">Completed</a></li>
+                            <li><a href="/in/initiatives">Initiatives</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group-modern">
-                        <h5><a href="/services">Services</a></h5>
+                        <h5><a href="/in/services">Services</a></h5>
                         <ul>
-                            <li><a href="/supply">Agri Supply</a></li>
-                            <li><a href="/trading">Trading</a></li>
-                            <li><a href="/distribution">Distribution</a></li>
+                            <li><a href="/in/supply">Agri Supply</a></li>
+                            <li><a href="/in/trading">Trading</a></li>
+                            <li><a href="/in/distribution">Distribution</a></li>
                         </ul>
                     </div>
                     
                     <div class="sitemap-group-modern">
-                        <h5><a href="/products">Products</a></h5>
+                        <h5><a href="/in/products">Products</a></h5>
                         <ul>
-                            <li><a href="/fuel">Industrial Fuel</a></li>
-                            <li><a href="/briquettes">Briquettes</a></li>
-                            <li><a href="/pellets">Pellets</a></li>
-                            <li><a href="/order">Order Online</a></li>
+                            <li><a href="/in/fuel">Industrial Fuel</a></li>
+                            <li><a href="/in/briquettes">Briquettes</a></li>
+                            <li><a href="/in/pellets">Pellets</a></li>
+                            <li><a href="/in/order">Order Online</a></li>
                         </ul>
                     </div>
 
@@ -67,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h5>Legal</h5>
                         <ul>
                             <li><a href="javascript:void(0)" id="open-attributes">Attributes</a></li>
-                            <li><a href="/terms">Terms</a></li>
-                            <li><a href="/policy">Privacy Policy</a></li>
+                            <li><a href="/in/terms">Terms</a></li>
+                            <li><a href="/in/policy">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
