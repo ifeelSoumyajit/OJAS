@@ -6,31 +6,108 @@ services:
     staticPublishPath: .
 
     routes:
+      # =========================================================
+      # BULLETPROOF HOMEPAGE ROUTING
+      # =========================================================
+      
+      # 1. If someone types ojasbiofuel.in directly, rewrite securely to index.html
+      - type: rewrite
+        source: /
+        destination: index.html
+
+      # 2. Redirect /index, /index.html, or lowercase /home to /Home
       - type: redirect
         source: /index(?:\.html)?
         destination: /Home
 
+      - type: redirect
+        source: /home
+        destination: /Home
+
+  # 3. Handle /Home with a capital 'H' and point it to the physical file without a leading slash
       - type: rewrite
         source: /Home
-        destination: /index.html
+        destination: index.html
 
       # =========================================================
-      # Main Hub Pages & Subpages (Keep your existing routes here)
+      # SUB-PAGES DIRECTORY (Notice: NO leading slashes on destinations)
       # =========================================================
       - type: rewrite
         source: /about
-        destination: /in/about.html
+        destination: in/about.html
 
       - type: rewrite
         source: /services
-        destination: /in/services.html
+        destination: in/services.html
 
       - type: rewrite
         source: /products
-        destination: /in/products.html
+        destination: in/products.html
 
       - type: rewrite
         source: /projects
-        destination: /in/projects.html
-        
-      # ... Keep the rest of your routes intact below ...
+        destination: in/projects.html
+
+      - type: rewrite
+        source: /vision
+        destination: in/vision.html
+
+      - type: rewrite
+        source: /team
+        destination: in/team.html
+
+      - type: rewrite
+        source: /foundation
+        destination: in/foundation.html
+
+      - type: rewrite
+        source: /supply
+        destination: in/supply.html
+
+      - type: rewrite
+        source: /trading
+        destination: in/trading.html
+
+      - type: rewrite
+        source: /distribution
+        destination: in/distribution.html
+
+      - type: rewrite
+        source: /fuel
+        destination: in/fuel.html
+
+      - type: rewrite
+        source: /briquettes
+        destination: in/briquettes.html
+
+      - type: rewrite
+        source: /pellets
+        destination: in/pellets.html
+
+      - type: rewrite
+        source: /current-projects
+        destination: in/current-projects.html
+
+      - type: rewrite
+        source: /completed-projects
+        destination: in/completed-projects.html
+
+      - type: rewrite
+        source: /initiatives
+        destination: in/initiatives.html
+
+      - type: rewrite
+        source: /contact
+        destination: in/contact.html
+
+      - type: rewrite
+        source: /order
+        destination: in/order.html
+
+      - type: rewrite
+        source: /terms
+        destination: in/terms.html
+
+      - type: rewrite
+        source: /policy
+        destination: in/policy.html
