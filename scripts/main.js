@@ -69,19 +69,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       3. LIGHT / DARK THEME MANAGEMENT ENGINE
+       3. LIGHT / DARK THEME MANAGEMENT ENGINE (WITH IMAGE SWAPPING)
        ========================================================================== */
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     
     if (themeToggleBtn) {
         const themeIcon = themeToggleBtn.querySelector('i');
+        // Selects the diagram image element if it exists on the current page
+        const processImg = document.querySelector('.process-img');
         
         // Function to apply the dark theme states and adjust metrics
         const enableDarkTheme = () => {
             document.body.classList.add('dark-theme');
             if (themeIcon) {
                 themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun'); // Show sun icon when in dark mode
+                themeIcon.classList.add('fa-sun');
+            }
+            // UPDATED: Swap to the dark mode optimized diagram asset if present
+            if (processImg) {
+                processImg.src = 'assets/images/processBG.png';
             }
             localStorage.setItem('ojas_active_theme', 'dark');
         };
@@ -91,12 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('dark-theme');
             if (themeIcon) {
                 themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon'); // Show moon icon when in light mode
+                themeIcon.classList.add('fa-moon');
+            }
+            // UPDATED: Swap back to the clean light mode original asset
+            if (processImg) {
+                processImg.src = 'assets/images/Process.png';
             }
             localStorage.setItem('ojas_active_theme', 'light');
         };
 
-        // Boot-Up Sync check: Initialize chosen profile from storage
+        // Boot-Up Sync check: Initialize chosen profile from storage immediately on page load
         const preservedThemeSetting = localStorage.getItem('ojas_active_theme');
         if (preservedThemeSetting === 'dark') {
             enableDarkTheme();
