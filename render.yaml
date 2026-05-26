@@ -48,11 +48,6 @@ services:
       - type: rewrite
         source: /distribution
         destination: /in/distribution.html
-        
-      # Products Page
-      - type: rewrite
-        source: /products
-        destination: /in/products.html
 
       # Products Sub-pages
       - type: rewrite
