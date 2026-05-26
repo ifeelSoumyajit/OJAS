@@ -24,24 +24,24 @@
    2. FLOATING CTA BANNER
    ========================================= */
 .floating-cta {
-    /* The Magic: A translucent green gradient using your specific color code */
-    background: linear-gradient(135deg, rgba(1, 135, 35, 0.75) 0%, rgba(1, 135, 35, 0.55) 100%);
+    /* Deep green tinted glass using the #2F4213 family at 65%-75% opacity */
+    background: linear-gradient(135deg, rgba(47, 66, 19, 0.65) 0%, rgba(27, 60, 32, 0.75) 100%);
     
-    /* The Frosted Glass Blur */
+    /* The frosted glass blur */
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px); /* Added for Safari support */
+    -webkit-backdrop-filter: blur(20px); /* Ensures it works on Safari/iPhones! */
     
-    /* A faint white border simulates light catching the edge of the glass */
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    
-    /* Keeping all your layout properties exactly the same */
+    /* A subtle, lighter green edge to catch the "glass rim" light */
+    border: 1px solid rgba(129, 199, 132, 0.25);
     border-radius: 24px;
     padding: 40px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transform: translateY(-50%); 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    
+    /* Deeper shadow to lift the dark glass off the page */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     position: relative;
     overflow: hidden;
 }
