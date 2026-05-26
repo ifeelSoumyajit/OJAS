@@ -24,9 +24,9 @@
    2. FLOATING CTA BANNER
    ========================================= */
 .floating-cta {
-    background: rgba(133, 161, 140, 0.03);
+    background: rgba(1, 135, 35, 0.03);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(133, 161, 140, 0.1);
+    border: 1px solid rgba(1, 135, 35, 0.1);
     border-radius: 24px;
     padding: 40px 50px;
     display: flex;
