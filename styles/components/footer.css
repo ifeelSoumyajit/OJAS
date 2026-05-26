@@ -1,3 +1,7 @@
+/* =========================================
+   1. MAIN FOOTER GRID & SPACING
+   ========================================= */
+
 .main-footer {
     background: #263238; /* Industrial Slate */
     color: #CFD8DC;
@@ -5,43 +9,28 @@
     margin-top: 60px;
 }
 
-.footer-grid {
+.footer-grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 40px;
-    padding-bottom: 50px;
+    padding-bottom: 50px; /* This creates the space ABOVE the copyright line */
 }
 
-/* Adds spacing below all the column headings */
+@media (max-width: 992px) {
+    .footer-grid-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
 .footer-grid h4 {
     margin-bottom: 25px; 
-    color: #ffffff; /* Just to ensure they stay crisp and bright */
-    letter-spacing: 0.5px; /* Adds a tiny bit of tracking for elegance */
-}
-
-/* Updated Link Styles */
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links ul li {
-    margin-bottom: 12px;
-}
-
-.footer-links ul li a {
-    color: #ffffff; /* Sets links to white */
-    text-decoration: none; /* Removes underline */
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-}
-
-.footer-links ul li a:hover {
-    color: #81C784; /* Eco Green highlight on hover */
+    color: #ffffff; 
+    letter-spacing: 0.5px; 
 }
 
 .footer-logo {
-    color: #81C784; /* Matches logo green */
+    color: #81C784; 
     margin-bottom: 20px;
 }
 
@@ -50,11 +39,105 @@
     font-size: 0.95rem;
 }
 
+/* =========================================
+   2. SITEMAP GRID STYLES
+   ========================================= */
+
+.sitemap-grid { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    row-gap: 35px; 
+    column-gap: 15px; 
+    margin-top: 15px; 
+}
+
+.sitemap-group h5 { 
+    font-size: 1.05rem; 
+    margin-bottom: 12px; 
+    font-weight: 700; 
+}
+
+.sitemap-group h5 a { 
+    color: #689F38; 
+    text-decoration: none; 
+    transition: color 0.3s ease;
+}
+
+.sitemap-group h5 a:hover { color: #558B2F; }
+
+.sitemap-group ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.sitemap-group ul li { margin-bottom: 12px; font-size: 0.95rem; }
+
+.sitemap-group ul li a { 
+    color: #78909C; 
+    text-decoration: none; 
+    transition: all 0.3s ease; 
+    display: inline-block;
+}
+
+.sitemap-group ul li a:hover { 
+    color: #ffffff; 
+    transform: translateX(4px); 
+}
+
+/* Responsive Breakpoints for Sitemap */
+@media (max-width: 768px) {
+    .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .sitemap-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   3. FOOTER LEGAL LINKS (IN COLUMNS)
+   ========================================= */
+
+.footer-legal-group {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    gap: 8px 0; 
+    margin-top: 25px; 
+}
+
+.footer-legal-link {
+    color: #689F38; 
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    white-space: nowrap; 
+}
+
+.footer-legal-link:hover {
+    color: #558B2F;
+    text-decoration: underline;
+    transform: translateY(-2px); 
+}
+
+.legal-divider {
+    color: #546E7A;
+    margin: 0 8px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    user-select: none; 
+}
+
+/* =========================================
+   4. BOTTOM COPYRIGHT BAR
+   ========================================= */
+
 .footer-bottom {
     background: #1B262C;
     padding: 20px 0;
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05); /* The visual separator line */
 }
 
 .footer-bottom p {
@@ -63,40 +146,7 @@
 }
 
 /* =========================================
-   FOOTER LEGAL LINKS (IN COLUMNS)
-   ========================================= */
-
-/* Groups the links on the same line */
-.footer-legal-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px; /* Creates the gap below the email */
-}
-
-.footer-legal-link {
-    color: #81C784; 
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.footer-legal-link:hover {
-    color: #ffffff;
-    text-decoration: underline;
-    transform: translateY(-2px); 
-}
-
-/* Subtle divider between the links */
-.legal-divider {
-    color: rgba(255, 255, 255, 0.2);
-    font-size: 0.9rem;
-    user-select: none; /* Prevents users from highlighting the pipe symbol */
-}
-
-/* =========================================
-   ENLARGED ATTRIBUTES MODAL
+   5. ENLARGED ATTRIBUTES MODAL
    ========================================= */
 
 .modal-overlay {
@@ -198,7 +248,6 @@
     margin: 0;
 }
 
-/* Responsive fix: Stack columns on small phones */
 @media (max-width: 768px) {
     .modal-content {
         padding: 40px 25px;
@@ -216,11 +265,11 @@
 }
 
 /* =========================================
-   RESOURCE CREDITS BOX
+   6. RESOURCE CREDITS BOX
    ========================================= */
 
 .resource-credits-box {
-    grid-column: 1 / -1; /* Fixes the width: forces the box to span across both columns */
+    grid-column: 1 / -1; 
     background: #f8faf9; 
     padding: 30px 40px; 
     border-radius: 12px; 
@@ -237,7 +286,6 @@
     text-align: justify;
 }
 
-/* Fixes the broken lines: Forces the bold words back inside the paragraph */
 .resource-credits-box p strong {
     display: inline; 
     color: #2E7D32;
@@ -247,7 +295,6 @@
     margin: 0;
 }
 
-/* Mobile Adjustments */
 @media (max-width: 768px) {
     .resource-credits-box {
         padding: 25px 20px;
@@ -256,24 +303,20 @@
 }
 
 /* =========================================
-   COMPREHENSIVE LICENSE SECTION
+   7. COMPREHENSIVE LICENSE SECTION
    ========================================= */
 
 .license-context {
-    grid-column: 1 / -1; /* Keeps it full width inside the grid */
-    background: #f8faf9; /* Soft, eco-tinted background color */
-    border: 1px solid #e2e8e4; /* Subtle outline to define the box */
-    border-left: 6px solid #81C784; /* Bold green accent line on the left */
+    grid-column: 1 / -1; 
+    background: #f8faf9; 
+    border: 1px solid #e2e8e4; 
+    border-left: 6px solid #81C784; 
     border-radius: 12px;
-    
-    /* This handles your Left/Right gaps */
-    padding: 30px 40px; /* 40px internal gap from the text to the box edge */
-    margin: 15px 15px 25px 15px; /* 15px external gap from the box to the modal edge */
-    
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Very gentle shadow to lift it */
+    padding: 30px 40px; 
+    margin: 15px 15px 25px 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
 }
 
-/* Formats the main "Comprehensive License Details" header */
 .license-context > strong {
     color: #2E7D32;
     font-size: 1.1rem;
@@ -282,11 +325,10 @@
     letter-spacing: 0.5px;
 }
 
-/* Paragraph styling */
 .license-paragraph {
     color: #455A64;
     font-size: 0.95rem;
-    line-height: 1.8; /* Increased slightly for better reading */
+    line-height: 1.8; 
     margin: 0 0 15px 0; 
     text-align: justify; 
 }
@@ -295,28 +337,26 @@
     margin-bottom: 0; 
 }
 
-/* This formats the "© 2026..." text to match your screenshot */
 .license-paragraph strong {
     color: #2E7D32;
     font-size: 1rem;
-    display: block; /* Forces it to sit on its own line */
+    display: block; 
     margin-bottom: 12px;
 }
 
-/* Mobile Adjustments for the Box */
 @media (max-width: 768px) {
     .license-context {
-        padding: 25px 20px; /* Slightly smaller internal gap on phones */
-        margin: 15px 0 20px 0; /* Pushes to the edges on very small screens */
+        padding: 25px 20px; 
+        margin: 15px 0 20px 0; 
     }
 }
 
 /* =========================================
-   HIGHLIGHTED DEVELOPER SIGNATURE
+   8. HIGHLIGHTED DEVELOPER SIGNATURE
    ========================================= */
 
 .dev-signature {
-    grid-column: 1 / -1; /* Also spans full width */
+    grid-column: 1 / -1; 
     border-top: 3px solid #CFD8DC; 
     background: #eceff1; 
     padding: 30px; 
