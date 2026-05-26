@@ -1,3 +1,14 @@
+/* ==========================================================================
+   THEME SYNCHRONIZATION ENGINE (Executes instantly to prevent white flashes)
+   ========================================================================== */
+(function() {
+    // Check localStorage immediately before the rest of the DOM finishes loading
+    const preservedThemeSetting = localStorage.getItem('ojas_active_theme');
+    if (preservedThemeSetting === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     
     /* ==========================================
@@ -69,55 +80,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       3. LIGHT / DARK THEME MANAGEMENT ENGINE (WITH IMAGE SWAPPING)
+       3. LIGHT / DARK THEME TOGGLE CONTROLLER
        ========================================================================== */
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     
     if (themeToggleBtn) {
         const themeIcon = themeToggleBtn.querySelector('i');
-        // Selects the diagram image element if it exists on the current page
-        const processImg = document.querySelector('.process-img');
         
-        // Function to apply the dark theme states and adjust metrics
         const enableDarkTheme = () => {
             document.body.classList.add('dark-theme');
             if (themeIcon) {
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             }
-            // UPDATED: Swap to the dark mode optimized diagram asset if present
-            if (processImg) {
-                processImg.src = 'assets/images/processBG.png';
-            }
             localStorage.setItem('ojas_active_theme', 'dark');
         };
 
-        // Function to remove dark theme metrics and drop back to base levels
         const disableDarkTheme = () => {
             document.body.classList.remove('dark-theme');
             if (themeIcon) {
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
             }
-            // UPDATED: Swap back to the clean light mode original asset
-            if (processImg) {
-                processImg.src = 'assets/images/Process.png';
-            }
             localStorage.setItem('ojas_active_theme', 'light');
         };
 
-        // Boot-Up Sync check: Initialize chosen profile from storage immediately on page load
-        const preservedThemeSetting = localStorage.getItem('ojas_active_theme');
-        if (preservedThemeSetting === 'dark') {
-            enableDarkTheme();
+        // Sync the floating button icon state based on the class applied by the instant script above
+        if (document.body.classList.contains('dark-theme')) {
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
         } else {
-            disableDarkTheme();
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
         }
 
-        // Active State Event click listener
+        // Click event listener to toggle styles instantly
         themeToggleBtn.addEventListener('click', () => {
-            const currentModeIsDark = document.body.classList.contains('dark-theme');
-            if (currentModeIsDark) {
+            if (document.body.classList.contains('dark-theme')) {
                 disableDarkTheme();
             } else {
                 enableDarkTheme();
