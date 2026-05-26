@@ -1,7 +1,6 @@
 /* =========================================
    HERO BANNER SECTION
    ========================================= */
-
 .hero-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/Banner2.jpg');
     background-size: cover;
@@ -32,14 +31,14 @@
 /* =========================================
    HOME PAGE: INTRO & BODY SECTIONS
    ========================================= */
-
 .home-intro {
     padding: 80px 0;
 }
 
 .home-body {
     padding: 100px 0;
-    background: #ffffff;
+    background: var(--section-white-bg);
+    transition: background-color 0.3s ease;
 }
 
 /* Grid Layout */
@@ -59,7 +58,7 @@
 
 .content-text .lead-text {
     font-size: 1.1rem;
-    color: #455A64;
+    color: var(--text-secondary);
     margin-bottom: 25px;
 }
 
@@ -72,16 +71,22 @@
     color: var(--primary-green);
 }
 
+.feature-item p {
+    color: var(--text-secondary);
+}
+
 /* Vision Box Formatting */
 .vision-box {
-    background: #f4f7f6;
+    background: var(--card-bg);
     padding: 40px;
     border-radius: 20px;
     border-left: 10px solid var(--primary-green);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .vision-box h3 {
     margin-bottom: 20px;
+    color: var(--text-primary);
 }
 
 .vision-box ul {
@@ -90,17 +95,17 @@
 
 .vision-box li {
     padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-secondary);
 }
 
 .vision-box li:last-child {
-    border-bottom: none; /* Removes the line under the last item */
+    border-bottom: none;
 }
 
-/* Responsive adjustments for Intro/Body Grid */
 @media (max-width: 768px) {
     .grid-2 {
-        grid-template-columns: 1fr; /* Stacks the columns on small screens */
+        grid-template-columns: 1fr;
         gap: 40px;
     }
 }
@@ -108,11 +113,11 @@
 /* =========================================
    PROCESS DIAGRAM SECTION
    ========================================= */
-
 .process-diagram {
     padding: 80px 0; 
-    background-color: #fdfdfd; 
+    background-color: var(--section-diagram-bg); 
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 .process-diagram h2 {
@@ -127,20 +132,20 @@
     border-radius: 15px; 
     mix-blend-mode: multiply; 
     transform: scale(1.05); 
-    
-    /* Ultimate Locks */
-    -webkit-user-drag: none; /* Stops desktop dragging */
-    user-select: none; /* Stops highlighting */
-    
-    /* NEW: The Ghost Effect */
-    pointer-events: none; /* Makes the image physically untouchable by the browser */
+    -webkit-user-drag: none; 
+    user-select: none; 
+    pointer-events: none; 
 }
 
-/* --- NEW: Image Protection Styles --- */
+/* Dark Theme Adjustments for the image blend mode */
+body.dark-theme .process-img {
+    mix-blend-mode: normal; /* Disables multiply overlay logic so diagram lines remain clear on dark surfaces */
+    filter: brightness(0.9) contrast(1.1);
+}
 
 .image-protect-wrapper {
     position: relative;
-    display: inline-block; /* Keeps the wrapper tightly fitted to the image size */
+    display: inline-block;
     max-width: 100%;
 }
 
@@ -150,19 +155,59 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent; /* Fully invisible */
-    z-index: 10; /* Forces it to sit on top of the image */
-    
-    /* Disables the right-click menu entirely on the overlay */
-    -webkit-touch-callout: none; /* Stops iOS popup menu */
+    background: transparent;
+    z-index: 10;
+    -webkit-touch-callout: none;
+}
+
+/* ==========================================================================
+   FLOATING UTILITY BUTTON MODULE (Light/Dark Switcher)
+   ========================================================================== */
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: var(--primary-green);
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, box-shadow 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--primary-green-hover);
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
 }
 
 /* =========================================
    FULL RESPONSIVENESS REFINEMENTS
    ========================================= */
-
 @media (max-width: 768px) {
-    /* TRUE MOBILE PARALLAX FIX */
     .hero-banner {
         background: none !important; 
         clip-path: inset(0 0 0 0); 
@@ -176,28 +221,19 @@
         top: 0;
         left: 0;
         width: 100%;
-        
-        /* THE FIX: Reduced from 100vh to 70vh. 
-           This stops the browser from zooming in so intensely 
-           while keeping the image large enough for the parallax effect. */
         height: 70vh; 
-        
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/Banner2.jpg');
         background-size: cover;
-        
-        /* Anchoring to the top center usually keeps the focus on the best part of the image */
         background-position: center top; 
         z-index: -1;
         pointer-events: none;
     }
 
-    /* Shrink Hero Text for Mobile */
     .hero-content h1 {
         font-size: 2.2rem; 
         padding: 0 20px;
     }
 
-    /* Reduce Section Padding for tighter mobile view */
     .home-intro, .home-body, .process-diagram {
         padding: 60px 0;
     }
@@ -206,7 +242,6 @@
         font-size: 1.8rem;
     }
 
-    /* Adjust the scaling trick so it doesn't cause horizontal scrolling */
     .process-img {
         transform: scale(1.02);
         width: 95%;
