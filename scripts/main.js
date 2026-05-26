@@ -6,12 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
     if (footerPlaceholder) {
-        // Determine the correct path to the footer file
-        // If we are in the 'in/' folder, we need to go up one level ('../')
         const isSubPage = window.location.pathname.includes('/in/');
         const footerPath = isSubPage ? '../styles/components/footer.html' : 'styles/components/footer.html';
 
-        // Fetch the HTML file and inject it into the page
         fetch(footerPath)
             .then(response => {
                 if (!response.ok) throw new Error('Footer not found');
@@ -27,11 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================
        2. COOKIE CONSENT BANNER LOGIC
        ========================================== */
-    // Determine the correct path for the Privacy Policy link
     const inPagesFolder = window.location.pathname.includes('/in/');
     const prefix = inPagesFolder ? '../' : '';
 
-    // The HTML for the Cookie Banner
     const cookieHTML = `
         <div id="cookieConsent" class="cookie-banner">
             <p class="cookie-text">
@@ -46,23 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // Inject the banner into the body
     document.body.insertAdjacentHTML('beforeend', cookieHTML);
 
     const cookieBanner = document.getElementById('cookieConsent');
     const acceptBtn = document.getElementById('acceptCookies');
     const declineBtn = document.getElementById('declineCookies');
 
-    // Check if the user has already made a choice
-    // If there is NO record in localStorage, show the banner
     if (!localStorage.getItem('ojas_cookie_consent')) {
-        // Add a slight delay for a smooth slide-in effect after page load
         setTimeout(() => {
             cookieBanner.classList.add('show');
         }, 1000); 
     }
 
-    // Handle Accept Click
     if (acceptBtn) {
         acceptBtn.addEventListener('click', () => {
             localStorage.setItem('ojas_cookie_consent', 'accepted');
@@ -70,11 +60,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle Decline Click
     if (declineBtn) {
         declineBtn.addEventListener('click', () => {
             localStorage.setItem('ojas_cookie_consent', 'declined');
             cookieBanner.classList.remove('show');
+        });
+    }
+
+
+    /* ==========================================================================
+       3. LIGHT / DARK THEME MANAGEMENT ENGINE
+       ========================================================================== */
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    
+    if (themeToggleBtn) {
+        const themeIcon = themeToggleBtn.querySelector('i');
+        
+        // Function to apply the dark theme states and adjust metrics
+        const enableDarkTheme = () => {
+            document.body.classList.add('dark-theme');
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun'); // Show sun icon when in dark mode
+            }
+            localStorage.setItem('ojas_active_theme', 'dark');
+        };
+
+        // Function to remove dark theme metrics and drop back to base levels
+        const disableDarkTheme = () => {
+            document.body.classList.remove('dark-theme');
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon'); // Show moon icon when in light mode
+            }
+            localStorage.setItem('ojas_active_theme', 'light');
+        };
+
+        // Boot-Up Sync check: Initialize chosen profile from storage
+        const preservedThemeSetting = localStorage.getItem('ojas_active_theme');
+        if (preservedThemeSetting === 'dark') {
+            enableDarkTheme();
+        } else {
+            disableDarkTheme();
+        }
+
+        // Active State Event click listener
+        themeToggleBtn.addEventListener('click', () => {
+            const currentModeIsDark = document.body.classList.contains('dark-theme');
+            if (currentModeIsDark) {
+                disableDarkTheme();
+            } else {
+                enableDarkTheme();
+            }
         });
     }
 
