@@ -175,46 +175,97 @@ body.dark-theme .dark-diagram {
 }
 
 /* ==========================================================================
-   FLOATING UTILITY BUTTON MODULE (Light/Dark Switcher)
+   PREMIUM PILL-SHAPED THEME SWITCHER MODULE
    ========================================================================== */
-.theme-toggle-btn {
+.theme-switch-container {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background-color: var(--primary-green);
-    color: #ffffff;
-    border: none;
-    outline: none;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(46, 125, 50, 0.3);
+    padding: 4px;
+    width: 74px;
+    height: 40px;
+    border-radius: 100px;
     cursor: pointer;
-    z-index: 999;
+    z-index: 9999;
+    outline: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Premium Dark Mode Track adjustment */
+body.dark-theme .theme-switch-container {
+    background: rgba(30, 43, 48, 0.5);
+    border-color: rgba(129, 199, 132, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.theme-switch-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* The Sliding Mechanical Knob */
+.theme-switch-knob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--primary-green);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, box-shadow 0.3s;
+    color: #ffffff;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
 }
 
-.theme-toggle-btn:hover {
-    background-color: var(--primary-green-hover);
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+/* Handle the smooth sliding translation to the right side on active dark mode */
+body.dark-theme .theme-switch-knob {
+    transform: translateX(34px);
+    background: #689F38; /* Bright vibrant green highlight for dark mode surface */
+    box-shadow: 0 4px 12px rgba(104, 159, 56, 0.4);
 }
 
-.theme-toggle-btn:active {
+/* Dual Icon Controller Configuration */
+.theme-switch-knob .sun-icon {
+    display: none;
+}
+
+.theme-switch-knob .mood-icon {
+    display: inline-block;
+}
+
+/* Invert visible interior icon state indicators cleanly */
+body.dark-theme .theme-switch-knob .mood-icon {
+    display: none;
+}
+
+body.dark-theme .theme-switch-knob .sun-icon {
+    display: inline-block;
+}
+
+/* Hover Physics Micro-Animations */
+.theme-switch-container:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-green);
+}
+
+.theme-switch-container:active {
     transform: scale(0.95);
 }
 
 @media (max-width: 768px) {
-    .theme-toggle-btn {
+    .theme-switch-container {
         bottom: 20px;
         right: 20px;
-        width: 48px;
-        height: 48px;
-        font-size: 1.2rem;
     }
 }
 
