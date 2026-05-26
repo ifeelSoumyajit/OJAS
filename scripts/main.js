@@ -79,46 +79,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* ==========================================================================
-       3. LIGHT / DARK THEME TOGGLE CONTROLLER
+/* ==========================================================================
+       3. LIGHT / DARK THEME TOGGLE CONTROLLER (UPDATED FOR SLIDING PILL)
        ========================================================================== */
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     
     if (themeToggleBtn) {
-        const themeIcon = themeToggleBtn.querySelector('i');
         
         const enableDarkTheme = () => {
             document.body.classList.add('dark-theme');
-            if (themeIcon) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
             localStorage.setItem('ojas_active_theme', 'dark');
         };
 
         const disableDarkTheme = () => {
             document.body.classList.remove('dark-theme');
-            if (themeIcon) {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
             localStorage.setItem('ojas_active_theme', 'light');
         };
 
-        // Sync the floating button icon state based on the class applied by the instant script above
-        if (document.body.classList.contains('dark-theme')) {
-            if (themeIcon) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
-        } else {
-            if (themeIcon) {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        }
-
-        // Click event listener to toggle styles instantly
+        // Click event listener to trigger the CSS sliding logic
         themeToggleBtn.addEventListener('click', () => {
             if (document.body.classList.contains('dark-theme')) {
                 disableDarkTheme();
