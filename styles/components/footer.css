@@ -24,9 +24,17 @@
    2. FLOATING CTA BANNER
    ========================================= */
 .floating-cta {
-    background: rgba(1, 135, 35, 0.03);
+    /* The Magic: A translucent green gradient using your specific color code */
+    background: linear-gradient(135deg, rgba(1, 135, 35, 0.75) 0%, rgba(1, 135, 35, 0.55) 100%);
+    
+    /* The Frosted Glass Blur */
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(1, 135, 35, 0.1);
+    -webkit-backdrop-filter: blur(20px); /* Added for Safari support */
+    
+    /* A faint white border simulates light catching the edge of the glass */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    
+    /* Keeping all your layout properties exactly the same */
     border-radius: 24px;
     padding: 40px 50px;
     display: flex;
