@@ -1,19 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     const footerHTML = `
-    <footer class="main-footer">
-        <div class="container footer-grid-wrapper">
-            <div class="footer-brand">
-                <h2 class="footer-logo">OJAS BIOFUEL. LLP</h2>
-                <p>Transforming agricultural waste into </p>
-                <p>clean energy for a sustainable future.</p>
+    <footer class="premium-footer">
+        <div class="container">
+            <div class="floating-cta">
+                <div class="cta-content">
+                    <h2>Ready to fuel a sustainable future?</h2>
+                    <p>Partner with Ojas Biofuel for high-calorific, zero-carbon green energy solutions.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="/contact" class="btn-glow">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-grid-modern">
+            <div class="footer-brand-modern">
+                <h2 class="footer-logo-glow">OJAS BIOFUEL. LLP</h2>
+                <p class="brand-tagline">Transforming agricultural waste into clean energy for a sustainable future.</p>
+                <div class="social-pills">
+                    <a href="javascript:void(0)" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="javascript:void(0)" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="javascript:void(0)" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
             </div>
             
-            <div class="footer-links">
-                <h4 style="color: #ffffff; font-weight: bold; margin-bottom: 20px;">Sitemap Explorer</h4>
-                
-                <div class="sitemap-grid">
-                    
-                    <div class="sitemap-group">
+            <div class="footer-links-modern">
+                <div class="sitemap-grid-modern">
+                    <div class="sitemap-group-modern">
                         <h5><a href="/about">About Us</a></h5>
                         <ul>
                             <li><a href="/vision">Our Vision</a></li>
@@ -22,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
 
-                    <div class="sitemap-group">
+                    <div class="sitemap-group-modern">
                         <h5><a href="/projects">Projects</a></h5>
                         <ul>
                             <li><a href="/current-projects">Current</a></li>
@@ -31,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
 
-                    <div class="sitemap-group">
+                    <div class="sitemap-group-modern">
                         <h5><a href="/services">Services</a></h5>
                         <ul>
                             <li><a href="/supply">Agri Supply</a></li>
@@ -40,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
                     
-                    <div class="sitemap-group">
+                    <div class="sitemap-group-modern">
                         <h5><a href="/products">Products</a></h5>
                         <ul>
                             <li><a href="/fuel">Industrial Fuel</a></li>
@@ -49,27 +62,26 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><a href="/order">Order Online</a></li>
                         </ul>
                     </div>
-
-                </div>
-            </div>
-
-            <div class="footer-address">
-                <h4>Headquarters</h4>
-                <p>FL NO 03, CHINTAMANI NR MAHADEV MANDIR,<br>
-                KHADAKWASLA, PUNE 411024</p>
-                
-                <div class="footer-legal-group">
-                    <a href="javascript:void(0)" class="footer-legal-link" id="open-attributes">Attributes</a>
-                    <span class="legal-divider">|</span>
-                    <a href="/terms" class="footer-legal-link">Terms & Conditions</a>
-                    <span class="legal-divider">|</span>
-                    <a href="/policy" class="footer-legal-link">Privacy Policy</a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>© 2026 OJAS BIOFUEL. LLP. All Rights Reserved.</p>
+
+        <div class="footer-bottom-modern">
+            <div class="container bottom-flex">
+                <div class="hq-compact">
+                    <i class="fa-solid fa-location-dot hq-icon"></i> 
+                    <span>FL NO 03, CHINTAMANI NR MAHADEV MANDIR, KHADAKWASLA, PUNE 411024</span>
+                </div>
+                <div class="legal-compact">
+                    <a href="javascript:void(0)" id="open-attributes">Attributes</a>
+                    <span class="dot-divider"></span>
+                    <a href="/terms">Terms</a>
+                    <span class="dot-divider"></span>
+                    <a href="/policy">Privacy Policy</a>
+                </div>
+                <div class="copyright-modern">
+                    © 2026 OJAS BIOFUEL. LLP.
+                </div>
             </div>
         </div>
 
@@ -79,36 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>Credits & Attributes</h3>
                 <hr>
                 <div class="attributes-list">
-                    
                     <div class="attr-item resource-credits-box">
                         <strong>Resource Credits:</strong>
-                        <p>
-                            To deliver a seamless and engaging digital experience, this platform leverages industry-leading third-party technologies. 
-                            Our interface is crafted using typography from Google Fonts (Montserrat and Open Sans) alongside premium iconography from Font 
-                            Awesome and Flaticon. For unique visual storytelling, all photography featured across the site is entirely self-conceived. 
-                            Additionally, our geolocation and mapping services are securely powered by Google Maps.
-                        </p>
+                        <p>To deliver a seamless and engaging digital experience, this platform leverages industry-leading third-party technologies. Our interface is crafted using typography from Google Fonts (Montserrat and Open Sans) alongside premium iconography from Font Awesome and Flaticon. For unique visual storytelling, all photography featured across the site is entirely self-conceived. Additionally, our geolocation and mapping services are securely powered by Google Maps.</p>
                     </div>
-
                     <div class="attr-item license-context">
                         <strong>Comprehensive License Details:</strong>
-                        <p class="license-paragraph">
-                            <strong>© 2026 OJAS BIOFUEL. LLP. All Rights Reserved.</strong> This digital property is engineered utilizing a meticulous blend of proprietary 
-                            development methodologies and open-source resources. The core UI/UX architecture, layout logic, and custom frontend codebase remain the exclusive 
-                            intellectual property of OJAS Grp. & PIXEL DESIGNS., protected under applicable international copyright laws.
-                        </p>
-                        <p class="license-paragraph">
-                            All visual assets, including the industrial and green energy photography featured throughout this platform, are 100% AI-generated. These generative 
-                            media files are free from traditional copyright restrictions and are implemented under Creative Commons Zero (CC0) or equivalent public domain terms, 
-                            permitting unrestricted commercial and personal application without mandatory attribution.
-                        </p>
-                        <p class="license-paragraph">
-                            Typography is exclusively powered by the Google Fonts API and deployed under the SIL Open Font License (OFL). User interface iconography integrates 
-                            assets from the Font Awesome Free License and Flaticon Basic License. Mapping services are provided by Google Maps APIs, subject to their respective 
-                            terms of service.
-                        </p>
+                        <p class="license-paragraph"><strong>© 2026 OJAS BIOFUEL. LLP. All Rights Reserved.</strong> This digital property is engineered utilizing a meticulous blend of proprietary development methodologies and open-source resources. The core UI/UX architecture, layout logic, and custom frontend codebase remain the exclusive intellectual property of OJAS Grp. & PIXEL DESIGNS., protected under applicable international copyright laws.</p>
+                        <p class="license-paragraph">All visual assets, including the industrial and green energy photography featured throughout this platform, are 100% AI-generated. These generative media files are free from traditional copyright restrictions and are implemented under Creative Commons Zero (CC0) or equivalent public domain terms, permitting unrestricted commercial and personal application without mandatory attribution.</p>
+                        <p class="license-paragraph">Typography is exclusively powered by the Google Fonts API and deployed under the SIL Open Font License (OFL). User interface iconography integrates assets from the Font Awesome Free License and Flaticon Basic License. Mapping services are provided by Google Maps APIs, subject to their respective terms of service.</p>
                     </div>
-
                     <div class="attr-item dev-signature">
                         <p class="engineered-text">Designed by</p>
                         <p class="dev-name">SOUMYAJIT MANDAL</p>
@@ -126,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (footerPlaceholder) {
         footerPlaceholder.innerHTML = footerHTML;
 
-        // Modal Logic
         const modal = document.getElementById('attributes-modal');
         const openBtn = document.getElementById('open-attributes');
         const closeBtn = document.getElementById('close-attributes');
@@ -136,12 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
             };
-
             closeBtn.onclick = () => {
                 modal.classList.remove('show');
                 document.body.style.overflow = 'auto';
             };
-
             window.onclick = (event) => {
                 if (event.target == modal) {
                     modal.classList.remove('show');
