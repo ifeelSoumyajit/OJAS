@@ -5,14 +5,15 @@ services:
     buildCommand: null
     staticPublishPath: .
 
-    routes:
-      # Automatically correct lowercase /home or /index.html and point them to /Home
+routes:
+      
+      # 1. Force lowercase /home or /index to redirect to the working capital /Home
       - type: redirect
-        source: /home
+        source: /(?i)home
         destination: /Home
 
       - type: redirect
-        source: /index(?:\.html)?
+        source: /(?i)index(?:\.html)?
         destination: /Home
 
       # Sub-pages Directory (Points smoothly to files inside your 'in' folder)
