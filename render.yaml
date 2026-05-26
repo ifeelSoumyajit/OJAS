@@ -6,23 +6,16 @@ services:
     staticPublishPath: .
 
     routes:
-      # =========================================================
-      # 1. SPECIFIC REDIRECTS (Evaluated first)
-      # =========================================================
-      
-      # Automatically convert /index or /index.html into clean /Home
-      - type: redirect
-        source: /index(?:\.html)?
-        destination: /Home
-
-      # Automatically convert lowercase /home to standard /Home
+      # Automatically correct lowercase /home or /index.html and point them to /Home
       - type: redirect
         source: /home
         destination: /Home
 
-      # =========================================================
-      # 2. SUB-PAGES REWRITES (Evaluated second)
-      # =========================================================
+      - type: redirect
+        source: /index(?:\.html)?
+        destination: /Home
+
+      # Sub-pages Directory (Points smoothly to files inside your 'in' folder)
       - type: rewrite
         source: /about
         destination: in/about.html
@@ -102,12 +95,3 @@ services:
       - type: rewrite
         source: /policy
         destination: in/policy.html
-
-      # =========================================================
-      # 3. GLOBAL CATCH-ALL ROUTE (Evaluated last)
-      # =========================================================
-      # This handles /Home, /, or anything else by sending them to index.html
-      # while perfectly preserving the clean "/Home" look in the URL bar!
-      - type: rewrite
-        source: /*
-        destination: index.html
