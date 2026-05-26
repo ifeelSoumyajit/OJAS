@@ -130,17 +130,31 @@
     max-width: 100%; 
     height: auto; 
     border-radius: 15px; 
-    mix-blend-mode: multiply; 
     transform: scale(1.05); 
     -webkit-user-drag: none; 
     user-select: none; 
     pointer-events: none; 
 }
 
-/* Dark Theme Adjustments for the image blend mode */
-body.dark-theme .process-img {
+/* --- DUAL IMAGE VISIBILITY SWITCHES --- */
+.dark-diagram {
+    display: none !important; /* Hide dark mode diagram by default */
+}
+
+.light-diagram {
+    display: inline-block;
+    mix-blend-mode: multiply; /* Keep original light mode blending layout intact */
+}
+
+/* Active State Switches under dark-theme body class selection */
+body.dark-theme .light-diagram {
+    display: none !important;
+}
+
+body.dark-theme .dark-diagram {
+    display: inline-block !important;
     mix-blend-mode: normal; /* Disables multiply overlay logic so diagram lines remain clear on dark surfaces */
-    filter: brightness(0.9) contrast(1.1);
+    filter: brightness(0.95) contrast(1.05);
 }
 
 .image-protect-wrapper {
