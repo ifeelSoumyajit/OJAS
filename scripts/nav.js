@@ -1,15 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Check if we are in the 'in' folder to fix links and images
-    const inPagesFolder = window.location.pathname.includes('/in/');
-    const prefix = inPagesFolder ? '../' : '';
-
-    // 2. The Universal Navbar HTML (With Animated Hamburger)
+    // 1. The Universal Navbar HTML (With Animated Hamburger)
+    // All paths updated to clean absolute routes for Render cloud routing
     const navHTML = `
     <nav class="navbar">
         <div class="nav-container">
-            <!-- ADDED: oncontextmenu="return false;" to block right-clicks/long-presses -->
-            <a href="${prefix}index" class="nav-logo" oncontextmenu="return false;">
-                <img src="${prefix}assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
+            <a href="/Home" class="nav-logo" oncontextmenu="return false;">
+                <img src="/assets/images/Ojas3.png" alt="OJAS Logo" class="logo-img">
             </a>
             
             <label class="hamburger-menu">
@@ -20,62 +16,62 @@ document.addEventListener('DOMContentLoaded', () => {
             </label>
 
             <ul class="nav-links" id="nav-links-menu">
-                <li><a href="${prefix}index">Home</a></li>
+                <li><a href="/Home">Home</a></li>
                 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">About</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}in/vision">Our Vision</a></li>
-                        <li><a href="${prefix}in/team">Our Team</a></li>
-                        <li><a href="${prefix}in/foundation">Company History</a></li>
+                        <li><a href="/vision">Our Vision</a></li>
+                        <li><a href="/team">Our Team</a></li>
+                        <li><a href="/foundation">Company History</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}in/current-projects">Current Projects</a></li>
-                        <li><a href="${prefix}in/completed-projects">Completed Projects</a></li>
-                        <li><a href="${prefix}in/initiatives">Green Initiatives</a></li>
+                        <li><a href="/current-projects">Current Projects</a></li>
+                        <li><a href="/completed-projects">Completed Projects</a></li>
+                        <li><a href="/initiatives">Green Initiatives</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Services</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}in/supply">Agri Waste Supply</a></li>
-                        <li><a href="${prefix}in/trading">Biomass Trading</a></li>
-                        <li><a href="${prefix}in/distribution">Biofuel Distribution</a></li>
+                        <li><a href="/supply">Agri Waste Supply</a></li>
+                        <li><a href="/trading">Biomass Trading</a></li>
+                        <li><a href="/distribution">Biofuel Distribution</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Products</a>
                     <ul class="dropdown-content">
-                        <li><a href="${prefix}in/fuel">Industrial Fuel</a></li>
-                        <li><a href="${prefix}in/briquettes">Biomass Briquettes</a></li>
-                        <li><a href="${prefix}in/pellets">Biomass Pellets</a></li>
-                        <li><a href="${prefix}in/order">Order Online</a></li>
+                        <li><a href="/fuel">Industrial Fuel</a></li>
+                        <li><a href="/briquettes">Biomass Briquettes</a></li>
+                        <li><a href="/pellets">Biomass Pellets</a></li>
+                        <li><a href="/order">Order Online</a></li>
                     </ul>
                 </li>
 
-                <li><a href="${prefix}in/contact">Contact</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
     </nav>
     `;
 
-    // 3. Inject the navbar into the page
+    // 2. Inject the navbar into the page
     const navPlaceholder = document.getElementById('nav-placeholder');
     if (navPlaceholder) {
         navPlaceholder.innerHTML = navHTML;
 
-        // 4. Mobile Menu & Dropdown Logic
+        // 3. Mobile Menu & Dropdown Logic
         const mobileToggle = document.getElementById('mobile-menu-toggle');
         const navLinksMenu = document.getElementById('nav-links-menu');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // --- NEW RESET LOGIC ---
+        // --- RESET LOGIC ---
         // Function to force-close the menu and reset the screen lock
         const closeMenu = () => {
             if (mobileToggle) mobileToggle.checked = false; // Changes 'X' back to Hamburger
@@ -105,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-        // --- END NEW RESET LOGIC ---
+        // --- END RESET LOGIC ---
 
 
         // Toggle sliding menu normally
