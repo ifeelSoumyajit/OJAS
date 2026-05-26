@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. The Universal Navbar HTML (With Animated Hamburger)
-    // All paths updated to clean absolute routes for Render cloud routing
+    // All paths have been updated to clean, absolute root positions starting with "/"
     const navHTML = `
     <nav class="navbar">
         <div class="nav-container">
             <a href="/Home" class="nav-logo" oncontextmenu="return false;">
-                <img src="/assets/images/Ojas3.png" alt="OJAS Logo" class="logo-img">
+                <img src="/assets/images/Ojas.png" alt="OJAS Logo" class="logo-img">
             </a>
             
             <label class="hamburger-menu">
@@ -71,28 +71,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinksMenu = document.getElementById('nav-links-menu');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // --- RESET LOGIC ---
-        // Function to force-close the menu and reset the screen lock
+        // --- NEW RESET LOGIC ---
         const closeMenu = () => {
-            if (mobileToggle) mobileToggle.checked = false; // Changes 'X' back to Hamburger
-            if (navLinksMenu) navLinksMenu.classList.remove('active'); // Hides the menu
-            document.body.style.overflow = 'auto'; // Unlocks background scrolling
+            if (mobileToggle) mobileToggle.checked = false; 
+            if (navLinksMenu) navLinksMenu.classList.remove('active'); 
+            document.body.style.overflow = 'auto'; 
             
-            // Closes any dropdowns that were left open
             dropdowns.forEach(drop => drop.classList.remove('mobile-active'));
         };
 
-        // 1. Force close on initial load (just in case the browser cached the checked state)
         closeMenu();
 
-        // 2. Force close when restoring from the Browser Back Button (BFCache)
         window.addEventListener('pageshow', (event) => {
             if (event.persisted) {
                 closeMenu();
             }
         });
 
-        // 3. Force close when any actual link is clicked (useful for mobile navigation)
         const allLinks = document.querySelectorAll('.nav-links a:not(.dropbtn)');
         allLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -101,8 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-        // --- END RESET LOGIC ---
-
+        // --- END NEW RESET LOGIC ---
 
         // Toggle sliding menu normally
         if (mobileToggle && navLinksMenu) {
