@@ -6,15 +6,10 @@ services:
     staticPublishPath: .
 
     routes:
-      # =========================================================
-      # HOMEPAGE /HOME ROUTING
-      # =========================================================
-      # 1. If someone types /index or /index.html, force them to /Home
       - type: redirect
         source: /index(?:\.html)?
         destination: /Home
 
-      # 2. Tell the server to secretly render index.html behind /Home
       - type: rewrite
         source: /Home
         destination: /index.html
