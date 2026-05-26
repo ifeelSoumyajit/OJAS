@@ -5,15 +5,28 @@ services:
     buildCommand: null
     staticPublishPath: .
 
-routes:
+    routes:
+      # =========================================================
+      # EXACT CASE HOMEPAGE REDIRECTS
+      # =========================================================
       
-      # 1. Force lowercase /home or /index to redirect to the working capital /Home
+      # 1. Catch lowercase /home and send to /Home
       - type: redirect
-        source: /(?i)home
+        source: /home
+        destination: /Home
+
+      # 2. Catch all-caps /HOME and send to /Home
+      - type: redirect
+        source: /HOME
+        destination: /Home
+
+      # 3. Catch index variants and send to /Home
+      - type: redirect
+        source: /index
         destination: /Home
 
       - type: redirect
-        source: /(?i)index(?:\.html)?
+        source: /index.html
         destination: /Home
 
       # Sub-pages Directory (Points smoothly to files inside your 'in' folder)
