@@ -16,26 +16,22 @@
     <link rel="stylesheet" href="../styles/about.css">
 
     <style>
+        /* Base Light Theme Styles */
         .about-teasers-section {
             padding: 80px 0;
-            background: var(--body-bg, #fdfdfd);
+            background: #fdfdfd;
             transition: background-color 0.3s ease;
         }
 
         .teaser-card {
-            background: var(--section-white-bg, #ffffff);
+            background: #ffffff;
             padding: 45px 50px;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.04);
-            border-left: 6px solid var(--primary-green, #2E7D32);
+            border-left: 6px solid #2E7D32;
             margin-bottom: 35px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        /* Dark Mode Box Shadow Override */
-        body.dark-theme .teaser-card {
-            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
         }
 
         .teaser-card:hover {
@@ -43,19 +39,16 @@
             box-shadow: 0 15px 45px rgba(0,0,0,0.08);
         }
 
-        body.dark-theme .teaser-card:hover {
-            box-shadow: 0 15px 45px rgba(0,0,0,0.4);
-        }
-
         .teaser-card h2 {
-            color: var(--primary-green, #2E7D32);
+            color: #2E7D32;
             font-size: 2rem;
             margin-bottom: 15px;
+            transition: color 0.3s ease;
         }
 
         .teaser-card p {
             font-size: 1.15rem;
-            color: var(--text-secondary, #546E7A);
+            color: #546E7A;
             line-height: 1.8;
             margin-bottom: 30px;
             max-width: 900px;
@@ -67,7 +60,7 @@
             align-items: center;
             gap: 10px;
             padding: 14px 32px;
-            background: var(--primary-green, #2E7D32);
+            background: #2E7D32;
             color: #ffffff;
             text-decoration: none;
             border-radius: 50px;
@@ -78,10 +71,35 @@
         }
         
         .about-action-btn:hover {
-            background: var(--primary-green-hover, #1B5E20);
+            background: #1B5E20;
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
             color: #ffffff;
+        }
+
+        /* =========================================
+           DARK THEME EXPLICIT OVERRIDES
+           ========================================= */
+        body.dark-theme .about-teasers-section {
+            background: #121A1D;
+        }
+
+        body.dark-theme .teaser-card {
+            background: #1A2428;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+            border-left-color: #388E3C;
+        }
+
+        body.dark-theme .teaser-card:hover {
+            box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+        }
+
+        body.dark-theme .teaser-card p {
+            color: #CFD8DC;
+        }
+
+        body.dark-theme .teaser-card h2 {
+            color: #81C784; /* Slightly brighter green for dark mode contrast */
         }
 
         @keyframes fadeIn {
