@@ -1,8 +1,9 @@
 /* ==========================================================================
-   THEME SYNCHRONIZATION ENGINE (Executes instantly to prevent white flashes)
+   GLOBAL THEME SYNCHRONIZATION ENGINE
+   (Executes instantly on every page load to completely block white flashes)
    ========================================================================== */
 (function() {
-    // Check localStorage immediately before the rest of the DOM finishes loading
+    // Read the saved user preference out of the shared browser localStorage vault
     const preservedThemeSetting = localStorage.getItem('ojas_active_theme');
     if (preservedThemeSetting === 'dark') {
         document.body.classList.add('dark-theme');
@@ -79,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-/* ==========================================================================
-       3. LIGHT / DARK THEME TOGGLE CONTROLLER (MINIMALIST ACTION BUTTON)
+    /* ==========================================================================
+       3. LIGHT / DARK THEME TOGGLE CONTROLLER (MINIMALIST FLOATING FAB)
        ========================================================================== */
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const enableDarkTheme = () => {
             document.body.classList.add('dark-theme');
             if (themeIcon) {
-                themeIcon.className = 'fa-solid fa-sun'; // Switch cleanly to Sun icon
+                themeIcon.className = 'fa-solid fa-sun'; // Switch to crisp Sun icon
             }
             localStorage.setItem('ojas_active_theme', 'dark');
         };
@@ -98,19 +99,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const disableDarkTheme = () => {
             document.body.classList.remove('dark-theme');
             if (themeIcon) {
-                themeIcon.className = 'fa-solid fa-moon'; // Switch cleanly to Moon icon
+                themeIcon.className = 'fa-solid fa-moon'; // Switch to clean Moon icon
             }
             localStorage.setItem('ojas_active_theme', 'light');
         };
 
         // Sync the action button graphic immediately based on early initialization status
+        // This makes sure if you land on an "/in/" subpage, the button matches the active theme!
         if (document.body.classList.contains('dark-theme')) {
             if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
         } else {
             if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
         }
 
-        // Simpler, bulletproof click execution listener
+        // Bulletproof click execution listener
         themeToggleBtn.addEventListener('click', () => {
             if (document.body.classList.contains('dark-theme')) {
                 disableDarkTheme();
