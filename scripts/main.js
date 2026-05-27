@@ -80,28 +80,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ==========================================================================
-       3. LIGHT / DARK THEME TOGGLE CONTROLLER (UPDATED FOR SLIDING PILL)
+       3. LIGHT / DARK THEME TOGGLE CONTROLLER (SKY CANVAS INTERFACE)
        ========================================================================== */
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeCheckbox = document.getElementById('theme-checkbox-trigger');
     
-    if (themeToggleBtn) {
+    if (themeCheckbox) {
         
         const enableDarkTheme = () => {
             document.body.classList.add('dark-theme');
+            themeCheckbox.checked = true; // Synchronize checkbox checkmark state
             localStorage.setItem('ojas_active_theme', 'dark');
         };
 
         const disableDarkTheme = () => {
             document.body.classList.remove('dark-theme');
+            themeCheckbox.checked = false; // Synchronize checkbox checkmark state
             localStorage.setItem('ojas_active_theme', 'light');
         };
 
-        // Click event listener to trigger the CSS sliding logic
-        themeToggleBtn.addEventListener('click', () => {
-            if (document.body.classList.contains('dark-theme')) {
-                disableDarkTheme();
-            } else {
+        // Boot-Up Sync: Initialize track state based on class applied by our instant loop
+        if (document.body.classList.contains('dark-theme')) {
+            themeCheckbox.checked = true;
+        } else {
+            themeCheckbox.checked = false;
+        }
+
+        // Event listener to manage user interactions
+        themeCheckbox.addEventListener('change', function() {
+            if (this.checked) {
                 enableDarkTheme();
+            } else {
+                disableDarkTheme();
             }
         });
     }
