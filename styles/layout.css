@@ -165,212 +165,65 @@ body.dark-theme .dark-diagram {
 }
 
 /* ==========================================================================
-   OJAS ECO-SYSTEM DAY/NIGHT SKY THEME SWITCHER MODULE (REFINED V2)
+   MINIMALIST FLOATING ACTION BUTTON (Light/Dark Switcher)
    ========================================================================== */
-.ojas-theme-wrapper {
+.theme-toggle-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 9999;
-}
-
-.sky-toggle-track {
-    display: block;
-    width: 86px;
-    height: 44px;
-    border-radius: 50px;
-    position: relative;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: var(--primary-green);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
     cursor: pointer;
-    background: linear-gradient(to bottom, #4ea3e3 0%, #73b9ee 100%);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), inset 0 2px 5px rgba(0,0,0,0.1);
-    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1.1);
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
-.sky-toggle-input {
-    display: none !important;
+/* Premium Dark Mode state adjustments for the button container */
+body.dark-theme .theme-toggle-btn {
+    background-color: #1e2b30;
+    color: #81C784; /* Beautiful nature-green tint color for the active dark icon */
+    border-color: rgba(129, 199, 132, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-theme .sky-toggle-track {
-    background: linear-gradient(to bottom, #0f1618 0%, #1a262a 100%);
-    border-color: rgba(129, 199, 132, 0.35);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+/* Hover Physics Spring Micro-Animations */
+.theme-toggle-btn:hover {
+    background-color: var(--primary-green-hover);
+    transform: translateY(-3px) scale(1.05) rotate(15deg);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.35);
 }
 
-/* =========================================
-   THE CELESTIAL ORB (TRANSFORMING SUN / MOON)
-   ========================================= */
-.sky-celestial-orb {
-    position: absolute;
-    top: 3px;
-    left: 4px;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: #ffca28;
-    box-shadow: 0 0 15px #ffb300, inset 0 -2px 4px rgba(0,0,0,0.2);
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s, box-shadow 0.4s;
-    z-index: 5;
+body.dark-theme .theme-toggle-btn:hover {
+    background-color: #25353a;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
-body.dark-theme .sky-celestial-orb {
-    transform: translateX(40px);
-    background: #e0e0e0;
-    box-shadow: 0 0 12px rgba(255,255,255,0.25), inset 0 -2px 4px #b0bec5;
+.theme-toggle-btn:active {
+    transform: scale(0.95);
 }
-
-/* Rotating Sun Rays Asset */
-.sun-rays-container {
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    border: 2px dashed rgba(255, 179, 0, 0.4);
-    animation: rayRotate 20s linear infinite;
-    transition: opacity 0.3s ease;
-    opacity: 1;
-}
-
-body.dark-theme .sun-rays-container { opacity: 0; }
-
-@keyframes rayRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Moon Craters */
-.orb-surface-details {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.orb-surface-details .crater {
-    position: absolute;
-    background: #b0bec5;
-    border-radius: 50%;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
-}
-
-.orb-surface-details .mark-1 { top: 8px; left: 6px; width: 8px; height: 8px; }
-.orb-surface-details .mark-2 { top: 20px; left: 16px; width: 6px; height: 6px; }
-.orb-surface-details .mark-3 { top: 10px; left: 22px; width: 4px; height: 4px; }
-
-body.dark-theme .orb-surface-details { opacity: 1; }
-
-/* =========================================
-   DAY MODE: FIXED VECTOR FLOATING CLOUDS
-   ========================================= */
-.sky-cloud-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 1, 1), opacity 0.4s;
-    opacity: 1;
-    z-index: 2;
-}
-
-body.dark-theme .sky-cloud-layer {
-    transform: translateY(45px);
-    opacity: 0;
-}
-
-.sky-cloud-layer .cloud-puff {
-    position: absolute;
-    background: #ffffff;
-    border-radius: 50%;
-    animation: cloudDrift 4s ease-in-out infinite alternate;
-}
-
-/* Positioned cleanly on the right track side to show up when the sun is on the left */
-.puff-back-1 { bottom: 12px; right: 20px; width: 18px; height: 18px; background: rgba(255, 255, 255, 0.6); animation-delay: 0.3s; }
-.puff-back-2 { bottom: 6px; right: 32px; width: 22px; height: 22px; background: rgba(255, 255, 255, 0.6); }
-
-.puff-front-1 { bottom: -4px; right: 12px; width: 24px; height: 24px; }
-.puff-front-2 { bottom: -8px; right: -2px; width: 28px; height: 28px; }
-
-@keyframes cloudDrift {
-    0% { transform: scale(1) translateY(0); }
-    100% { transform: scale(1.04) translateY(-2px); }
-}
-
-/* =========================================
-   NIGHT MODE: TWINKLING STARS & SHOOTING TRAIL
-   ========================================= */
-.sky-star-cluster {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transform: translateY(-25px);
-    transition: transform 0.5s cubic-bezier(0, 0, 0.2, 1), opacity 0.4s;
-    z-index: 2;
-}
-
-body.dark-theme .sky-star-cluster {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.twinkle-dot {
-    position: absolute;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 0 6px 1px #ffffff;
-}
-
-/* Positioned cleanly on the left track side to show up when the moon slides to the right */
-.dot-1 { top: 10px; left: 12px; width: 2.5px; height: 2.5px; animation: starTwinkle 1.2s infinite ease-in-out; }
-.dot-2 { top: 26px; left: 16px; width: 3.5px; height: 3.5px; animation: starTwinkle 1.8s infinite ease-in-out 0.3s; }
-.dot-3 { top: 12px; left: 30px; width: 2px; height: 2px; animation: starTwinkle 1.5s infinite ease-in-out 0.6s; }
-.dot-4 { top: 28px; left: 40px; width: 2px; height: 2px; animation: starTwinkle 2s infinite ease-in-out 0.9s; }
-
-@keyframes starTwinkle {
-    0%, 100% { opacity: 0.2; transform: scale(0.7); }
-    50% { opacity: 1; transform: scale(1.3); }
-}
-
-/* Dynamic Shooting Star Trigger Component */
-.shooting-star-trail {
-    position: absolute;
-    top: 6px;
-    left: 35px;
-    width: 20px;
-    height: 1px;
-    background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
-    transform: rotate(-30deg) translateX(50px);
-    opacity: 0;
-}
-
-body.dark-theme .shooting-star-trail {
-    animation: dashEffect 5s linear infinite 1.5s;
-}
-
-@keyframes dashEffect {
-    0% { transform: rotate(-30deg) translateX(30px); opacity: 0; }
-    4% { opacity: 1; }
-    12% { transform: rotate(-30deg) translateX(-30px); opacity: 0; }
-    100% { transform: rotate(-30deg) translateX(-30px); opacity: 0; }
-}
-
-/* Track Hover Interactions */
-.sky-toggle-track:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
-}
-.sky-toggle-track:active { transform: scale(0.96); }
 
 /* =========================================
    FULL RESPONSIVENESS REFINEMENTS
    ========================================= */
 @media (max-width: 768px) {
-    .ojas-theme-wrapper { bottom: 20px; right: 20px; }
+    .theme-toggle-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+
     .hero-banner {
         background: none !important; 
         clip-path: inset(0 0 0 0); 
