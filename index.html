@@ -92,15 +92,36 @@
 
     <div id="footer-placeholder"></div>
 
-<!-- Sleek Pill-Shaped Theme Switcher Container -->
-<button id="theme-toggle-btn" class="theme-switch-container" aria-label="Toggle Theme">
-    <div class="theme-switch-track">
-        <div class="theme-switch-knob">
-            <i class="fa-solid fa-moon mood-icon"></i>
-            <i class="fa-solid fa-sun sun-icon"></i>
+<!-- Fully Unique Day/Night Theme Selector -->
+<div class="ojas-theme-wrapper">
+    <label class="sky-toggle-track" for="theme-checkbox-trigger">
+        <input type="checkbox" id="theme-checkbox-trigger" class="sky-toggle-input" />
+        <div class="sky-toggle-canvas">
+            
+            <!-- Day Mode Assets: Minimalist Floating Clouds -->
+            <div class="sky-cloud-layer">
+                <span class="cloud-puff puff-1"></span>
+                <span class="cloud-puff puff-2"></span>
+            </div>
+            
+            <!-- Night Mode Assets: Micro Star Cluster Matrix -->
+            <div class="sky-star-cluster">
+                <span class="twinkle-dot dot-1"></span>
+                <span class="twinkle-dot dot-2"></span>
+                <span class="twinkle-dot dot-3"></span>
+            </div>
+            
+            <!-- The Transforming Mechanical Orb (Sun / Moon) -->
+            <div class="sky-celestial-orb">
+                <div class="orb-surface-details">
+                    <span class="crater mark-1"></span>
+                    <span class="crater mark-2"></span>
+                </div>
+            </div>
+            
         </div>
-    </div>
-</button>
+    </label>
+</div>
 
     <script src="scripts/main.js"></script>
     <script src="scripts/nav.js?v=21"></script>
