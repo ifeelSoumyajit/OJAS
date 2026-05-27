@@ -80,37 +80,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ==========================================================================
-       3. LIGHT / DARK THEME TOGGLE CONTROLLER (SKY CANVAS INTERFACE)
+       3. LIGHT / DARK THEME TOGGLE CONTROLLER (MINIMALIST ACTION BUTTON)
        ========================================================================== */
-    const themeCheckbox = document.getElementById('theme-checkbox-trigger');
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
     
-    if (themeCheckbox) {
+    if (themeToggleBtn) {
+        const themeIcon = themeToggleBtn.querySelector('i');
         
         const enableDarkTheme = () => {
             document.body.classList.add('dark-theme');
-            themeCheckbox.checked = true; // Synchronize checkbox checkmark state
+            if (themeIcon) {
+                themeIcon.className = 'fa-solid fa-sun'; // Switch cleanly to Sun icon
+            }
             localStorage.setItem('ojas_active_theme', 'dark');
         };
 
         const disableDarkTheme = () => {
             document.body.classList.remove('dark-theme');
-            themeCheckbox.checked = false; // Synchronize checkbox checkmark state
+            if (themeIcon) {
+                themeIcon.className = 'fa-solid fa-moon'; // Switch cleanly to Moon icon
+            }
             localStorage.setItem('ojas_active_theme', 'light');
         };
 
-        // Boot-Up Sync: Initialize track state based on class applied by our instant loop
+        // Sync the action button graphic immediately based on early initialization status
         if (document.body.classList.contains('dark-theme')) {
-            themeCheckbox.checked = true;
+            if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
         } else {
-            themeCheckbox.checked = false;
+            if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
         }
 
-        // Event listener to manage user interactions
-        themeCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                enableDarkTheme();
-            } else {
+        // Simpler, bulletproof click execution listener
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.body.classList.contains('dark-theme')) {
                 disableDarkTheme();
+            } else {
+                enableDarkTheme();
             }
         });
     }
