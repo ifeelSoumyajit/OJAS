@@ -137,19 +137,10 @@
 }
 
 /* --- DUAL IMAGE VISIBILITY SWITCHES --- */
-.dark-diagram {
-    display: none !important; 
-}
+.dark-diagram { display: none !important; }
+.light-diagram { display: inline-block; mix-blend-mode: multiply; }
 
-.light-diagram {
-    display: inline-block;
-    mix-blend-mode: multiply; 
-}
-
-body.dark-theme .light-diagram {
-    display: none !important;
-}
-
+body.dark-theme .light-diagram { display: none !important; }
 body.dark-theme .dark-diagram {
     display: inline-block !important;
     mix-blend-mode: normal; 
@@ -174,7 +165,7 @@ body.dark-theme .dark-diagram {
 }
 
 /* ==========================================================================
-   OJAS ECO-SYSTEM DAY/NIGHT SKY THEME SWITCHER MODULE (REFINED)
+   OJAS ECO-SYSTEM DAY/NIGHT SKY THEME SWITCHER MODULE (REFINED V2)
    ========================================================================== */
 .ojas-theme-wrapper {
     position: fixed;
@@ -240,9 +231,7 @@ body.dark-theme .sky-celestial-orb {
     opacity: 1;
 }
 
-body.dark-theme .sun-rays-container {
-    opacity: 0;
-}
+body.dark-theme .sun-rays-container { opacity: 0; }
 
 @keyframes rayRotate {
     0% { transform: rotate(0deg); }
@@ -265,25 +254,24 @@ body.dark-theme .sun-rays-container {
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
 }
 
-.orb-surface-details .mark-1 { top: 8px; left: 8px; width: 8px; height: 8px; }
+.orb-surface-details .mark-1 { top: 8px; left: 6px; width: 8px; height: 8px; }
 .orb-surface-details .mark-2 { top: 20px; left: 16px; width: 6px; height: 6px; }
-.orb-surface-details .mark-3 { top: 12px; left: 22px; width: 4px; height: 4px; }
+.orb-surface-details .mark-3 { top: 10px; left: 22px; width: 4px; height: 4px; }
 
-body.dark-theme .orb-surface-details {
-    opacity: 1;
-}
+body.dark-theme .orb-surface-details { opacity: 1; }
 
 /* =========================================
-   DAY MODE: LAYERED DRIFTING CLOUDS
+   DAY MODE: FIXED VECTOR FLOATING CLOUDS
    ========================================= */
 .sky-cloud-layer {
     position: absolute;
     width: 100%;
     height: 100%;
-    bottom: 0;
+    top: 0;
     left: 0;
     transition: transform 0.5s cubic-bezier(0.4, 0, 1, 1), opacity 0.4s;
     opacity: 1;
+    z-index: 2;
 }
 
 body.dark-theme .sky-cloud-layer {
@@ -295,21 +283,19 @@ body.dark-theme .sky-cloud-layer {
     position: absolute;
     background: #ffffff;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    animation: cloudDrift 4s ease-in-out infinite alternate;
 }
 
-/* Back Layer Clouds (Slightly Translucent) */
-.puff-back-1 { bottom: 8px; right: 22px; width: 22px; height: 22px; background: rgba(255,255,255,0.6) !important; }
-.puff-back-2 { bottom: 14px; right: 8px; width: 18px; height: 18px; background: rgba(255,255,255,0.6) !important; }
+/* Positioned cleanly on the right track side to show up when the sun is on the left */
+.puff-back-1 { bottom: 12px; right: 20px; width: 18px; height: 18px; background: rgba(255, 255, 255, 0.6); animation-delay: 0.3s; }
+.puff-back-2 { bottom: 6px; right: 32px; width: 22px; height: 22px; background: rgba(255, 255, 255, 0.6); }
 
-/* Front Layer Clouds (Crisp White & Animating) */
-.puff-front-1 { bottom: -6px; right: 24px; width: 26px; height: 26px; animation: cloudDrift 4s ease-in-out infinite alternate; }
-.puff-front-2 { bottom: -2px; right: 8px; width: 30px; height: 30px; animation: cloudDrift 4s ease-in-out infinite alternate 0.5s; }
-.puff-front-3 { bottom: -8px; right: -6px; width: 24px; height: 24px; animation: cloudDrift 4s ease-in-out infinite alternate 1s; }
+.puff-front-1 { bottom: -4px; right: 12px; width: 24px; height: 24px; }
+.puff-front-2 { bottom: -8px; right: -2px; width: 28px; height: 28px; }
 
 @keyframes cloudDrift {
-    0% { transform: translateX(0) translateY(0); }
-    100% { transform: translateX(-4px) translateY(1px); }
+    0% { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.04) translateY(-2px); }
 }
 
 /* =========================================
@@ -324,6 +310,7 @@ body.dark-theme .sky-cloud-layer {
     opacity: 0;
     transform: translateY(-25px);
     transition: transform 0.5s cubic-bezier(0, 0, 0.2, 1), opacity 0.4s;
+    z-index: 2;
 }
 
 body.dark-theme .sky-star-cluster {
@@ -338,11 +325,11 @@ body.dark-theme .sky-star-cluster {
     box-shadow: 0 0 6px 1px #ffffff;
 }
 
-.dot-1 { top: 8px; left: 10px; width: 2px; height: 2px; animation: starTwinkle 1.2s infinite ease-in-out; }
-.dot-2 { top: 24px; left: 18px; width: 3px; height: 3px; animation: starTwinkle 1.8s infinite ease-in-out 0.3s; }
-.dot-3 { top: 10px; left: 28px; width: 1.5px; height: 1.5px; animation: starTwinkle 1.5s infinite ease-in-out 0.6s; }
-.dot-4 { top: 28px; left: 34px; width: 2px; height: 2px; animation: starTwinkle 2s infinite ease-in-out 0.9s; }
-.dot-5 { top: 14px; left: 42px; width: 2.5px; height: 2.5px; animation: starTwinkle 1.4s infinite ease-in-out 1.2s; }
+/* Positioned cleanly on the left track side to show up when the moon slides to the right */
+.dot-1 { top: 10px; left: 12px; width: 2.5px; height: 2.5px; animation: starTwinkle 1.2s infinite ease-in-out; }
+.dot-2 { top: 26px; left: 16px; width: 3.5px; height: 3.5px; animation: starTwinkle 1.8s infinite ease-in-out 0.3s; }
+.dot-3 { top: 12px; left: 30px; width: 2px; height: 2px; animation: starTwinkle 1.5s infinite ease-in-out 0.6s; }
+.dot-4 { top: 28px; left: 40px; width: 2px; height: 2px; animation: starTwinkle 2s infinite ease-in-out 0.9s; }
 
 @keyframes starTwinkle {
     0%, 100% { opacity: 0.2; transform: scale(0.7); }
@@ -352,9 +339,9 @@ body.dark-theme .sky-star-cluster {
 /* Dynamic Shooting Star Trigger Component */
 .shooting-star-trail {
     position: absolute;
-    top: 5px;
-    left: 60px;
-    width: 25px;
+    top: 6px;
+    left: 35px;
+    width: 20px;
     height: 1px;
     background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
     transform: rotate(-30deg) translateX(50px);
@@ -362,14 +349,14 @@ body.dark-theme .sky-star-cluster {
 }
 
 body.dark-theme .shooting-star-trail {
-    animation: dashEffect 4s linear infinite 1s;
+    animation: dashEffect 5s linear infinite 1.5s;
 }
 
 @keyframes dashEffect {
-    0% { transform: rotate(-30deg) translateX(40px); opacity: 0; }
-    5% { opacity: 1; }
-    15% { transform: rotate(-30deg) translateX(-40px); opacity: 0; }
-    100% { transform: rotate(-30deg) translateX(-40px); opacity: 0; }
+    0% { transform: rotate(-30deg) translateX(30px); opacity: 0; }
+    4% { opacity: 1; }
+    12% { transform: rotate(-30deg) translateX(-30px); opacity: 0; }
+    100% { transform: rotate(-30deg) translateX(-30px); opacity: 0; }
 }
 
 /* Track Hover Interactions */
@@ -377,56 +364,31 @@ body.dark-theme .shooting-star-trail {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
 }
-
-.sky-toggle-track:active {
-    transform: scale(0.96);
-}
+.sky-toggle-track:active { transform: scale(0.96); }
 
 /* =========================================
    FULL RESPONSIVENESS REFINEMENTS
    ========================================= */
 @media (max-width: 768px) {
-    .ojas-theme-wrapper {
-        bottom: 20px;
-        right: 20px;
-    }
-
+    .ojas-theme-wrapper { bottom: 20px; right: 20px; }
     .hero-banner {
         background: none !important; 
         clip-path: inset(0 0 0 0); 
         position: relative;
         min-height: 60vh;
     }
-
     .hero-banner::before {
         content: "";
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 70vh; 
+        top: 0; left: 0; width: 100%; height: 70vh; 
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/Banner2.jpg');
         background-size: cover;
         background-position: center top; 
         z-index: -1;
         pointer-events: none;
     }
-
-    .hero-content h1 {
-        font-size: 2.2rem; 
-        padding: 0 20px;
-    }
-
-    .home-intro, .home-body, .process-diagram {
-        padding: 60px 0;
-    }
-
-    .content-text h2, .process-diagram h2 {
-        font-size: 1.8rem;
-    }
-
-    .process-img {
-        transform: scale(1.02);
-        width: 95%;
-    }
+    .hero-content h1 { font-size: 2.2rem; padding: 0 20px; }
+    .home-intro, .home-body, .process-diagram { padding: 60px 0; }
+    .content-text h2, .process-diagram h2 { font-size: 1.8rem; }
+    .process-img { transform: scale(1.02); width: 95%; }
 }
