@@ -138,22 +138,21 @@
 
 /* --- DUAL IMAGE VISIBILITY SWITCHES --- */
 .dark-diagram {
-    display: none !important; /* Hide dark mode diagram by default */
+    display: none !important; 
 }
 
 .light-diagram {
     display: inline-block;
-    mix-blend-mode: multiply; /* Keep original light mode blending layout intact */
+    mix-blend-mode: multiply; 
 }
 
-/* Active State Switches under dark-theme body class selection */
 body.dark-theme .light-diagram {
     display: none !important;
 }
 
 body.dark-theme .dark-diagram {
     display: inline-block !important;
-    mix-blend-mode: normal; /* Disables multiply overlay logic so diagram lines remain clear on dark surfaces */
+    mix-blend-mode: normal; 
     filter: brightness(0.95) contrast(1.05);
 }
 
@@ -175,104 +174,161 @@ body.dark-theme .dark-diagram {
 }
 
 /* ==========================================================================
-   PREMIUM PILL-SHAPED THEME SWITCHER MODULE
+   OJAS ECO-SYSTEM DAY/NIGHT SKY THEME SWITCHER MODULE
    ========================================================================== */
-.theme-switch-container {
+.ojas-theme-wrapper {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(46, 125, 50, 0.3);
-    padding: 4px;
-    width: 74px;
-    height: 40px;
-    border-radius: 100px;
-    cursor: pointer;
     z-index: 9999;
-    outline: none;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Premium Dark Mode Track adjustment */
-body.dark-theme .theme-switch-container {
-    background: rgba(30, 43, 48, 0.5);
-    border-color: rgba(129, 199, 132, 0.25);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+.sky-toggle-track {
+    display: block;
+    width: 80px;
+    height: 42px;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #4ea3e3 0%, #73b9ee 100%);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), inset 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1.1);
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-.theme-switch-track {
+/* Base Input Toggle Trigger Hider */
+.sky-toggle-input {
+    display: none !important;
+}
+
+/* Master Space Canvas Handling Background Inversions */
+body.dark-theme .sky-toggle-track {
+    background: linear-gradient(to bottom, #111a1d 0%, #1e2b30 100%);
+    border-color: rgba(129, 199, 132, 0.3);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* --- THE CELESTIAL ORB (SUN / MOON) --- */
+.sky-celestial-orb {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #fcd034;
+    box-shadow: 0 0 12px #ffeb3b, inset 0 -2px 3px rgba(0,0,0,0.15);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s, box-shadow 0.4s;
+    z-index: 5;
+}
+
+/* Mechanical Transformation on Track Check */
+body.dark-theme .sky-celestial-orb {
+    transform: translateX(36px);
+    background: #cfd8dc;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2), inset 0 -2px 3px #90a4ae;
+}
+
+/* Micro Surface Details (Moon Craters) */
+.orb-surface-details {
     position: relative;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* The Sliding Mechanical Knob */
-.theme-switch-knob {
+.orb-surface-details .crater {
     position: absolute;
+    background: #90a4ae;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.orb-surface-details .mark-1 { top: 8px; left: 8px; width: 8px; height: 8px; }
+.orb-surface-details .mark-2 { top: 18px; left: 18px; width: 5px; height: 5px; }
+
+body.dark-theme .orb-surface-details {
+    opacity: 1;
+}
+
+/* --- LIGHT MODE ASSETS: CSS CLOUDS --- */
+.sky-cloud-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -8px;
+    transition: transform 0.5s ease, opacity 0.4s;
+    opacity: 1;
+}
+
+.cloud-puff {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+}
+
+.puff-1 { bottom: 5px; right: 10px; width: 24px; height: 24px; }
+.puff-2 { bottom: 0px; right: -2px; width: 32px; height: 32px; background: #ffffff; }
+
+body.dark-theme .sky-cloud-layer {
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+/* --- DARK MODE ASSETS: TWINKLING STARS --- */
+.sky-star-cluster {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    width: 30px;
-    height: 30px;
-    background: var(--primary-green);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.5s ease, opacity 0.4s;
+}
+
+.twinkle-dot {
+    position: absolute;
+    background: #ffffff;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
+    box-shadow: 0 0 4px #ffffff;
 }
 
-/* Handle the smooth sliding translation to the right side on active dark mode */
-body.dark-theme .theme-switch-knob {
-    transform: translateX(34px);
-    background: #689F38; /* Bright vibrant green highlight for dark mode surface */
-    box-shadow: 0 4px 12px rgba(104, 159, 56, 0.4);
+.dot-1 { top: 10px; left: 12px; width: 2px; height: 2px; animation: skyPulse 1.5s infinite ease-in-out; }
+.dot-2 { top: 22px; left: 22px; width: 3px; height: 3px; animation: skyPulse 2s infinite ease-in-out 0.4s; }
+.dot-3 { top: 12px; left: 34px; width: 2px; height: 2px; animation: skyPulse 1.8s infinite ease-in-out 0.8s; }
+
+body.dark-theme .sky-star-cluster {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Dual Icon Controller Configuration */
-.theme-switch-knob .sun-icon {
-    display: none;
+@keyframes skyPulse {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
-.theme-switch-knob .mood-icon {
-    display: inline-block;
+/* Hover Micro-Physics Mechanical Triggers */
+.sky-toggle-track:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
 }
 
-/* Invert visible interior icon state indicators cleanly */
-body.dark-theme .theme-switch-knob .mood-icon {
-    display: none;
-}
-
-body.dark-theme .theme-switch-knob .sun-icon {
-    display: inline-block;
-}
-
-/* Hover Physics Micro-Animations */
-.theme-switch-container:hover {
-    transform: translateY(-3px);
-    border-color: var(--primary-green);
-}
-
-.theme-switch-container:active {
-    transform: scale(0.95);
-}
-
-@media (max-width: 768px) {
-    .theme-switch-container {
-        bottom: 20px;
-        right: 20px;
-    }
+.sky-toggle-track:active {
+    transform: scale(0.96);
 }
 
 /* =========================================
    FULL RESPONSIVENESS REFINEMENTS
    ========================================= */
 @media (max-width: 768px) {
+    .ojas-theme-wrapper {
+        bottom: 20px;
+        right: 20px;
+    }
+
     .hero-banner {
         background: none !important; 
         clip-path: inset(0 0 0 0); 
