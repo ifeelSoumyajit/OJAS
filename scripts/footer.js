@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h5>Legal</h5>
                         <ul>
                             <li><a href="javascript:void(0)" id="open-attributes">Attributes</a></li>
-                            <li><a href="/in/terms">Terms</a></li>
+                            <li><a href="/in/terms">Terms & Conditions</a></li>
                             <li><a href="/in/policy">Privacy Policy</a></li>
                         </ul>
                     </div>
