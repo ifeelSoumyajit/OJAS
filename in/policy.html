@@ -17,6 +17,76 @@
     <link rel="stylesheet" href="../styles/components/footer.css">
     
     <link rel="stylesheet" href="../styles/terms.css"> 
+
+    <style>
+        /* Smooth transitions for theme switching */
+        .terms-section { transition: background-color 0.3s ease; }
+        .terms-container { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .terms-header h1, .terms-header p, .legal-preamble p, .legal-clause h2, .legal-clause p, .legal-list li, .legal-closing p { transition: color 0.3s ease; }
+        .legal-notice-box { transition: background-color 0.3s ease, border-color 0.3s ease; }
+
+        /* =========================================
+           DARK THEME EXPLICIT OVERRIDES
+           ========================================= */
+        body.dark-theme .terms-section {
+            background: #121A1D; /* Deep ecosystem background */
+        }
+
+        body.dark-theme .terms-container {
+            background: #1A2428; /* Elevated dark card surface */
+            box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+            border-top-color: #388E3C;
+            border-left: 1px solid #2D3E45;
+            border-right: 1px solid #2D3E45;
+            border-bottom: 1px solid #2D3E45;
+        }
+
+        /* Text & Headings */
+        body.dark-theme .terms-header h1,
+        body.dark-theme .legal-clause h2 {
+            color: #81C784;
+        }
+
+        body.dark-theme .terms-header p,
+        body.dark-theme .legal-preamble p,
+        body.dark-theme .legal-clause p,
+        body.dark-theme .legal-list li,
+        body.dark-theme .legal-closing p {
+            color: #CFD8DC; /* Muted reading text */
+        }
+
+        body.dark-theme strong {
+            color: #ECEFF1; /* Brighter emphasis */
+        }
+
+        body.dark-theme .stamp-text {
+            color: #78909C; /* Muted stamp */
+        }
+
+        /* Notice Box Override */
+        body.dark-theme .legal-notice-box {
+            background: #1E2B30;
+            border: 1px solid #2D3E45;
+            border-left: 4px solid #388E3C;
+        }
+
+        body.dark-theme .legal-notice-box p {
+            color: #CFD8DC;
+        }
+
+        body.dark-theme .legal-notice-box a {
+            color: #81C784;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark-theme .legal-notice-box a:hover {
+            color: #A5D6A7;
+        }
+
+        body.dark-theme .legal-closing hr {
+            border-top-color: #2D3E45;
+        }
+    </style>
 </head>
 <body>
 
