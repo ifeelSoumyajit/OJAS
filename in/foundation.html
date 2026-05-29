@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB63Q39E96"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GB63Q39E96');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Company Origin & Roadmap | OJAS BIOFUEL. LLP</title>
     
-    <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
+    <link rel="icon" type="image/png" href="/assets/images/Tab2.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../styles/base.css">
-    <link rel="stylesheet" href="../styles/layout.css">
-    <link rel="stylesheet" href="../styles/components/navbar.css">
-    <link rel="stylesheet" href="../styles/components/footer.css">
-    <link rel="stylesheet" href="../styles/about.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/components/navbar.css">
+    <link rel="stylesheet" href="/styles/components/footer.css">
+    <link rel="stylesheet" href="/styles/about.css">
 
     <style>
         .history-intro {
@@ -32,14 +40,12 @@
             background: #f4f7f6;
             padding: 30px 35px;
             border-radius: 12px;
-            /* Added a transparent border to prevent layout jitter on hover */
             border: 1px solid transparent; 
             border-left: 6px solid #2E7D32;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .timeline-phase:hover {
-            /* Drastically reduced the movement and shadow for a cleaner feel */
             transform: translateX(4px); 
             box-shadow: 0 6px 15px rgba(0,0,0,0.03); 
             background: #ffffff;
@@ -54,6 +60,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: color 0.3s ease;
         }
 
         .timeline-phase h3 span {
@@ -64,11 +71,13 @@
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: background-color 0.3s ease;
         }
 
         .timeline-phase p {
             margin-bottom: 15px;
             color: #455A64;
+            transition: color 0.3s ease;
         }
 
         .timeline-phase ul {
@@ -80,10 +89,44 @@
             border-bottom: 1px dashed #e0e0e0;
             padding: 8px 0;
             font-size: 1.05rem;
+            color: #455A64;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
         .timeline-phase ul li:last-child {
             border-bottom: none;
+        }
+
+        /* =========================================
+           DARK THEME EXPLICIT OVERRIDES
+           ========================================= */
+        body.dark-theme .timeline-phase {
+            background: #1A2428;
+            border-left-color: #388E3C;
+        }
+
+        body.dark-theme .timeline-phase:hover {
+            background: #1E2B30;
+            border-color: #2D3E45;
+            border-left-color: #388E3C;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        body.dark-theme .timeline-phase h3 {
+            color: #81C784;
+        }
+
+        body.dark-theme .timeline-phase h3 span {
+            background: #388E3C;
+        }
+
+        body.dark-theme .timeline-phase p,
+        body.dark-theme .timeline-phase ul li {
+            color: #CFD8DC; /* Restores visibility in dark mode */
+        }
+
+        body.dark-theme .timeline-phase ul li {
+            border-bottom-color: #2D3E45;
         }
     </style>
 </head>
@@ -161,8 +204,8 @@
         <i class="fa-solid fa-moon"></i>
     </button>
 
-    <script src="../scripts/main.js" type="module"></script>
-    <script src="../scripts/nav.js"></script>
-    <script src="../scripts/footer.js"></script>    
+    <script src="/scripts/main.js" type="module"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/footer.js"></script>    
 </body>
 </html>
