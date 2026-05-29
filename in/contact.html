@@ -25,27 +25,61 @@
         /* =========================================
            UNIVERSAL BIG EMAIL BUTTON FIX
            ========================================= */
-        /* Strips all boundaries to make it blend seamlessly with the container */
         .big-email-btn {
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
-            padding: 10px 0 !important; /* Adjust padding to keep spacing tight */
+            padding: 10px 0 !important; 
         }
 
         .big-email-btn:hover {
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
-            opacity: 0.7; /* Adds a clean hover effect without boundaries */
+            opacity: 0.7; 
             transform: translateY(-2px);
+        }
+
+        /* =========================================
+           TOAST NOTIFICATION STYLING
+           ========================================= */
+        .copy-toast {
+            position: fixed; 
+            bottom: 40px; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(100px); 
+            background: #2E7D32;
+            color: #ffffff;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 15px 30px rgba(46, 125, 50, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 999999; 
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+        }
+
+        .copy-toast.show {
+            transform: translateX(-50%) translateY(0); 
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .copy-toast i {
+            font-size: 1.3rem;
+            color: #a4df10; 
         }
 
         /* =========================================
            DARK THEME EXPLICIT OVERRIDES
            ========================================= */
         body.dark-theme .contact-wrapper {
-            background: #121A1D; /* Deep ecosystem background */
+            background: #121A1D; 
         }
 
         /* Headers and Text */
@@ -82,13 +116,13 @@
 
         /* The Big Email Section Wrapper */
         body.dark-theme .email-copy-container {
-            background: #1A2428 !important; /* Forces the light green to switch to dark */
-            border-color: #2D3E45 !important; /* Dims the dashed border */
+            background: #1A2428 !important; 
+            border-color: #2D3E45 !important; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
         }
 
         body.dark-theme .email-copy-container p {
-            color: #90A4AE !important; /* Ensures the "REACH US DIRECTLY AT" text is legible */
+            color: #90A4AE !important; 
         }
 
         /* Big Email Button - Dark Mode Colors */
@@ -101,12 +135,12 @@
 
         body.dark-theme .big-email-btn:hover {
             background: transparent !important;
-            color: #A5D6A7 !important; /* Brighter green on hover */
+            color: #A5D6A7 !important; 
             box-shadow: none !important;
             border: none !important;
         }
 
-        /* Form Inputs - Higher specificity to override contact.css */
+        /* Form Inputs */
         body.dark-theme .contact-form input,
         body.dark-theme .contact-form textarea {
             background: #1E2B30 !important;
@@ -126,10 +160,21 @@
             box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.15) !important;
         }
 
-        /* Dark Mode Map Adjustment (Inverts colors for a sleek dark map) */
         body.dark-theme .map-frame iframe {
             filter: invert(90%) hue-rotate(180deg) grayscale(20%);
-            border-radius: 8px; /* Smooth corners if not already present */
+            border-radius: 8px; 
+        }
+
+        /* Toast Dark Mode Override */
+        body.dark-theme .copy-toast {
+            background: #1E2B30;
+            color: #81C784;
+            border: 1px solid #2D3E45;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        body.dark-theme .copy-toast i {
+            color: #388E3C;
         }
 
         /* Dynamic Form Status Overrides */
@@ -160,18 +205,21 @@
                 <p>Have questions about our sustainable energy solutions or want to discuss a bulk order? Our team is ready to help.</p>
             </div>
 
+            <!-- The Redesigned Big Email Section -->
             <section class="email-direct-section">
                 <div class="email-copy-container">
                     <p>Reach us directly at</p>
                     <button class="big-email-btn" id="copy-email-btn" title="Click to copy">
                         contact@ojasbiofuel.in <i class="fa-regular fa-copy"></i>
                     </button>
-                    <span class="copied-tooltip" id="copied-tooltip">Copied to clipboard!</span>
+                    <!-- Removed the old tooltip span -->
                 </div>
             </section>
 
+            <!-- Modern Split Layout -->
             <div class="contact-grid">
                 
+                <!-- Left: The Form -->
                 <section class="form-card">
                     <h2>Send a Message</h2>
                     
@@ -186,6 +234,7 @@
                     <div id="formStatus" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; padding: 15px; border-radius: 8px; font-size: 1.05rem;"></div>
                 </section>
 
+                <!-- Right: The Info & Map -->
                 <section class="info-card">
                     <div class="info-content">
                         <h2>Headquarters</h2>
@@ -220,6 +269,11 @@
     </main>
 
     <div id="footer-placeholder"></div>
+
+    <!-- The New Toast Notification -->
+    <div id="email-toast" class="copy-toast">
+        <i class="fa-solid fa-circle-check"></i> Email copied!
+    </div>
 
     <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">
         <i class="fa-solid fa-moon"></i>
@@ -282,24 +336,26 @@
                 });
             });
 
-            // --- 2. Copy Email to Clipboard Logic ---
+            // --- 2. Copy Email to Clipboard Logic (Updated for Toast) ---
             const copyBtn = document.getElementById('copy-email-btn');
-            const tooltip = document.getElementById('copied-tooltip');
+            const toast = document.getElementById('email-toast');
             const emailToCopy = "contact@ojasbiofuel.in"; 
 
             copyBtn.addEventListener('click', function() {
                 navigator.clipboard.writeText(emailToCopy).then(() => {
-                    tooltip.classList.add('show');
+                    // Show the bouncy toast
+                    toast.classList.add('show');
                     
                     const icon = copyBtn.querySelector('i');
                     icon.className = "fa-solid fa-check";
                     copyBtn.style.color = "#1B5E20";
 
+                    // Hide toast and reset button icon after 3 seconds
                     setTimeout(() => {
-                        tooltip.classList.remove('show');
+                        toast.classList.remove('show');
                         icon.className = "fa-regular fa-copy";
                         copyBtn.style.color = ""; 
-                    }, 2500);
+                    }, 3000);
                 }).catch(err => {
                     console.error('Failed to copy text: ', err);
                 });
