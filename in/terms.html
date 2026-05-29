@@ -25,19 +25,40 @@
         .legal-notice-box { transition: background-color 0.3s ease, border-color 0.3s ease; }
 
         /* =========================================
+           REDESIGNED CHAPTER DIVIDER
+           ========================================= */
+        .legal-chapter-divider {
+            margin: 60px 0 40px 0;
+            text-align: center;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .legal-chapter-divider h3 {
+            font-family: 'Courier Prime', monospace;
+            color: #2E7D32; 
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 0;
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2E7D32;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* =========================================
            DARK THEME EXPLICIT OVERRIDES
            ========================================= */
         body.dark-theme .terms-section {
-            background: #121A1D; /* Deep ecosystem background */
+            background: #121A1D;
         }
 
         body.dark-theme .terms-container {
-            background: #1A2428; /* Elevated dark card surface */
+            background: #1A2428;
             box-shadow: 0 15px 45px rgba(0,0,0,0.25);
             border-top-color: #388E3C;
-            border-left: 1px solid #2D3E45;
-            border-right: 1px solid #2D3E45;
-            border-bottom: 1px solid #2D3E45;
+            border: 1px solid #2D3E45;
         }
 
         /* Text & Headings */
@@ -47,20 +68,25 @@
             color: #81C784;
         }
 
+        /* Divider specific override */
+        body.dark-theme .legal-chapter-divider h3 {
+            border-bottom-color: #81C784;
+        }
+
         body.dark-theme .terms-header p,
         body.dark-theme .legal-preamble p,
         body.dark-theme .legal-clause p,
         body.dark-theme .legal-list li,
         body.dark-theme .legal-closing p {
-            color: #CFD8DC; /* Muted reading text */
+            color: #CFD8DC;
         }
 
         body.dark-theme strong {
-            color: #ECEFF1; /* Brighter emphasis */
+            color: #ECEFF1;
         }
 
         body.dark-theme .stamp-text {
-            color: #78909C; /* Muted stamp */
+            color: #78909C;
         }
 
         /* Notice Box Override */
@@ -76,7 +102,6 @@
 
         body.dark-theme .legal-notice-box a {
             color: #81C784;
-            transition: color 0.3s ease;
         }
         
         body.dark-theme .legal-notice-box a:hover {
