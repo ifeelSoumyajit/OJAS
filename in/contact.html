@@ -20,12 +20,25 @@
         .contact-wrapper { transition: background-color 0.3s ease; }
         .form-card, .info-card, .email-copy-container { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
         .contact-header h1, .contact-header p, .info-content h2, .info-row p, .info-row i, .email-copy-container p, .form-card h2 { transition: color 0.3s ease; }
-        .contact-form input, .contact-form textarea, .big-email-btn { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        .contact-form input, .contact-form textarea, .big-email-btn, .big-email-btn i { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; }
 
-        /* Universal cleanup for the Big Email Button to ensure NO borders */
+        /* =========================================
+           UNIVERSAL BIG EMAIL BUTTON FIX
+           ========================================= */
+        /* Strips all boundaries to make it blend seamlessly with the container */
         .big-email-btn {
+            background: transparent !important;
             border: none !important;
-            outline: none !important;
+            box-shadow: none !important;
+            padding: 10px 0 !important; /* Adjust padding to keep spacing tight */
+        }
+
+        .big-email-btn:hover {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            opacity: 0.7; /* Adds a clean hover effect without boundaries */
+            transform: translateY(-2px);
         }
 
         /* =========================================
@@ -69,24 +82,28 @@
 
         /* The Big Email Section Wrapper */
         body.dark-theme .email-copy-container {
-            background: #1A2428 !important; 
-            border-color: #2D3E45 !important; 
+            background: #1A2428 !important; /* Forces the light green to switch to dark */
+            border-color: #2D3E45 !important; /* Dims the dashed border */
             box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
         }
 
         body.dark-theme .email-copy-container p {
-            color: #90A4AE !important; 
+            color: #90A4AE !important; /* Ensures the "REACH US DIRECTLY AT" text is legible */
         }
 
-        /* Big Email Button - Dark Mode */
+        /* Big Email Button - Dark Mode Colors */
         body.dark-theme .big-email-btn {
-            background: #1E2B30;
-            color: #81C784;
+            background: transparent !important;
+            color: #81C784 !important;
+            border: none !important;
+            box-shadow: none !important;
         }
 
         body.dark-theme .big-email-btn:hover {
-            background: #25353A;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: transparent !important;
+            color: #A5D6A7 !important; /* Brighter green on hover */
+            box-shadow: none !important;
+            border: none !important;
         }
 
         /* Form Inputs - Higher specificity to override contact.css */
@@ -143,22 +160,18 @@
                 <p>Have questions about our sustainable energy solutions or want to discuss a bulk order? Our team is ready to help.</p>
             </div>
 
-            <!-- The Redesigned Big Email Section -->
             <section class="email-direct-section">
                 <div class="email-copy-container">
                     <p>Reach us directly at</p>
                     <button class="big-email-btn" id="copy-email-btn" title="Click to copy">
-                        contact@ojasbiofuel.in<i class="fa-regular fa-copy"></i>
+                        contact@ojasbiofuel.in <i class="fa-regular fa-copy"></i>
                     </button>
-                    <!-- The Hidden Tooltip -->
                     <span class="copied-tooltip" id="copied-tooltip">Copied to clipboard!</span>
                 </div>
             </section>
 
-            <!-- Modern Split Layout -->
             <div class="contact-grid">
                 
-                <!-- Left: The Form -->
                 <section class="form-card">
                     <h2>Send a Message</h2>
                     
@@ -173,7 +186,6 @@
                     <div id="formStatus" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; padding: 15px; border-radius: 8px; font-size: 1.05rem;"></div>
                 </section>
 
-                <!-- Right: The Info & Map -->
                 <section class="info-card">
                     <div class="info-content">
                         <h2>Headquarters</h2>
