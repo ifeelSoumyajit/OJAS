@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h5>${folderOpenSVG} Legal</h5>
                         <ul class="tree-branch">
                             <li><a href="javascript:void(0)" id="open-attributes">${fileSVG} Attributes</a></li>
-                            <li><a href="/in/terms">${fileSVG} Terms</a></li>
+                            <li><a href="/in/terms">${fileSVG} Terms & Conditions</a></li>
                             <li><a href="/in/policy">${fileSVG} Privacy Policy</a></li>
                         </ul>
                     </div>
