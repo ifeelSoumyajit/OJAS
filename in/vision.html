@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB63Q39E96"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GB63Q39E96');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Vision & Values | OJAS BIOFUEL. LLP</title>
     
-    <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
+    <link rel="icon" type="image/png" href="/assets/images/Tab2.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../styles/base.css">
-    <link rel="stylesheet" href="../styles/layout.css">
-    <link rel="stylesheet" href="../styles/components/navbar.css">
-    <link rel="stylesheet" href="../styles/components/footer.css">
-    <link rel="stylesheet" href="../styles/about.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/components/navbar.css">
+    <link rel="stylesheet" href="/styles/components/footer.css">
+    <link rel="stylesheet" href="/styles/about.css">
 
     <style>
         /* Custom styling for the Vision quote and Core Values grid */
@@ -28,6 +36,7 @@
             border-radius: 0 12px 12px 0;
             margin-bottom: 50px;
             font-style: italic;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .values-grid {
@@ -43,7 +52,7 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
             border-top: 4px solid #2E7D32;
         }
 
@@ -56,13 +65,55 @@
             color: #2E7D32;
             font-size: 1.3rem;
             margin-bottom: 12px;
+            transition: color 0.3s ease;
         }
 
         .value-card p {
-            font-size: 1rem !important; /* Overrides the larger paragraph default in about.css */
+            font-size: 1rem !important;
             color: #546E7A;
             margin: 0 !important;
             line-height: 1.6 !important;
+            transition: color 0.3s ease;
+        }
+        
+        /* Updated background image to Absolute Path */
+        .about-header {
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(27, 94, 32, 0.9)), url('/assets/images/Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 160px 0 80px 0; 
+            text-align: center;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        /* =========================================
+           DARK THEME EXPLICIT OVERRIDES
+           ========================================= */
+        body.dark-theme .vision-quote {
+            background: #1E2B30; /* Match dark card background */
+            color: #81C784; /* Soft bright green for readability */
+            border-left-color: #388E3C;
+        }
+
+        body.dark-theme .value-card {
+            background: #1A2428;
+            border-color: #2D3E45;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-top-color: #388E3C;
+        }
+
+        body.dark-theme .value-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        body.dark-theme .value-card h3 {
+            color: #81C784;
+        }
+
+        body.dark-theme .value-card p {
+            color: #CFD8DC !important;
         }
     </style>
 </head>
@@ -136,8 +187,8 @@
         <i class="fa-solid fa-moon"></i>
     </button>
 
-    <script src="../scripts/main.js" type="module"></script>
-    <script src="../scripts/nav.js"></script>
-    <script src="../scripts/footer.js"></script>    
+    <script src="/scripts/main.js" type="module"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/footer.js"></script>    
 </body>
 </html>
