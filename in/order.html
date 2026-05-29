@@ -44,39 +44,43 @@
             color: #CFD8DC; /* Muted secondary text */
         }
 
-        /* Form Inputs */
+        /* Form Inputs - Added higher specificity and !important to force override of order.css */
         body.dark-theme .order-form input,
         body.dark-theme .order-form select,
-        body.dark-theme .order-form textarea {
-            background: #1E2B30;
-            color: #ECEFF1;
-            border: 1px solid #2D3E45;
+        body.dark-theme .order-form textarea,
+        body.dark-theme .order-form .input-group input,
+        body.dark-theme .order-form .input-group select,
+        body.dark-theme .order-form .phone-group input,
+        body.dark-theme #qty-input {
+            background: #1E2B30 !important;
+            color: #ECEFF1 !important;
+            border: 1px solid #2D3E45 !important;
         }
 
         body.dark-theme .order-form input::placeholder,
         body.dark-theme .order-form textarea::placeholder {
-            color: #78909C;
+            color: #78909C !important;
         }
 
         body.dark-theme .order-form input:focus,
         body.dark-theme .order-form select:focus,
         body.dark-theme .order-form textarea:focus {
-            border-color: #81C784;
+            border-color: #81C784 !important;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.15);
+            box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.15) !important;
         }
 
         /* Phone Prefix Override */
         body.dark-theme .phone-prefix {
-            background: #121A1D;
-            color: #81C784;
-            border: 1px solid #2D3E45;
-            border-right: none;
+            background: #121A1D !important;
+            color: #81C784 !important;
+            border: 1px solid #2D3E45 !important;
+            border-right: none !important;
         }
 
         /* Fix internal borders for the input-group select drop-down */
         body.dark-theme .input-group select {
-            border-left: 1px solid #2D3E45;
+            border-left: 1px solid #2D3E45 !important;
         }
 
         /* Dynamic Form Status Overrides (Intercepts inline JS colors for dark mode) */
@@ -139,6 +143,7 @@
                         </div>
                     </div>
                     
+                    <!-- Separated Name and Designation -->
                     <div>
                         <label><i class="fa-regular fa-user"></i> Full Name</label>
                         <input type="text" name="Full Name" placeholder="First & Last Name" required>
@@ -149,6 +154,7 @@
                         <input type="text" name="Designation" placeholder="e.g. Procurement Manager" required>
                     </div>
                     
+                    <!-- Added Email Address to balance the grid! -->
                     <div>
                         <label><i class="fa-regular fa-envelope"></i> Email Address</label>
                         <input type="email" name="Email" placeholder="Official business email" required>
@@ -204,8 +210,8 @@
                 if (this.value.length > 5) {
                     this.value = this.value.slice(0, 5); 
                     qtyWarning.style.display = "block";
-                    qtyContainer.style.borderColor = "#D32F2F"; 
-                    qtyContainer.style.boxShadow = "0 0 0 4px rgba(211, 47, 47, 0.1)"; 
+                    qtyContainer.style.borderColor = "#EF5350"; /* Adjusted dark theme red */
+                    qtyContainer.style.boxShadow = "0 0 0 4px rgba(239, 83, 80, 0.15)"; 
                 } else {
                     qtyWarning.style.display = "none";
                     qtyContainer.style.borderColor = ""; 
