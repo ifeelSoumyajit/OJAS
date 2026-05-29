@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const folderOpenSVG = `<svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 2H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path><path d="M2 10h20"></path></svg>`;
+    
+    const fileSVG = `<svg class="file-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>`;
+
     const footerHTML = `
     <footer class="premium-footer">
         <div class="container">
@@ -27,48 +31,48 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="footer-links-modern">
                 <div class="sitemap-grid-modern tree-hierarchy">
                     <div class="sitemap-group-modern">
-                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> <a href="/in/about">About Us</a></h5>
+                        <h5>${folderOpenSVG} <a href="/in/about">About Us</a></h5>
                         <ul class="tree-branch">
-                            <li><a href="/in/vision"><i class="fa-regular fa-file file-icon"></i> Our Vision</a></li>
-                            <li><a href="/in/team"><i class="fa-regular fa-file file-icon"></i> Our Team</a></li>
-                            <li><a href="/in/foundation"><i class="fa-regular fa-file file-icon"></i> History</a></li>
+                            <li><a href="/in/vision">${fileSVG} Our Vision</a></li>
+                            <li><a href="/in/team">${fileSVG} Our Team</a></li>
+                            <li><a href="/in/foundation">${fileSVG} History</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group-modern">
-                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> <a href="/in/projects">Projects</a></h5>
+                        <h5>${folderOpenSVG} <a href="/in/projects">Projects</a></h5>
                         <ul class="tree-branch">
-                            <li><a href="/in/current-projects"><i class="fa-regular fa-file file-icon"></i> Current</a></li>
-                            <li><a href="/in/completed-projects"><i class="fa-regular fa-file file-icon"></i> Completed</a></li>
-                            <li><a href="/in/initiatives"><i class="fa-regular fa-file file-icon"></i> Initiatives</a></li>
+                            <li><a href="/in/current-projects">${fileSVG} Current</a></li>
+                            <li><a href="/in/completed-projects">${fileSVG} Completed</a></li>
+                            <li><a href="/in/initiatives">${fileSVG} Initiatives</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group-modern">
-                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> <a href="/in/services">Services</a></h5>
+                        <h5>${folderOpenSVG} <a href="/in/services">Services</a></h5>
                         <ul class="tree-branch">
-                            <li><a href="/in/supply"><i class="fa-regular fa-file file-icon"></i> Agri Supply</a></li>
-                            <li><a href="/in/trading"><i class="fa-regular fa-file file-icon"></i> Trading</a></li>
-                            <li><a href="/in/distribution"><i class="fa-regular fa-file file-icon"></i> Distribution</a></li>
+                            <li><a href="/in/supply">${fileSVG} Agri Supply</a></li>
+                            <li><a href="/in/trading">${fileSVG} Trading</a></li>
+                            <li><a href="/in/distribution">${fileSVG} Distribution</a></li>
                         </ul>
                     </div>
                     
                     <div class="sitemap-group-modern">
-                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> <a href="/in/products">Products</a></h5>
+                        <h5>${folderOpenSVG} <a href="/in/products">Products</a></h5>
                         <ul class="tree-branch">
-                            <li><a href="/in/fuel"><i class="fa-regular fa-file file-icon"></i> Industrial Fuel</a></li>
-                            <li><a href="/in/briquettes"><i class="fa-regular fa-file file-icon"></i> Briquettes</a></li>
-                            <li><a href="/in/pellets"><i class="fa-regular fa-file file-icon"></i> Pellets</a></li>
-                            <li><a href="/in/order"><i class="fa-regular fa-file file-icon"></i> Order Online</a></li>
+                            <li><a href="/in/fuel">${fileSVG} Industrial Fuel</a></li>
+                            <li><a href="/in/briquettes">${fileSVG} Briquettes</a></li>
+                            <li><a href="/in/pellets">${fileSVG} Pellets</a></li>
+                            <li><a href="/in/order">${fileSVG} Order Online</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group-modern">
-                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> Legal</h5>
+                        <h5>${folderOpenSVG} Legal</h5>
                         <ul class="tree-branch">
-                            <li><a href="javascript:void(0)" id="open-attributes"><i class="fa-regular fa-file file-icon"></i> Attributes</a></li>
-                            <li><a href="/in/terms"><i class="fa-regular fa-file file-icon"></i> Terms</a></li>
-                            <li><a href="/in/policy"><i class="fa-regular fa-file file-icon"></i> Privacy Policy</a></li>
+                            <li><a href="javascript:void(0)" id="open-attributes">${fileSVG} Attributes</a></li>
+                            <li><a href="/in/terms">${fileSVG} Terms</a></li>
+                            <li><a href="/in/policy">${fileSVG} Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
