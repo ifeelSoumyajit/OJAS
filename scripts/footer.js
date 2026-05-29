@@ -25,50 +25,50 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             
             <div class="footer-links-modern">
-                <div class="sitemap-grid-modern">
+                <div class="sitemap-grid-modern tree-hierarchy">
                     <div class="sitemap-group-modern">
-                        <h5><a href="/in/about">About Us</a></h5>
-                        <ul>
-                            <li><a href="/in/vision">Our Vision</a></li>
-                            <li><a href="/in/team">Our Team</a></li>
-                            <li><a href="/in/foundation">History</a></li>
+                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> <a href="/in/about">About Us</a></h5>
+                        <ul class="tree-branch">
+                            <li><a href="/in/vision"><i class="fa-regular fa-file file-icon"></i> Our Vision</a></li>
+                            <li><a href="/in/team"><i class="fa-regular fa-file file-icon"></i> Our Team</a></li>
+                            <li><a href="/in/foundation"><i class="fa-regular fa-file file-icon"></i> History</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group-modern">
-                        <h5><a href="/in/projects">Projects</a></h5>
-                        <ul>
-                            <li><a href="/in/current-projects">Current</a></li>
-                            <li><a href="/in/completed-projects">Completed</a></li>
-                            <li><a href="/in/initiatives">Initiatives</a></li>
+                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> <a href="/in/projects">Projects</a></h5>
+                        <ul class="tree-branch">
+                            <li><a href="/in/current-projects"><i class="fa-regular fa-file file-icon"></i> Current</a></li>
+                            <li><a href="/in/completed-projects"><i class="fa-regular fa-file file-icon"></i> Completed</a></li>
+                            <li><a href="/in/initiatives"><i class="fa-regular fa-file file-icon"></i> Initiatives</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group-modern">
-                        <h5><a href="/in/services">Services</a></h5>
-                        <ul>
-                            <li><a href="/in/supply">Agri Supply</a></li>
-                            <li><a href="/in/trading">Trading</a></li>
-                            <li><a href="/in/distribution">Distribution</a></li>
+                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> <a href="/in/services">Services</a></h5>
+                        <ul class="tree-branch">
+                            <li><a href="/in/supply"><i class="fa-regular fa-file file-icon"></i> Agri Supply</a></li>
+                            <li><a href="/in/trading"><i class="fa-regular fa-file file-icon"></i> Trading</a></li>
+                            <li><a href="/in/distribution"><i class="fa-regular fa-file file-icon"></i> Distribution</a></li>
                         </ul>
                     </div>
                     
                     <div class="sitemap-group-modern">
-                        <h5><a href="/in/products">Products</a></h5>
-                        <ul>
-                            <li><a href="/in/fuel">Industrial Fuel</a></li>
-                            <li><a href="/in/briquettes">Briquettes</a></li>
-                            <li><a href="/in/pellets">Pellets</a></li>
-                            <li><a href="/in/order">Order Online</a></li>
+                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> <a href="/in/products">Products</a></h5>
+                        <ul class="tree-branch">
+                            <li><a href="/in/fuel"><i class="fa-regular fa-file file-icon"></i> Industrial Fuel</a></li>
+                            <li><a href="/in/briquettes"><i class="fa-regular fa-file file-icon"></i> Briquettes</a></li>
+                            <li><a href="/in/pellets"><i class="fa-regular fa-file file-icon"></i> Pellets</a></li>
+                            <li><a href="/in/order"><i class="fa-regular fa-file file-icon"></i> Order Online</a></li>
                         </ul>
                     </div>
 
                     <div class="sitemap-group-modern">
-                        <h5>Legal</h5>
-                        <ul>
-                            <li><a href="javascript:void(0)" id="open-attributes">Attributes</a></li>
-                            <li><a href="/in/terms">Terms & Conditions</a></li>
-                            <li><a href="/in/policy">Privacy Policy</a></li>
+                        <h5><i class="fa-regular fa-folder-open folder-icon"></i> Legal</h5>
+                        <ul class="tree-branch">
+                            <li><a href="javascript:void(0)" id="open-attributes"><i class="fa-regular fa-file file-icon"></i> Attributes</a></li>
+                            <li><a href="/in/terms"><i class="fa-regular fa-file file-icon"></i> Terms</a></li>
+                            <li><a href="/in/policy"><i class="fa-regular fa-file file-icon"></i> Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
