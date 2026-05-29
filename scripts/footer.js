@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Partner with Ojas Biofuel for high-calorific, zero-carbon green energy solutions.</p>
                 </div>
                 <div class="cta-action">
-                    <!-- FIXED: Pointed to the absolute path in the subfolder directory -->
                     <a href="/in/contact" class="btn-glow">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="brand-tagline">Transforming agricultural waste into clean energy for a sustainable future.</p>
                 <div class="social-pills">
                     <a href="javascript:void(0)" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <!-- FIXED: Changed to universally stable class name for maximum compatibility -->
                     <a href="javascript:void(0)" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
                     <a href="javascript:void(0)" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
