@@ -18,7 +18,7 @@
     <style>
         /* Smooth transitions for theme switching */
         .contact-wrapper { transition: background-color 0.3s ease; }
-        .form-card, .info-card { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .form-card, .info-card, .email-copy-container { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
         .contact-header h1, .contact-header p, .info-content h2, .info-row p, .info-row i, .email-copy-container p, .form-card h2 { transition: color 0.3s ease; }
         .contact-form input, .contact-form textarea, .big-email-btn { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
 
@@ -37,7 +37,6 @@
         }
 
         body.dark-theme .contact-header p,
-        body.dark-theme .email-copy-container p,
         body.dark-theme .info-row p {
             color: #CFD8DC;
         }
@@ -60,6 +59,17 @@
             background: #1A2428;
             box-shadow: 0 15px 45px rgba(0,0,0,0.25);
             border-top-color: #388E3C;
+        }
+
+        /* FIX: The Big Email Section Wrapper */
+        body.dark-theme .email-copy-container {
+            background: #1A2428 !important; /* Forces the light green to switch to dark */
+            border-color: #2D3E45 !important; /* Dims the dashed border */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+        }
+
+        body.dark-theme .email-copy-container p {
+            color: #90A4AE !important; /* Ensures the "REACH US DIRECTLY AT" text is legible */
         }
 
         /* Big Email Button */
@@ -259,24 +269,20 @@
             // --- 2. Copy Email to Clipboard Logic ---
             const copyBtn = document.getElementById('copy-email-btn');
             const tooltip = document.getElementById('copied-tooltip');
-            const emailToCopy = "contact@ojasbiofuel.in"; /* Fixed the email reference */
+            const emailToCopy = "contact@ojasbiofuel.in"; 
 
             copyBtn.addEventListener('click', function() {
-                // Use the modern clipboard API
                 navigator.clipboard.writeText(emailToCopy).then(() => {
-                    // Show tooltip
                     tooltip.classList.add('show');
                     
-                    // Change icon temporarily to a checkmark
                     const icon = copyBtn.querySelector('i');
                     icon.className = "fa-solid fa-check";
                     copyBtn.style.color = "#1B5E20";
 
-                    // Hide tooltip and reset icon after 2.5 seconds
                     setTimeout(() => {
                         tooltip.classList.remove('show');
                         icon.className = "fa-regular fa-copy";
-                        copyBtn.style.color = ""; // resets to default css
+                        copyBtn.style.color = ""; 
                     }, 2500);
                 }).catch(err => {
                     console.error('Failed to copy text: ', err);
@@ -284,8 +290,6 @@
             });
 
             // --- 3. Persistent Active State for Navbar ---
-            // Because nav.js loads the navbar dynamically, we wait a fraction of a second 
-            // for it to appear on the screen, then force the Contact button to stay "active".
             setTimeout(() => {
                 const contactNavLink = document.querySelector('.nav-links > li:last-child > a');
                 if (contactNavLink) {
