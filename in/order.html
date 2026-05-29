@@ -23,20 +23,17 @@
         .order-form input, .order-form select, .order-form textarea, .phone-prefix { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
 
         /* =========================================
-           FIX: ANTI-CONGESTION SPACING FOR PHONE INPUT
+           UNIVERSAL SPACING FIXES
            ========================================= */
-        .phone-group {
-            display: flex;
-            align-items: stretch;
-        }
+        /* De-congest the phone prefix for BOTH Light and Dark modes */
         .phone-prefix {
-            padding: 0 18px !important; /* Adds generous left/right breathing room */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .phone-group input {
-            padding-left: 15px !important; /* Pushes the placeholder away from the inner border */
+            padding: 0 18px !important; /* Gives it room to breathe on the left and right */
+            min-width: 65px !important; /* Ensures it never shrinks too much */
+            text-align: center !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-sizing: border-box !important;
         }
 
         /* =========================================
