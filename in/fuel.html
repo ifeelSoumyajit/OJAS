@@ -21,6 +21,9 @@
         .product-details h2, .product-details h3 { transition: color 0.3s ease; }
         .product-details p, .product-features li { transition: color 0.3s ease, border-color 0.3s ease; }
         .product-header { transition: background 0.3s ease; }
+        
+        /* Added transition for the list container itself */
+        .product-features { transition: background-color 0.3s ease, border-color 0.3s ease; }
 
         /* =========================================
            DARK THEME EXPLICIT OVERRIDES
@@ -51,6 +54,12 @@
 
         body.dark-theme .product-details p {
             color: #CFD8DC; /* Muted secondary text */
+        }
+
+        /* FIX: Invert the background of the features list container */
+        body.dark-theme .product-features {
+            background: #1E2B30; /* Matches the dark ecosystem theme */
+            border-left-color: #388E3C; /* Updates the left accent border */
         }
 
         body.dark-theme .product-features li {
