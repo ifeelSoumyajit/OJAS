@@ -22,6 +22,11 @@
         .contact-header h1, .contact-header p, .info-content h2, .info-row p, .info-row i, .email-copy-container p, .form-card h2 { transition: color 0.3s ease; }
         .contact-form input, .contact-form textarea, .big-email-btn, .big-email-btn i { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; }
 
+        /* Universal Map Styling */
+        .map-frame iframe {
+            border-radius: 8px; /* Keeps the edges smooth in both themes */
+        }
+
         /* =========================================
            UNIVERSAL BIG EMAIL BUTTON FIX
            ========================================= */
@@ -160,11 +165,6 @@
             box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.15) !important;
         }
 
-        body.dark-theme .map-frame iframe {
-            filter: invert(90%) hue-rotate(180deg) grayscale(20%);
-            border-radius: 8px; 
-        }
-
         /* Toast Dark Mode Override */
         body.dark-theme .copy-toast {
             background: #1E2B30;
@@ -205,21 +205,17 @@
                 <p>Have questions about our sustainable energy solutions or want to discuss a bulk order? Our team is ready to help.</p>
             </div>
 
-            <!-- The Redesigned Big Email Section -->
             <section class="email-direct-section">
                 <div class="email-copy-container">
                     <p>Reach us directly at</p>
                     <button class="big-email-btn" id="copy-email-btn" title="Click to copy">
                         contact@ojasbiofuel.in <i class="fa-regular fa-copy"></i>
                     </button>
-                    <!-- Removed the old tooltip span -->
                 </div>
             </section>
 
-            <!-- Modern Split Layout -->
             <div class="contact-grid">
                 
-                <!-- Left: The Form -->
                 <section class="form-card">
                     <h2>Send a Message</h2>
                     
@@ -234,7 +230,6 @@
                     <div id="formStatus" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; padding: 15px; border-radius: 8px; font-size: 1.05rem;"></div>
                 </section>
 
-                <!-- Right: The Info & Map -->
                 <section class="info-card">
                     <div class="info-content">
                         <h2>Headquarters</h2>
@@ -270,7 +265,6 @@
 
     <div id="footer-placeholder"></div>
 
-    <!-- The New Toast Notification -->
     <div id="email-toast" class="copy-toast">
         <i class="fa-solid fa-circle-check"></i> Email copied!
     </div>
