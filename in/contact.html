@@ -14,6 +14,108 @@
     <link rel="stylesheet" href="../styles/components/navbar.css">
     <link rel="stylesheet" href="../styles/components/footer.css">
     <link rel="stylesheet" href="../styles/contact.css">
+
+    <style>
+        /* Smooth transitions for theme switching */
+        .contact-wrapper { transition: background-color 0.3s ease; }
+        .form-card, .info-card { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .contact-header h1, .contact-header p, .info-content h2, .info-row p, .info-row i, .email-copy-container p, .form-card h2 { transition: color 0.3s ease; }
+        .contact-form input, .contact-form textarea, .big-email-btn { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+
+        /* =========================================
+           DARK THEME EXPLICIT OVERRIDES
+           ========================================= */
+        body.dark-theme .contact-wrapper {
+            background: #121A1D; /* Deep ecosystem background */
+        }
+
+        /* Headers and Text */
+        body.dark-theme .contact-header h1,
+        body.dark-theme .form-card h2,
+        body.dark-theme .info-content h2 {
+            color: #81C784;
+        }
+
+        body.dark-theme .contact-header p,
+        body.dark-theme .email-copy-container p,
+        body.dark-theme .info-row p {
+            color: #CFD8DC;
+        }
+
+        body.dark-theme .info-row p strong {
+            color: #ECEFF1;
+        }
+
+        body.dark-theme .info-row p span {
+            color: #90A4AE;
+        }
+
+        body.dark-theme .info-row i {
+            color: #81C784;
+        }
+
+        /* Cards */
+        body.dark-theme .form-card,
+        body.dark-theme .info-card {
+            background: #1A2428;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+            border-top-color: #388E3C;
+        }
+
+        /* Big Email Button */
+        body.dark-theme .big-email-btn {
+            background: #1E2B30;
+            color: #81C784;
+            border: 1px solid #2D3E45;
+        }
+
+        body.dark-theme .big-email-btn:hover {
+            background: #25353A;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-color: #388E3C;
+        }
+
+        /* Form Inputs - Higher specificity to override contact.css */
+        body.dark-theme .contact-form input,
+        body.dark-theme .contact-form textarea {
+            background: #1E2B30 !important;
+            color: #ECEFF1 !important;
+            border: 1px solid #2D3E45 !important;
+        }
+
+        body.dark-theme .contact-form input::placeholder,
+        body.dark-theme .contact-form textarea::placeholder {
+            color: #78909C !important;
+        }
+
+        body.dark-theme .contact-form input:focus,
+        body.dark-theme .contact-form textarea:focus {
+            border-color: #81C784 !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.15) !important;
+        }
+
+        /* Dark Mode Map Adjustment (Inverts colors for a sleek dark map) */
+        body.dark-theme .map-frame iframe {
+            filter: invert(90%) hue-rotate(180deg) grayscale(20%);
+            border-radius: 8px; /* Smooth corners if not already present */
+        }
+
+        /* Dynamic Form Status Overrides */
+        body.dark-theme #formStatus[style*="#E8F5E9"], 
+        body.dark-theme #formStatus[style*="rgb(232, 245, 233)"] {
+            background-color: rgba(46, 125, 50, 0.15) !important;
+            color: #81C784 !important;
+            border-color: rgba(129, 199, 132, 0.3) !important;
+        }
+
+        body.dark-theme #formStatus[style*="#FFEBEE"],
+        body.dark-theme #formStatus[style*="rgb(255, 235, 238)"] {
+            background-color: rgba(211, 47, 47, 0.15) !important;
+            color: #EF5350 !important;
+            border-color: rgba(239, 83, 80, 0.3) !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -157,7 +259,7 @@
             // --- 2. Copy Email to Clipboard Logic ---
             const copyBtn = document.getElementById('copy-email-btn');
             const tooltip = document.getElementById('copied-tooltip');
-            const emailToCopy = "vinodzalake25@gmail.com";
+            const emailToCopy = "contact@ojasbiofuel.in"; /* Fixed the email reference */
 
             copyBtn.addEventListener('click', function() {
                 // Use the modern clipboard API
