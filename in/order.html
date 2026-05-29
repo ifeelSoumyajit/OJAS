@@ -14,6 +14,86 @@
     <link rel="stylesheet" href="../styles/components/navbar.css">
     <link rel="stylesheet" href="../styles/components/footer.css">
     <link rel="stylesheet" href="../styles/order.css">
+
+    <style>
+        /* Smooth transitions for theme switching */
+        .order-section { transition: background-color 0.3s ease; }
+        .order-card { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .order-header h2, .order-header p, .order-form label { transition: color 0.3s ease; }
+        .order-form input, .order-form select, .order-form textarea, .phone-prefix { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+
+        /* =========================================
+           DARK THEME EXPLICIT OVERRIDES
+           ========================================= */
+        body.dark-theme .order-section {
+            background: #121A1D; /* Deep ecosystem background */
+        }
+
+        body.dark-theme .order-card {
+            background: #1A2428; /* Elevated dark card surface */
+            box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+            border-top-color: #388E3C;
+        }
+
+        body.dark-theme .order-header h2 {
+            color: #81C784;
+        }
+
+        body.dark-theme .order-header p,
+        body.dark-theme .order-form label {
+            color: #CFD8DC; /* Muted secondary text */
+        }
+
+        /* Form Inputs */
+        body.dark-theme .order-form input,
+        body.dark-theme .order-form select,
+        body.dark-theme .order-form textarea {
+            background: #1E2B30;
+            color: #ECEFF1;
+            border: 1px solid #2D3E45;
+        }
+
+        body.dark-theme .order-form input::placeholder,
+        body.dark-theme .order-form textarea::placeholder {
+            color: #78909C;
+        }
+
+        body.dark-theme .order-form input:focus,
+        body.dark-theme .order-form select:focus,
+        body.dark-theme .order-form textarea:focus {
+            border-color: #81C784;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.15);
+        }
+
+        /* Phone Prefix Override */
+        body.dark-theme .phone-prefix {
+            background: #121A1D;
+            color: #81C784;
+            border: 1px solid #2D3E45;
+            border-right: none;
+        }
+
+        /* Fix internal borders for the input-group select drop-down */
+        body.dark-theme .input-group select {
+            border-left: 1px solid #2D3E45;
+        }
+
+        /* Dynamic Form Status Overrides (Intercepts inline JS colors for dark mode) */
+        body.dark-theme #formStatus[style*="#E8F5E9"], 
+        body.dark-theme #formStatus[style*="rgb(232, 245, 233)"] {
+            background-color: rgba(46, 125, 50, 0.15) !important;
+            color: #81C784 !important;
+            border-color: rgba(129, 199, 132, 0.3) !important;
+        }
+
+        body.dark-theme #formStatus[style*="#FFEBEE"],
+        body.dark-theme #formStatus[style*="rgb(255, 235, 238)"] {
+            background-color: rgba(211, 47, 47, 0.15) !important;
+            color: #EF5350 !important;
+            border-color: rgba(239, 83, 80, 0.3) !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -59,7 +139,6 @@
                         </div>
                     </div>
                     
-                    <!-- THE FIX: Separated Name and Designation -->
                     <div>
                         <label><i class="fa-regular fa-user"></i> Full Name</label>
                         <input type="text" name="Full Name" placeholder="First & Last Name" required>
@@ -70,7 +149,6 @@
                         <input type="text" name="Designation" placeholder="e.g. Procurement Manager" required>
                     </div>
                     
-                    <!-- Added Email Address to balance the grid! -->
                     <div>
                         <label><i class="fa-regular fa-envelope"></i> Email Address</label>
                         <input type="email" name="Email" placeholder="Official business email" required>
