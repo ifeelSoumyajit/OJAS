@@ -4,13 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industrial Fuel | OJAS BIOFUEL. LLP</title>
+    
     <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="../styles/base.css">
     <link rel="stylesheet" href="../styles/layout.css">
     <link rel="stylesheet" href="../styles/components/navbar.css">
     <link rel="stylesheet" href="../styles/components/footer.css">
     <link rel="stylesheet" href="../styles/products.css">
+
+    <style>
+        /* Smooth transitions for theme switching */
+        .product-section { transition: background-color 0.3s ease; }
+        .product-box { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .product-details h2, .product-details h3 { transition: color 0.3s ease; }
+        .product-details p, .product-features li { transition: color 0.3s ease, border-color 0.3s ease; }
+        .product-header { transition: background 0.3s ease; }
+
+        /* =========================================
+           DARK THEME EXPLICIT OVERRIDES
+           ========================================= */
+        
+        /* Darken the header gradient for better visual blend in night mode */
+        body.dark-theme .product-header {
+            background: linear-gradient(rgba(18, 48, 20, 0.9), rgba(10, 30, 12, 0.95)), url('../assets/images/Banner.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-attachment: fixed !important;
+        }
+
+        body.dark-theme .product-section {
+            background: #121A1D; /* Deep ecosystem background */
+        }
+
+        body.dark-theme .product-box {
+            background: #1A2428; /* Elevated dark card surface */
+            box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+            border-top-color: #388E3C;
+        }
+
+        body.dark-theme .product-details h2,
+        body.dark-theme .product-details h3 {
+            color: #81C784; /* Soft bright green for headers */
+        }
+
+        body.dark-theme .product-details p {
+            color: #CFD8DC; /* Muted secondary text */
+        }
+
+        body.dark-theme .product-features li {
+            color: #CFD8DC;
+            border-bottom-color: #2D3E45; /* Darker border for the list separators */
+        }
+        
+        body.dark-theme .product-features li strong {
+            color: #81C784; /* Highlights the bold list prefixes */
+        }
+    </style>
 </head>
 <body>
 
