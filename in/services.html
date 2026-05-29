@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | OJAS BIOFUEL. LLP</title>
+    <title>About Us | OJAS BIOFUEL. LLP</title>
     
     <link rel="icon" type="image/png" href="../assets/images/Tab2.png">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="../styles/base.css">
     <link rel="stylesheet" href="../styles/layout.css">
     <link rel="stylesheet" href="../styles/components/navbar.css">
     <link rel="stylesheet" href="../styles/components/footer.css">
+    <link rel="stylesheet" href="../styles/about.css">
 
     <style>
-        /* Smooth transitions for theme switching */
-        .services-hub-section, .service-card, .service-icon, .service-link-btn {
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-        }
-        .service-card h2, .service-card p {
-            transition: color 0.3s ease;
+        /* Base Light Theme Styles */
+        .about-teasers-section {
+            padding: 80px 0;
+            background: #fdfdfd;
+            transition: background-color 0.3s ease;
         }
 
-        .services-header {
+        /* Header / Banner Styling */
+        .about-header {
             position: relative;
             background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.95)), url('../assets/images/Banner.jpg');
             background-size: cover;
@@ -32,18 +33,17 @@
             padding: 160px 0 80px 0; 
             text-align: center;
             color: white;
-            /* Added smooth transition for the banner overlay */
             transition: background 0.4s ease; 
         }
 
-        .services-header h1 { 
+        .about-header h1 { 
             font-size: 3rem; 
             margin-bottom: 15px; 
             position: relative;
             z-index: 2;
         }
 
-        .services-header p { 
+        .about-header p { 
             font-size: 1.2rem; 
             max-width: 700px; 
             margin: 0 auto; 
@@ -53,153 +53,121 @@
             z-index: 2;
         }
 
-        .services-hub-section {
-            padding: 80px 0;
-            background: #fdfdfd;
-            min-height: 60vh;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 20px;
-        }
-
-        .service-card {
+        .teaser-card {
             background: #ffffff;
-            padding: 45px 40px;
+            padding: 45px 50px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            border-top: 5px solid #2E7D32;
-            display: flex;
-            flex-direction: column;
-            animation: fadeIn 0.6s ease-out forwards;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            border-left: 6px solid #2E7D32;
+            margin-bottom: 35px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            animation: fadeIn 0.5s ease-out forwards;
         }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        .teaser-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.08);
         }
 
-        .service-icon {
-            background: #e8f5e9;
+        .teaser-card h2 {
             color: #2E7D32;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-        }
-
-        .service-card:hover .service-icon {
-            background: #2E7D32;
-            color: #ffffff;
-            transform: scale(1.1);
-        }
-
-        .service-card h2 {
-            color: #37474F;
-            font-size: 1.6rem;
+            font-size: 2rem;
             margin-bottom: 15px;
+            transition: color 0.3s ease;
         }
 
-        .service-card p {
-            font-size: 1.05rem;
+        .teaser-card p {
+            font-size: 1.15rem;
             color: #546E7A;
-            line-height: 1.7;
+            line-height: 1.8;
             margin-bottom: 30px;
-            flex-grow: 1; 
+            max-width: 900px;
+            transition: color 0.3s ease;
         }
 
-        .service-link-btn {
+        .about-action-btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
-            padding: 12px 24px;
-            background: #f4f7f6;
-            color: #2E7D32;
+            padding: 14px 32px;
+            background: #2E7D32;
+            color: #ffffff;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.95rem;
-            width: fit-content;
-        }
-        
-        .service-link-btn:hover {
-            background: #2E7D32;
-            color: #ffffff;
+            transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .services-header { padding: 130px 20px 60px 20px; }
-            .services-header h1 { font-size: 2.2rem; }
-            .service-card { padding: 35px 25px; }
+        
+        .about-action-btn:hover {
+            background: #1B5E20;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+            color: #ffffff;
         }
 
         /* =========================================
            DARK THEME EXPLICIT OVERRIDES
            ========================================= */
-        
+
         /* Banner Dark Mode Override */
-        body.dark-theme .services-header {
+        body.dark-theme .about-header {
             background: linear-gradient(rgba(18, 26, 29, 0.88), rgba(26, 36, 40, 0.95)), url('../assets/images/Banner.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        body.dark-theme .services-hub-section {
-            background: #121A1D; /* Deep ecosystem background */
+        body.dark-theme .about-teasers-section {
+            background: #121A1D;
         }
 
-        body.dark-theme .service-card {
-            background: #1A2428; /* Elevated dark card surface */
-            box-shadow: 0 15px 45px rgba(0,0,0,0.25);
-            border-top-color: #388E3C;
+        body.dark-theme .teaser-card {
+            background: #1A2428;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+            border-left-color: #388E3C;
         }
 
-        body.dark-theme .service-card:hover {
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        body.dark-theme .teaser-card:hover {
+            box-shadow: 0 15px 45px rgba(0,0,0,0.4);
         }
 
-        body.dark-theme .service-card h2 {
-            color: #ECEFF1;
+        body.dark-theme .teaser-card p {
+            color: #CFD8DC;
         }
 
-        body.dark-theme .service-card p {
-            color: #90A4AE;
+        body.dark-theme .teaser-card h2 {
+            color: #81C784; /* Slightly brighter green for dark mode contrast */
         }
 
-        body.dark-theme .service-icon {
+        body.dark-theme .about-action-btn {
             background: #1E2B30;
             color: #81C784;
+            box-shadow: none;
         }
 
-        body.dark-theme .service-card:hover .service-icon {
+        body.dark-theme .about-action-btn:hover {
             background: #388E3C;
             color: #ffffff;
+            box-shadow: 0 6px 20px rgba(56, 142, 60, 0.3);
         }
 
-        body.dark-theme .service-link-btn {
-            background: #1E2B30;
-            color: #81C784;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        body.dark-theme .service-link-btn:hover {
-            background: #388E3C;
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(56, 142, 60, 0.3);
+        @media (max-width: 768px) {
+            .about-header { padding: 130px 20px 60px 20px; }
+            .about-header h1 { font-size: 2.2rem; }
+            
+            .teaser-card {
+                padding: 35px 25px;
+            }
+            .teaser-card h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -207,50 +175,39 @@
 
     <div id="nav-placeholder"></div>
 
-    <header class="services-header">
+    <header class="about-header">
         <div class="container">
-            <h1>Integrated Supply Chain</h1>
-            <p>We don't just manufacture fuel; we manage the entire lifecycle from farm procurement to factory gate delivery, ensuring reliability at every step.</p>
+            <h1>About OJAS BIOFUEL.</h1>
+            <p>Pioneering the transition to clean, sustainable industrial energy through indigenous circular economy solutions.</p>
         </div>
     </header>
 
-    <main class="services-hub-section">
+    <main class="about-teasers-section">
         <div class="container">
-            <div class="services-grid">
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-tractor"></i>
-                    </div>
-                    <h2>Agri Waste Supply</h2>
-                    <p>Transforming agricultural liabilities into valuable energy assets directly from the source. We work with farmers to clear fields safely without burning.</p>
-                    <a href="supply.html" class="service-link-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-                    <h2>Biomass Trading</h2>
-                    <p>Bridging the gap between rural aggregators and industrial energy demands. We provide quality-assured, bulk raw materials with price stability.</p>
-                    <a href="trading.html" class="service-link-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-truck-fast"></i>
-                    </div>
-                    <h2>Biofuel Distribution</h2>
-                    <p>Uninterrupted, last-mile delivery of clean industrial fuels. We ensure continuous supply for your manufacturing processes without downtime.</p>
-                    <a href="distribution.html" class="service-link-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-
+            
+            <div class="teaser-card">
+                <h2>Our Vision & Mission</h2>
+                <p>Our vision is to become a leading clean-energy company in India by building a complete biofuel ecosystem that transforms waste into sustainable energy, reduces carbon emissions, and supports a greener, self-reliant future. We are committed to replacing fossil fuels while empowering rural communities.</p>
+                <a href="vision.html" class="about-action-btn">Read Our Full Vision <i class="fa-solid fa-arrow-right"></i></a>
             </div>
+
+            <div class="teaser-card">
+                <h2>Leadership Team</h2>
+                <p>OJAS BIOFUEL is driven by a dedicated team of professionals with deep expertise in biomass trading, supply chain management, and sustainable energy conversion. Under the leadership of our founders, we seamlessly execute our integrated waste-to-energy model.</p>
+                <a href="team.html" class="about-action-btn">Meet Our Team <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="teaser-card">
+                <h2>Company Origin</h2>
+                <p>Ojas Biofuel LLP was founded on a simple but powerful conviction: the agricultural residues that India struggles to dispose of every harvest season are, in fact, one of its largest untapped energy resources. Discover how we built an ecosystem to solve this challenge.</p>
+                <a href="foundation.html" class="about-action-btn">Explore Our History <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
-
+    
     <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">
         <i class="fa-solid fa-moon"></i>
     </button>
