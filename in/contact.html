@@ -22,6 +22,12 @@
         .contact-header h1, .contact-header p, .info-content h2, .info-row p, .info-row i, .email-copy-container p, .form-card h2 { transition: color 0.3s ease; }
         .contact-form input, .contact-form textarea, .big-email-btn { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
 
+        /* Universal cleanup for the Big Email Button to ensure NO borders */
+        .big-email-btn {
+            border: none !important;
+            outline: none !important;
+        }
+
         /* =========================================
            DARK THEME EXPLICIT OVERRIDES
            ========================================= */
@@ -61,28 +67,26 @@
             border-top-color: #388E3C;
         }
 
-        /* FIX: The Big Email Section Wrapper */
+        /* The Big Email Section Wrapper */
         body.dark-theme .email-copy-container {
-            background: #1A2428 !important; /* Forces the light green to switch to dark */
-            border-color: #2D3E45 !important; /* Dims the dashed border */
+            background: #1A2428 !important; 
+            border-color: #2D3E45 !important; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
         }
 
         body.dark-theme .email-copy-container p {
-            color: #90A4AE !important; /* Ensures the "REACH US DIRECTLY AT" text is legible */
+            color: #90A4AE !important; 
         }
 
-        /* Big Email Button */
+        /* Big Email Button - Dark Mode */
         body.dark-theme .big-email-btn {
             background: #1E2B30;
             color: #81C784;
-            border: 1px solid #2D3E45;
         }
 
         body.dark-theme .big-email-btn:hover {
             background: #25353A;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            border-color: #388E3C;
         }
 
         /* Form Inputs - Higher specificity to override contact.css */
