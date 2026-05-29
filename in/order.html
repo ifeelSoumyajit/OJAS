@@ -23,6 +23,23 @@
         .order-form input, .order-form select, .order-form textarea, .phone-prefix { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
 
         /* =========================================
+           FIX: ANTI-CONGESTION SPACING FOR PHONE INPUT
+           ========================================= */
+        .phone-group {
+            display: flex;
+            align-items: stretch;
+        }
+        .phone-prefix {
+            padding: 0 18px !important; /* Adds generous left/right breathing room */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .phone-group input {
+            padding-left: 15px !important; /* Pushes the placeholder away from the inner border */
+        }
+
+        /* =========================================
            DARK THEME EXPLICIT OVERRIDES
            ========================================= */
         body.dark-theme .order-section {
@@ -143,7 +160,6 @@
                         </div>
                     </div>
                     
-                    <!-- Separated Name and Designation -->
                     <div>
                         <label><i class="fa-regular fa-user"></i> Full Name</label>
                         <input type="text" name="Full Name" placeholder="First & Last Name" required>
@@ -154,7 +170,6 @@
                         <input type="text" name="Designation" placeholder="e.g. Procurement Manager" required>
                     </div>
                     
-                    <!-- Added Email Address to balance the grid! -->
                     <div>
                         <label><i class="fa-regular fa-envelope"></i> Email Address</label>
                         <input type="email" name="Email" placeholder="Official business email" required>
