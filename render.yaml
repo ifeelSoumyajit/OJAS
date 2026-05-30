@@ -9,18 +9,14 @@ services:
       # =========================================================
       # EXACT CASE HOMEPAGE REDIRECTS
       # =========================================================
-      
-      # 1. Catch lowercase /home and send to /Home
       - type: redirect
         source: /home
         destination: /Home
 
-      # 2. Catch all-caps /HOME and send to /Home
       - type: redirect
         source: /HOME
         destination: /Home
 
-      # 3. Catch index variants and send to /Home
       - type: redirect
         source: /index
         destination: /Home
@@ -29,83 +25,172 @@ services:
         source: /index.html
         destination: /Home
 
-      # Sub-pages Directory (Points smoothly to files inside your 'in' folder)
-      - type: rewrite
+      # =========================================================
+      # 1. REDIRECT ROOT PATHS TO '/in/' PATHS
+      # If a user visits the old URL (ojasbiofuel.in/projects), 
+      # the browser will redirect to the new URL (ojasbiofuel.in/in/projects)
+      # =========================================================
+      - type: redirect
         source: /about
-        destination: in/about.html
+        destination: /in/about
 
-      - type: rewrite
+      - type: redirect
         source: /services
-        destination: in/services.html
+        destination: /in/services
 
-      - type: rewrite
+      - type: redirect
         source: /products
-        destination: in/products.html
+        destination: /in/products
 
-      - type: rewrite
+      - type: redirect
         source: /projects
-        destination: in/projects.html
+        destination: /in/projects
 
-      - type: rewrite
+      - type: redirect
         source: /vision
-        destination: in/vision.html
+        destination: /in/vision
 
-      - type: rewrite
+      - type: redirect
         source: /team
-        destination: in/team.html
+        destination: /in/team
 
-      - type: rewrite
+      - type: redirect
         source: /foundation
-        destination: in/foundation.html
+        destination: /in/foundation
 
-      - type: rewrite
+      - type: redirect
         source: /supply
-        destination: in/supply.html
+        destination: /in/supply
 
-      - type: rewrite
+      - type: redirect
         source: /trading
-        destination: in/trading.html
+        destination: /in/trading
 
-      - type: rewrite
+      - type: redirect
         source: /distribution
-        destination: in/distribution.html
+        destination: /in/distribution
 
-      - type: rewrite
+      - type: redirect
         source: /fuel
-        destination: in/fuel.html
+        destination: /in/fuel
 
-      - type: rewrite
+      - type: redirect
         source: /briquettes
-        destination: in/briquettes.html
+        destination: /in/briquettes
 
-      - type: rewrite
+      - type: redirect
         source: /pellets
-        destination: in/pellets.html
+        destination: /in/pellets
 
-      - type: rewrite
+      - type: redirect
         source: /current-projects
-        destination: in/current-projects.html
+        destination: /in/current-projects
 
-      - type: rewrite
+      - type: redirect
         source: /completed-projects
-        destination: in/completed-projects.html
+        destination: /in/completed-projects
 
-      - type: rewrite
+      - type: redirect
         source: /initiatives
-        destination: in/initiatives.html
+        destination: /in/initiatives
 
-      - type: rewrite
+      - type: redirect
         source: /contact
-        destination: in/contact.html
+        destination: /in/contact
 
-      - type: rewrite
+      - type: redirect
         source: /order
-        destination: in/order.html
+        destination: /in/order
 
-      - type: rewrite
+      - type: redirect
         source: /terms
-        destination: in/terms.html
+        destination: /in/terms
+
+      - type: redirect
+        source: /policy
+        destination: /in/policy
+
+      # =========================================================
+      # 2. CLEAN URL REWRITES FOR '/in/' PATHS
+      # This allows your navigation links (<a href="/in/projects">) 
+      # to correctly serve the .html files without showing .html in the URL
+      # =========================================================
+      - type: rewrite
+        source: /in/about
+        destination: /in/about.html
 
       - type: rewrite
-        source: /policy
-        destination: in/policy.html
+        source: /in/services
+        destination: /in/services.html
+
+      - type: rewrite
+        source: /in/products
+        destination: /in/products.html
+
+      - type: rewrite
+        source: /in/projects
+        destination: /in/projects.html
+
+      - type: rewrite
+        source: /in/vision
+        destination: /in/vision.html
+
+      - type: rewrite
+        source: /in/team
+        destination: /in/team.html
+
+      - type: rewrite
+        source: /in/foundation
+        destination: /in/foundation.html
+
+      - type: rewrite
+        source: /in/supply
+        destination: /in/supply.html
+
+      - type: rewrite
+        source: /in/trading
+        destination: /in/trading.html
+
+      - type: rewrite
+        source: /in/distribution
+        destination: /in/distribution.html
+
+      - type: rewrite
+        source: /in/fuel
+        destination: /in/fuel.html
+
+      - type: rewrite
+        source: /in/briquettes
+        destination: /in/briquettes.html
+
+      - type: rewrite
+        source: /in/pellets
+        destination: /in/pellets.html
+
+      - type: rewrite
+        source: /in/current-projects
+        destination: /in/current-projects.html
+
+      - type: rewrite
+        source: /in/completed-projects
+        destination: /in/completed-projects.html
+
+      - type: rewrite
+        source: /in/initiatives
+        destination: /in/initiatives.html
+
+      - type: rewrite
+        source: /in/contact
+        destination: /in/contact.html
+
+      - type: rewrite
+        source: /in/order
+        destination: /in/order.html
+
+      - type: rewrite
+        source: /in/terms
+        destination: /in/terms.html
+
+      - type: rewrite
+        source: /in/policy
+        destination: /in/policy.html
