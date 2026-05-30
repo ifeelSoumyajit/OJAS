@@ -1,135 +1,194 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+services:
+  - type: web
+    name: ojasbiofuel
+    env: static
+    buildCommand: null
+    staticPublishPath: .
 
-    <url>
-        <loc>https://ojasbiofuel.in/</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
+    routes:
+      # =========================================================
+      # EXACT CASE HOMEPAGE REDIRECTS
+      # =========================================================
+      - type: redirect
+        source: /home
+        destination: /Home
 
-    <url>
-        <loc>https://ojasbiofuel.in/about</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/services</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/projects</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/products</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
+      - type: redirect
+        source: /HOME
+        destination: /Home
 
-    <url>
-        <loc>https://ojasbiofuel.in/supply</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/trading</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/distribution</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/fuel</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/briquettes</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/pellets</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
+      - type: redirect
+        source: /index
+        destination: /Home
 
-    <url>
-        <loc>https://ojasbiofuel.in/vision</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/team</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/foundation</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/current-projects</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/completed-projects</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/initiatives</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
+      - type: redirect
+        source: /index.html
+        destination: /Home
 
-    <url>
-        <loc>https://ojasbiofuel.in/order</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/contact</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/terms</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    <url>
-        <loc>https://ojasbiofuel.in/policy</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.4</priority>
-    </url>
+      # =========================================================
+      # 1. REDIRECT BARE URLs TO THE /in/ FOLDER
+      # (This updates the browser URL so your ../ relative CSS works)
+      # =========================================================
+      - type: redirect
+        source: /about
+        destination: /in/about
 
-</urlset>
+      - type: redirect
+        source: /services
+        destination: /in/services
+
+      - type: redirect
+        source: /products
+        destination: /in/products
+
+      - type: redirect
+        source: /projects
+        destination: /in/projects
+
+      - type: redirect
+        source: /vision
+        destination: /in/vision
+
+      - type: redirect
+        source: /team
+        destination: /in/team
+
+      - type: redirect
+        source: /foundation
+        destination: /in/foundation
+
+      - type: redirect
+        source: /supply
+        destination: /in/supply
+
+      - type: redirect
+        source: /trading
+        destination: /in/trading
+
+      - type: redirect
+        source: /distribution
+        destination: /in/distribution
+
+      - type: redirect
+        source: /fuel
+        destination: /in/fuel
+
+      - type: redirect
+        source: /briquettes
+        destination: /in/briquettes
+
+      - type: redirect
+        source: /pellets
+        destination: /in/pellets
+
+      - type: redirect
+        source: /current-projects
+        destination: /in/current-projects
+
+      - type: redirect
+        source: /completed-projects
+        destination: /in/completed-projects
+
+      - type: redirect
+        source: /initiatives
+        destination: /in/initiatives
+
+      - type: redirect
+        source: /contact
+        destination: /in/contact
+
+      - type: redirect
+        source: /order
+        destination: /in/order
+
+      - type: redirect
+        source: /terms
+        destination: /in/terms
+
+      - type: redirect
+        source: /policy
+        destination: /in/policy
+
+      # =========================================================
+      # 2. REWRITE /in/ URLs TO ACTUAL .html FILES
+      # (This serves the files cleanly without showing .html)
+      # =========================================================
+      - type: rewrite
+        source: /in/about
+        destination: in/about.html
+
+      - type: rewrite
+        source: /in/services
+        destination: in/services.html
+
+      - type: rewrite
+        source: /in/products
+        destination: in/products.html
+
+      - type: rewrite
+        source: /in/projects
+        destination: in/projects.html
+
+      - type: rewrite
+        source: /in/vision
+        destination: in/vision.html
+
+      - type: rewrite
+        source: /in/team
+        destination: in/team.html
+
+      - type: rewrite
+        source: /in/foundation
+        destination: in/foundation.html
+
+      - type: rewrite
+        source: /in/supply
+        destination: in/supply.html
+
+      - type: rewrite
+        source: /in/trading
+        destination: in/trading.html
+
+      - type: rewrite
+        source: /in/distribution
+        destination: in/distribution.html
+
+      - type: rewrite
+        source: /in/fuel
+        destination: in/fuel.html
+
+      - type: rewrite
+        source: /in/briquettes
+        destination: in/briquettes.html
+
+      - type: rewrite
+        source: /in/pellets
+        destination: in/pellets.html
+
+      - type: rewrite
+        source: /in/current-projects
+        destination: in/current-projects.html
+
+      - type: rewrite
+        source: /in/completed-projects
+        destination: in/completed-projects.html
+
+      - type: rewrite
+        source: /in/initiatives
+        destination: in/initiatives.html
+
+      - type: rewrite
+        source: /in/contact
+        destination: in/contact.html
+
+      - type: rewrite
+        source: /in/order
+        destination: in/order.html
+
+      - type: rewrite
+        source: /in/terms
+        destination: in/terms.html
+
+      - type: rewrite
+        source: /in/policy
+        destination: in/policy.html
