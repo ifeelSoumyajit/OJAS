@@ -26,8 +26,9 @@ services:
         destination: /Home
 
       # =========================================================
-      # 1. REDIRECT BARE URLs TO THE /in/ FOLDER
-      # (This updates the browser URL so your ../ relative CSS works)
+      # 1. REDIRECT ROOT PATHS TO '/in/' PATHS
+      # If a user visits the old URL (ojasbiofuel.in/projects), 
+      # the browser will redirect to the new URL (ojasbiofuel.in/in/projects)
       # =========================================================
       - type: redirect
         source: /about
@@ -110,85 +111,86 @@ services:
         destination: /in/policy
 
       # =========================================================
-      # 2. REWRITE /in/ URLs TO ACTUAL .html FILES
-      # (This serves the files cleanly without showing .html)
+      # 2. CLEAN URL REWRITES FOR '/in/' PATHS
+      # This allows your navigation links (<a href="/in/projects">) 
+      # to correctly serve the .html files without showing .html in the URL
       # =========================================================
       - type: rewrite
         source: /in/about
-        destination: in/about.html
+        destination: /in/about.html
 
       - type: rewrite
         source: /in/services
-        destination: in/services.html
+        destination: /in/services.html
 
       - type: rewrite
         source: /in/products
-        destination: in/products.html
+        destination: /in/products.html
 
       - type: rewrite
         source: /in/projects
-        destination: in/projects.html
+        destination: /in/projects.html
 
       - type: rewrite
         source: /in/vision
-        destination: in/vision.html
+        destination: /in/vision.html
 
       - type: rewrite
         source: /in/team
-        destination: in/team.html
+        destination: /in/team.html
 
       - type: rewrite
         source: /in/foundation
-        destination: in/foundation.html
+        destination: /in/foundation.html
 
       - type: rewrite
         source: /in/supply
-        destination: in/supply.html
+        destination: /in/supply.html
 
       - type: rewrite
         source: /in/trading
-        destination: in/trading.html
+        destination: /in/trading.html
 
       - type: rewrite
         source: /in/distribution
-        destination: in/distribution.html
+        destination: /in/distribution.html
 
       - type: rewrite
         source: /in/fuel
-        destination: in/fuel.html
+        destination: /in/fuel.html
 
       - type: rewrite
         source: /in/briquettes
-        destination: in/briquettes.html
+        destination: /in/briquettes.html
 
       - type: rewrite
         source: /in/pellets
-        destination: in/pellets.html
+        destination: /in/pellets.html
 
       - type: rewrite
         source: /in/current-projects
-        destination: in/current-projects.html
+        destination: /in/current-projects.html
 
       - type: rewrite
         source: /in/completed-projects
-        destination: in/completed-projects.html
+        destination: /in/completed-projects.html
 
       - type: rewrite
         source: /in/initiatives
-        destination: in/initiatives.html
+        destination: /in/initiatives.html
 
       - type: rewrite
         source: /in/contact
-        destination: in/contact.html
+        destination: /in/contact.html
 
       - type: rewrite
         source: /in/order
-        destination: in/order.html
+        destination: /in/order.html
 
       - type: rewrite
         source: /in/terms
-        destination: in/terms.html
+        destination: /in/terms.html
 
       - type: rewrite
         source: /in/policy
-        destination: in/policy.html
+        destination: /in/policy.html
